@@ -7,6 +7,13 @@ Created on Sun Feb 14 21:36:44 2016
 
 
 
+dbFileName="/Users/akond/Documents/Spring-2016/CSC522/OSSAndroidAppDataset/androSec.db"
+import DataExtractionFromTables as DEFT
+import numpy as np
+
+
+
+
 def getCodeQualityofVersions(dictParam):
   versionDictToRet = {}
   versionRiskDict = DEFT.getValuesFrom_Vulnerability(dbFileName)
@@ -44,15 +51,29 @@ def getVulnerbailityScoreOfSelectedVersions(dictParam):
   return validDictToret     
         
 
-dbFileName="/Users/akond/Documents/Spring-2016/CSC522/OSSAndroidAppDataset/androSec.db"
-import DataExtractionFromTables as DEFT
-import numpy as np
-versionAndCodeQualityDict =  DEFT.getValuesFrom_CodingStandard(dbFileName)
-sanitizedVersions = getCodeQualityofVersions(versionAndCodeQualityDict)
-print "Sanitized versions that will be used in study ", len(sanitizedVersions)
-#print "Sanitized versions ..." , sanitizedVersions
-sanitizedVersionsWithScore =  getVulnerbailityScoreOfSelectedVersions(sanitizedVersions)
-print "Sanitized version with contents "
-print len(sanitizedVersionsWithScore)
+
+
+
+def getNonZeroVulnerbailityScoreOfSelectedVersions(dictParam):
+  validDictToret={}  
+  riskList=[]
+  original_versionRiskDict = DEFT.getValuesFrom_Vulnerability(dbFileName)
+  for k_, v_ in dictParam.items():
+    ## get the scores for the valid versions 
+    riskScore = original_versionRiskDict[k_]
+    if riskScore > 0:
+      validDictToret[k_] = riskScore
+      riskList.append(riskScore)
+  print "Stats on risk score (non-zero elemnts)-->len={}, median={},  mean={}, max={}, min={},".format(len(riskList), np.median(riskList), np.mean(riskList), max(riskList), min(riskList))      
+  return validDictToret         
+
+
+#versionAndCodeQualityDict =  DEFT.getValuesFrom_CodingStandard(dbFileName)
+#sanitizedVersions = getCodeQualityofVersions(versionAndCodeQualityDict)
+#print "Sanitized versions that will be used in study ", len(sanitizedVersions)
+##print "Sanitized versions ..." , sanitizedVersions
+#sanitizedVersionsWithScore =  getVulnerbailityScoreOfSelectedVersions(sanitizedVersions)
+#print "Sanitized version with contents "
+#print len(sanitizedVersionsWithScore)
 
 
