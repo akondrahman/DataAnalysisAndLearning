@@ -9,6 +9,7 @@ Created on Sat Jan 16 23:00:51 2016
 
 import  experiments
 dbFileName="/Users/akond/Documents/Spring-2016/CSC522/OSSAndroidAppDataset/androSec.db"
-#experiments.experiemnt_one(dbFileName)
-#experiments.experiemnt_two(dbFileName)
+experiments.experiemnt_one(dbFileName)
+print "========================================================="
+experiments.experiemnt_two(dbFileName)
 print "Done ;-)"
