@@ -208,4 +208,4 @@ low_CQ_dict = utility.getLowVScoreVersions_CQ( sanitizedVersionsWithScore , sani
 low_vScore_Dict = utility.getLowVScoreVersions_VScore(sanitizedVersionsWithScore, medianScore)
 ### call for correlation 
 performCorrBasedOnIndiMetrics(low_vScore_Dict, low_CQ_dict)
-#######  high vScore versions ended    
+#######  low vScore versions ended    
