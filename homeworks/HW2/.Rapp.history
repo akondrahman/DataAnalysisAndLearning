@@ -1,0 +1,533 @@
+#hw2_data = read.csv("hw2-data.csv", header=TRUE)#
+# print("the data is ")#
+# #hw2_data#
+# x1<-hw2_data[2]#
+# #print("is this x1?")#
+# #x1#
+# x2<-hw2_data[3]#
+# #x2#
+# #
+# x1_ = matrix( x1, nrow=length(x1), ncol=1) #
+# theMatrix = cbind(x1_, x2) #
+# length(theMatrix)#
+temp = read.csv("hw2-data.csv", sep=",", row.names=1)#
+data_ <- as.matrix(temp) #
+#temp1[450,2]#
+print("Clustering started ... ")#
+cluster_no = 6#
+theCluster <- kmeans(data_,cluster_no)#
+#theCluster$cluster#
+plot(data_[,1], data_[,2],col=theCluster$cluster, xlab="X1", ylab="X2", main="K=6")#
+points(theCluster$centers, pch=15)#
+####
+#wss <- (nrow(data_)-1)*sum(apply(data_,2,var))#
+#for (i in 2:6) wss[i] <- sum(kmeans(data_,#
+#                                     centers=i)$withinss)#
+#plot(1:6, wss, type="b", xlab="Number of Clusters",#
+#     ylab="Within groups sum of squares") #
+#print("6 is the best")
+temp = read.csv("hw2-data.csv", sep=",", row.names=1)#
+data_ <- as.matrix(temp) #
+#temp1[450,2]#
+print("Hierarchical Clustering started ... ")#
+hc_data_ <- hclust(dist(data_), method = "complete")#
+plot(hc_data_, main = "Cluster Plot: Parameter='Complete'")#
+#clusterCut <- cutree(hc_data_, 4)
+temp = read.csv("hw2-data.csv", sep=",", row.names=1)#
+data_ <- as.matrix(temp) #
+#temp1[450,2]#
+print("Hierarchical Clustering started ... ")#
+hc_data_ <- hclust(dist(data_), method = "average")#
+plot(hc_data_, main = "Cluster Plot: Parameter='Average'")#
+#clusterCut <- cutree(hc_data_, 4)
+temp = read.csv("hw2-data.csv", sep=",", row.names=1)#
+data_ <- as.matrix(temp) #
+#temp1[450,2]#
+print("Hierarchical Clustering started ... ")#
+hc_data_ <- hclust(dist(data_), method = "centroid")#
+plot(hc_data_, main = "Cluster Plot: Parameter='Centroid'")#
+#clusterCut <- cutree(hc_data_, 4)
+temp = read.csv("hw2-data.csv", sep=",", row.names=1)#
+data_ <- as.matrix(temp) #
+#temp1[450,2]#
+print("Hierarchical Clustering started ... ")#
+hc_data_ <- hclust(dist(data_), method = "centroid")#
+#plot(hc_data_, main = "Cluster Plot: Parameter='Centroid'")#
+#clusterCut <- cutree(hc_data_, 4)#
+plot(hc_data_) # display dendogram#
+groups <- cutree(hc_data_, k=3) # cut tree into 5 clusters#
+# draw dendogram with red borders around the 5 clusters#
+rect.hclust(H.fit, k=3, border="red")
+temp = read.csv("hw2-data.csv", sep=",", row.names=1)#
+data_ <- as.matrix(temp) #
+#temp1[450,2]#
+print("Hierarchical Clustering started ... ")#
+hc_data_ <- hclust(dist(data_), method = "Average")#
+#plot(hc_data_, main = "Cluster Plot: Parameter='Centroid'")#
+#clusterCut <- cutree(hc_data_, 4)#
+plot(hc_data_) # display dendogram#
+groups <- cutree(hc_data_, k=3) # cut tree into 5 clusters#
+# draw dendogram with red borders around the 5 clusters#
+rect.hclust(H.fit, k=3, border="red")
+temp = read.csv("hw2-data.csv", sep=",", row.names=1)#
+data_ <- as.matrix(temp) #
+#temp1[450,2]#
+print("Hierarchical Clustering started ... ")#
+hc_data_ <- hclust(dist(data_), method = "Average")#
+#plot(hc_data_, main = "Cluster Plot: Parameter='Centroid'")#
+#clusterCut <- cutree(hc_data_, 4)#
+plot(hc_data_) # display dendogram#
+groups <- cutree(hc_data_, k=3) # cut tree into 5 clusters#
+# draw dendogram with red borders around the 5 clusters#
+rect.hclust(hc_data_, k=3, border="red")
+temp = read.csv("hw2-data.csv", sep=",", row.names=1)#
+data_ <- as.matrix(temp) #
+#temp1[450,2]#
+print("Hierarchical Clustering started ... ")#
+hc_data_ <- hclust(dist(data_), method = "Average")#
+#plot(hc_data_, main = "Cluster Plot: Parameter='Centroid'")#
+#clusterCut <- cutree(hc_data_, 4)#
+#plot(hc_data_) # display dendogram#
+groups <- cutree(hc_data_, k=3) # cut tree into 5 clusters#
+# draw dendogram with red borders around the 5 clusters#
+plot(groups)#
+#rect.hclust(hc_data_, k=3, border="red")
+temp = read.csv("hw2-data.csv", sep=",", row.names=1)#
+data_ <- as.matrix(temp) #
+#temp1[450,2]#
+print("Hierarchical Clustering started ... ")#
+hc_data_ <- hclust(dist(data_), method = "average")#
+#plot(hc_data_, main = "Cluster Plot: Parameter='Centroid'")#
+#clusterCut <- cutree(hc_data_, 4)#
+#plot(hc_data_) # display dendogram#
+groups <- cutree(hc_data_, k=3) # cut tree into 5 clusters#
+# draw dendogram with red borders around the 5 clusters#
+#plot(groups)#
+rect.hclust(hc_data_, k=3, border="red")
+temp = read.csv("hw2-data.csv", sep=",", row.names=1)#
+data_ <- as.matrix(temp) #
+#temp1[450,2]#
+print("Hierarchical Clustering started ... ")#
+hc_data_ <- hclust(dist(data_), method = "average")#
+#plot(hc_data_, main = "Cluster Plot: Parameter='Centroid'")#
+#clusterCut <- cutree(hc_data_, 4)#
+plot(hc_data_) # display dendogram#
+groups <- cutree(hc_data_, k=3) # cut tree into 5 clusters#
+# draw dendogram with red borders around the 5 clusters#
+#plot(groups)#
+rect.hclust(hc_data_, k=3, border="red")
+temp = read.csv("hw2-data.csv", sep=",", row.names=1)#
+data_ <- as.matrix(temp) #
+#temp1[450,2]#
+print("Hierarchical Clustering started ... ")#
+hc_data_ <- hclust(dist(data_), method = "average")#
+#plot(hc_data_, main = "Cluster Plot: Parameter='Centroid'")#
+#clusterCut <- cutree(hc_data_, 4)#
+plot(hc_data_) # display dendogram#
+groups <- cutree(hc_data_, k=5) # cut tree into 5 clusters#
+# draw dendogram with red borders around the 5 clusters#
+#plot(groups)#
+rect.hclust(hc_data_, k=5, border="red")
+# Toy example of the dynamic Tree Cut algorithms.#
+# Author: Peter Langfelder, Peter dot Langfelder at gmail dot com#
+#
+# If necessary, modify the directory in the following statement to point to your working directory and#
+# execute the command. #
+#
+# setwd("C:/Documents and Settings/Work/TreeCut/Simulation");#
+#
+source("NetworkFunctions-TreeCut-Simulation.R");#
+#
+library(dynamicTreeCut);#
+library(moduleColor);#
+#
+data = c(1,2,3,4,5, 7,9,10,11,12,  19,24,28,32,38, 54);#
+dim(data) = c(1, length(data));#
+#
+dissim = dist(t(data));#
+#
+dendro = hclust(dissim, method = "average");#
+#
+DetectedColors = NULL;#
+#
+DetectedColors = cbind(DetectedColors,#
+                    labels2colors(cutreeDynamic(dendro = dendro,#
+                                        cutHeight = NULL, minClusterSize = 3,#
+                                        method = "tree", deepSplit = TRUE)));#
+DetectedColors = cbind(DetectedColors,#
+                    labels2colors(cutreeDynamic(dendro, cutHeight = NULL,#
+                          minClusterSize = 3,#
+                          method = "hybrid", deepSplit = 3,#
+                          pamStage = TRUE,  distM = as.matrix(dissim), maxDistToLabel = 0,#
+                          verbose = 0)));#
+#
+Methods = c("Dynamic Tree", "Dynamic Hybrid");#
+#
+StandardCex = 1.7;#
+width = 9;#
+SizeWindow(width, 4);#
+layout(matrix(c(1,2), nrow = 2, ncol = 1), widths = 1, heights = c(0.8, 0.2));#
+par(cex = 1.4);#
+par(mar=c(0, 6.5, 2, 0.2));#
+plot(dendro, labels = data,#
+     main = "Toy example: clustering dendrogram and module colors", ylab = "Difference");#
+par(mar=c(0.2, 6.5, 0, 0.2));#
+hclustplotn(dendro,#
+            DetectedColors,#
+            RowLabels = Methods,#
+            main="");#
+#
+#dev.copy2eps(file = "Example-Toy-Dendrogram.eps");#
+#dev2bitmap(file =  "Example-Toy-Dendrogram.pdf", width = width, type = "pdfwrite");#
+#dev2bitmap(file =  "Example-Toy-Dendrogram.png", width = width, type = "png16m", res = 72);
+# Toy example of the dynamic Tree Cut algorithms.#
+# Author: Peter Langfelder, Peter dot Langfelder at gmail dot com#
+#
+# If necessary, modify the directory in the following statement to point to your working directory and#
+# execute the command. #
+#
+# setwd("C:/Documents and Settings/Work/TreeCut/Simulation");#
+#
+source("NetworkFunctions-TreeCut-Simulation.R");#
+#
+library(dynamicTreeCut);#
+library(moduleColor);#
+#
+data = c(1,2,3,4,5, 7,9,10,11,12,  19,24,28,32,38, 54);#
+dim(data) = c(1, length(data));#
+#
+dissim = dist(t(data));#
+#
+dendro = hclust(dissim, method = "average");#
+#
+DetectedColors = NULL;#
+#
+DetectedColors = cbind(DetectedColors,#
+                    labels2colors(cutreeDynamic(dendro = dendro,#
+                                        cutHeight = NULL, minClusterSize = 3,#
+                                        method = "tree", deepSplit = TRUE)));#
+DetectedColors = cbind(DetectedColors,#
+                    labels2colors(cutreeDynamic(dendro, cutHeight = NULL,#
+                          minClusterSize = 3,#
+                          method = "hybrid", deepSplit = 3,#
+                          pamStage = TRUE,  distM = as.matrix(dissim), maxDistToLabel = 0,#
+                          verbose = 0)));#
+#
+Methods = c("Dynamic Tree", "Dynamic Hybrid");#
+#
+StandardCex = 1.7;#
+width = 9;#
+SizeWindow(width, 4);#
+layout(matrix(c(1,2), nrow = 2, ncol = 1), widths = 1, heights = c(0.8, 0.2));#
+par(cex = 1.4);#
+par(mar=c(0, 6.5, 2, 0.2));#
+plot(dendro, labels = data,#
+     main = "Toy example: clustering dendrogram and module colors", ylab = "Difference");#
+par(mar=c(0.2, 6.5, 0, 0.2));#
+# hclustplotn(dendro,#
+            # DetectedColors,#
+            # RowLabels = Methods,#
+            # main="");#
+#
+#dev.copy2eps(file = "Example-Toy-Dendrogram.eps");#
+#dev2bitmap(file =  "Example-Toy-Dendrogram.pdf", width = width, type = "pdfwrite");#
+#dev2bitmap(file =  "Example-Toy-Dendrogram.png", width = width, type = "png16m", res = 72);
+# Toy example of the dynamic Tree Cut algorithms.#
+# Author: Peter Langfelder, Peter dot Langfelder at gmail dot com#
+#
+# If necessary, modify the directory in the following statement to point to your working directory and#
+# execute the command. #
+#
+# setwd("C:/Documents and Settings/Work/TreeCut/Simulation");#
+#
+source("NetworkFunctions-TreeCut-Simulation.R");#
+#
+library(dynamicTreeCut);#
+library(moduleColor);#
+#
+data = c(1,2,3,4,5, 7,9,10,11,12,  19,24,28,32,38, 54);#
+dim(data) = c(1, length(data));#
+#
+dissim = dist(t(data));#
+#
+dendro = hclust(dissim, method = "average");#
+plot(dendro, labels = data,#
+     main = "Toy example: clustering dendrogram and module colors", ylab = "Difference");#
+DetectedColors = NULL;#
+#
+DetectedColors = cbind(DetectedColors,#
+                    labels2colors(cutreeDynamic(dendro = dendro,#
+                                        cutHeight = NULL, minClusterSize = 3,#
+                                        method = "tree", deepSplit = TRUE)));#
+DetectedColors = cbind(DetectedColors,#
+                    labels2colors(cutreeDynamic(dendro, cutHeight = NULL,#
+                          minClusterSize = 3,#
+                          method = "hybrid", deepSplit = 3,#
+                          pamStage = TRUE,  distM = as.matrix(dissim), maxDistToLabel = 0,#
+                          verbose = 0)));#
+#
+Methods = c("Dynamic Tree", "Dynamic Hybrid");#
+#
+StandardCex = 1.7;#
+width = 9;#
+SizeWindow(width, 4);#
+layout(matrix(c(1,2), nrow = 2, ncol = 1), widths = 1, heights = c(0.8, 0.2));#
+par(cex = 1.4);#
+par(mar=c(0, 6.5, 2, 0.2));#
+#
+par(mar=c(0.2, 6.5, 0, 0.2));#
+# hclustplotn(dendro,#
+            # DetectedColors,#
+            # RowLabels = Methods,#
+            # main="");#
+#
+#dev.copy2eps(file = "Example-Toy-Dendrogram.eps");#
+#dev2bitmap(file =  "Example-Toy-Dendrogram.pdf", width = width, type = "pdfwrite");#
+#dev2bitmap(file =  "Example-Toy-Dendrogram.png", width = width, type = "png16m", res = 72);
+# Toy example of the dynamic Tree Cut algorithms.#
+# Author: Peter Langfelder, Peter dot Langfelder at gmail dot com#
+#
+# If necessary, modify the directory in the following statement to point to your working directory and#
+# execute the command. #
+#
+# setwd("C:/Documents and Settings/Work/TreeCut/Simulation");#
+#
+source("NetworkFunctions-TreeCut-Simulation.R");#
+#
+library(dynamicTreeCut);#
+library(moduleColor);#
+#
+data = c(1,2,3,4,5, 7,9,10,11,12,  19,24,28,32,38, 54);#
+dim(data) = c(1, length(data));#
+#
+dissim = dist(t(data));#
+#
+dendro = hclust(dissim, method = "average");#
+#
+DetectedColors = NULL;#
+#
+DetectedColors = cbind(DetectedColors,#
+                    labels2colors(cutreeDynamic(dendro = dendro,#
+                                        cutHeight = NULL, minClusterSize = 3,#
+                                        method = "tree", deepSplit = TRUE)));#
+DetectedColors = cbind(DetectedColors,#
+                    labels2colors(cutreeDynamic(dendro, cutHeight = NULL,#
+                          minClusterSize = 3,#
+                          method = "hybrid", deepSplit = 3,#
+                          pamStage = TRUE,  distM = as.matrix(dissim), maxDistToLabel = 0,#
+                          verbose = 0)));#
+#
+Methods = c("Dynamic Tree", "Dynamic Hybrid");#
+#
+StandardCex = 1.7;#
+width = 9;#
+SizeWindow(width, 4);#
+layout(matrix(c(1,2), nrow = 2, ncol = 1), widths = 1, heights = c(0.8, 0.2));#
+par(cex = 1.4);#
+par(mar=c(0, 6.5, 2, 0.2));#
+plot(dendro, labels = data,#
+     main = "Toy example: clustering dendrogram and module colors", ylab = "Difference");#
+par(mar=c(0.2, 6.5, 0, 0.2));#
+# hclustplotn(dendro,#
+            # DetectedColors,#
+            # RowLabels = Methods,#
+            # main="");#
+#
+#dev.copy2eps(file = "Example-Toy-Dendrogram.eps");#
+#dev2bitmap(file =  "Example-Toy-Dendrogram.pdf", width = width, type = "pdfwrite");#
+#dev2bitmap(file =  "Example-Toy-Dendrogram.png", width = width, type = "png16m", res = 72);
+# Toy example of the dynamic Tree Cut algorithms.#
+# Author: Peter Langfelder, Peter dot Langfelder at gmail dot com#
+#
+# If necessary, modify the directory in the following statement to point to your working directory and#
+# execute the command. #
+#
+# setwd("C:/Documents and Settings/Work/TreeCut/Simulation");#
+#
+source("NetworkFunctions-TreeCut-Simulation.R");#
+#
+library(dynamicTreeCut);#
+library(moduleColor);#
+#
+data = c(1,2,3,4,5, 7,9,10,11,12,  19,24,28,32,38, 54);#
+dim(data) = c(1, length(data));#
+#
+dissim = dist(t(data));#
+#
+dendro = hclust(dissim, method = "average");#
+plot(dendro, labels = data,#
+     main = "Toy example: clustering dendrogram and module colors", ylab = "Difference");#
+DetectedColors = NULL;#
+#
+DetectedColors = cbind(DetectedColors,#
+                    labels2colors(cutreeDynamic(dendro = dendro,#
+                                        cutHeight = NULL, minClusterSize = 3,#
+                                        method = "tree", deepSplit = TRUE)));#
+DetectedColors = cbind(DetectedColors,#
+                    labels2colors(cutreeDynamic(dendro, cutHeight = NULL,#
+                          minClusterSize = 3,#
+                          method = "hybrid", deepSplit = 3,#
+                          pamStage = TRUE,  distM = as.matrix(dissim), maxDistToLabel = 0,#
+                          verbose = 0)));#
+#
+Methods = c("Dynamic Tree", "Dynamic Hybrid");#
+#
+StandardCex = 1.7;#
+width = 9;#
+SizeWindow(width, 4);#
+layout(matrix(c(1,2), nrow = 2, ncol = 1), widths = 1, heights = c(0.8, 0.2));#
+par(cex = 1.4);#
+par(mar=c(0, 6.5, 2, 0.2));#
+#
+par(mar=c(0.2, 6.5, 0, 0.2));#
+# hclustplotn(dendro,#
+            # DetectedColors,#
+            # RowLabels = Methods,#
+            # main="");#
+#
+#dev.copy2eps(file = "Example-Toy-Dendrogram.eps");#
+#dev2bitmap(file =  "Example-Toy-Dendrogram.pdf", width = width, type = "pdfwrite");#
+#dev2bitmap(file =  "Example-Toy-Dendrogram.png", width = width, type = "png16m", res = 72);
+# Toy example of the dynamic Tree Cut algorithms.#
+# Author: Peter Langfelder, Peter dot Langfelder at gmail dot com#
+#
+# If necessary, modify the directory in the following statement to point to your working directory and#
+# execute the command. #
+#
+# setwd("C:/Documents and Settings/Work/TreeCut/Simulation");#
+#
+source("NetworkFunctions-TreeCut-Simulation.R");#
+#
+library(dynamicTreeCut);#
+library(moduleColor);#
+#
+data = c(1,2,3,4,5, 7,9,10,11,12,  19,24,28,32,38, 54);#
+dim(data) = c(1, length(data));#
+#
+dissim = dist(t(data));#
+#
+dendro = hclust(dissim, method = "average");#
+#
+DetectedColors = NULL;#
+#
+DetectedColors = cbind(DetectedColors,#
+                    labels2colors(cutreeDynamic(dendro = dendro,#
+                                        cutHeight = NULL, minClusterSize = 3,#
+                                        method = "tree", deepSplit = TRUE)));#
+DetectedColors = cbind(DetectedColors,#
+                    labels2colors(cutreeDynamic(dendro, cutHeight = NULL,#
+                          minClusterSize = 3,#
+                          method = "hybrid", deepSplit = 3,#
+                          pamStage = TRUE,  distM = as.matrix(dissim), maxDistToLabel = 0,#
+                          verbose = 0)));#
+#
+Methods = c("Dynamic Tree", "Dynamic Hybrid");#
+#
+StandardCex = 1.7;#
+width = 9;#
+SizeWindow(width, 4);#
+layout(matrix(c(1,2), nrow = 2, ncol = 1), widths = 1, heights = c(0.8, 0.2));#
+par(cex = 1.4);#
+par(mar=c(0, 6.5, 2, 0.2));#
+plot(dendro, labels = data,#
+     main = "Toy example: clustering dendrogram and module colors", ylab = "Difference");#
+par(mar=c(0.2, 6.5, 0, 0.2));#
+hclustplotn(dendro,#
+            DetectedColors,#
+            RowLabels = Methods,#
+            main="");#
+#
+#dev.copy2eps(file = "Example-Toy-Dendrogram.eps");#
+#dev2bitmap(file =  "Example-Toy-Dendrogram.pdf", width = width, type = "pdfwrite");#
+#dev2bitmap(file =  "Example-Toy-Dendrogram.png", width = width, type = "png16m", res = 72);
+temp = read.csv("hw2-data.csv", sep=",", row.names=1)#
+data_ <- as.matrix(temp) #
+#temp1[450,2]#
+print("Hierarchical Clustering started ... ")#
+hc_data_ <- hclust(dist(data_), method = "average")#
+#plot(hc_data_, main = "Cluster Plot: Parameter='Centroid'")#
+#clusterCut <- cutree(hc_data_, 4)#
+plot(hc_data_) # display dendogram#
+groups <- cutree(hc_data_, k=5) # cut tree into 5 clusters#
+# draw dendogram with red borders around the 5 clusters#
+#plot(groups)#
+rect.hclust(hc_data_, k=5, border="red")
+temp = read.csv("hw2-data.csv", sep=",", row.names=1)#
+data_ <- as.matrix(temp) #
+#temp1[450,2]#
+print("Hierarchical Clustering started ... ")#
+hc_data_ <- hclust(dist(data_), method = "average")#
+#plot(hc_data_, main = "Cluster Plot: Parameter='Centroid'")#
+#clusterCut <- cutree(hc_data_, 4)#
+plot(hc_data_) # display dendogram#
+groups <- cutree(hc_data_, k=5) # cut tree into 5 clusters#
+# draw dendogram with red borders around the 5 clusters#
+#plot(groups)#
+rect.hclust(hc_data_, k=1, border="red")
+temp = read.csv("hw2-data.csv", sep=",", row.names=1)#
+data_ <- as.matrix(temp) #
+#temp1[450,2]#
+print("Hierarchical Clustering started ... ")#
+hc_data_ <- hclust(dist(data_), method = "average")#
+#plot(hc_data_, main = "Cluster Plot: Parameter='Centroid'")#
+#clusterCut <- cutree(hc_data_, 4)#
+plot(hc_data_) # display dendogram#
+groups <- cutree(hc_data_, k=5) # cut tree into 5 clusters#
+# draw dendogram with red borders around the 5 clusters#
+#plot(groups)#
+rect.hclust(hc_data_, k=10, border="red")
+temp = read.csv("hw2-data.csv", sep=",", row.names=1)#
+data_ <- as.matrix(temp) #
+#temp1[450,2]#
+print("Hierarchical Clustering started ... ")#
+hc_data_ <- hclust(dist(data_), method = "average")#
+#plot(hc_data_, main = "Cluster Plot: Parameter='Centroid'")#
+#clusterCut <- cutree(hc_data_, 4)#
+#plot(hc_data_) # display dendogram#
+groups <- cutree(hc_data_, k=5) # cut tree into 5 clusters#
+plot(hc_data_, labels = as.character(groups))#
+# draw dendogram with red borders around the 5 clusters#
+#plot(groups)#
+#rect.hclust(hc_data_, k=10, border="red")
+temp = read.csv("hw2-data.csv", sep=",", row.names=1)#
+data_ <- as.matrix(temp) #
+print("Hierarchical Clustering started ... ")#
+hc_data_ <- hclust(dist(data_), method = "average")#
+groups <- cutree(hc_data_, k=4) # cut tree into 4 clusters#
+plot(hc_data_, main = "Cluster Plot: Parameter='Centroid'", labels = as.character(groups))
+temp = read.csv("hw2-data.csv", sep=",", row.names=1)#
+data_ <- as.matrix(temp) #
+print("Hierarchical Clustering started ... ")#
+hc_data_ <- hclust(dist(data_), method = "average")#
+groups <- cutree(hc_data_, h=20) # cut tree into 4 clusters#
+plot(hc_data_, main = "Cluster Plot: Parameter='Centroid'", labels = as.character(groups))
+temp = read.csv("hw2-data.csv", sep=",", row.names=1)#
+data_ <- as.matrix(temp) #
+print("Hierarchical Clustering started ... ")#
+hc_data_ <- hclust(dist(data_), method = "average")#
+groups <- cutree(hc_data_, h=50) # cut tree into 4 clusters#
+plot(hc_data_, main = "Cluster Plot: Parameter='Centroid'", labels = as.character(groups))
+temp = read.csv("hw2-data.csv", sep=",", row.names=1)#
+data_ <- as.matrix(temp) #
+print("Hierarchical Clustering started ... ")#
+hc_data_ <- hclust(dist(data_), method = "average")#
+groups <- cutree(hc_data_, h=30) # cut tree into 4 clusters#
+plot(hc_data_, main = "Cluster Plot: Parameter='Centroid'", labels = as.character(groups))
+temp = read.csv("hw2-data.csv", sep=",", row.names=1)#
+data_ <- as.matrix(temp) #
+print("Hierarchical Clustering started ... ")#
+hc_data_ <- hclust(dist(data_), method = "average")#
+groups <- cutree(hc_data_, h=15) # cut tree into 4 clusters#
+plot(hc_data_, main = "Cluster Plot: Parameter='Centroid'", labels = as.character(groups))
+temp = read.csv("hw2-data.csv", sep=",", row.names=1)#
+data_ <- as.matrix(temp) #
+print("Hierarchical Clustering started ... ")#
+hc_data_ <- hclust(dist(data_), method = "average")#
+groups <- cutree(hc_data_, h=22) # cut tree into 4 clusters#
+plot(hc_data_, main = "Cluster Plot: Parameter='Centroid'", labels = as.character(groups))
+temp = read.csv("hw2-data.csv", sep=",", row.names=1)#
+data_ <- as.matrix(temp) #
+print("Hierarchical Clustering started ... ")#
+hc_data_ <- hclust(dist(data_), method = "average")#
+groups <- cutree(hc_data_, h=20) # cut tree into 4 clusters#
+plot(hc_data_, main = "Cluster Plot: Parameter='Centroid'", labels = as.character(groups))
