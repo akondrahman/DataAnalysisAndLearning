@@ -12,4 +12,13 @@ dbFileName="/Users/akond/Documents/Spring-2016/CSC522/OSSAndroidAppDataset/andro
 experiments.experiemnt_one(dbFileName)
 print "========================================================="
 experiments.experiemnt_two(dbFileName)
+print "========================================================="
+'''
+	This experiemnt is abandones because logistic reression si a binary classifier 
+	and not an estmator 
+
+experiments.experiemnt_three(dbFileName)
+print "========================================================="
+'''
+
 print "Done ;-)"

@@ -1,0 +1,58 @@
+Last login: Mon Feb 15 22:50:52 on ttys001
+eb2-2206-mac03-4:gitRepo akond$ cd project/
+eb2-2206-mac03-4:project akond$ python main_.py 
+Performing experiment # 1
+Stats on file count : len=1407, median=19.0,  mean=54.1080312722, max=2237, min=1,
+Sanitized versions that will be used in study  721
+Stats on risk score-->len=721, median=51.1111111111,  mean=38.0255199862, max=53.3333333333, min=0.0,
+high_vscore_versions  410
+len_vscore_versions  311
+<------------ Performing Logistic Regression ------------->
+Output of score (mean accuracy of test features and prediction classs) 
+0.570041608877
+
+
+Output of co-efficients =[[ -2.13706722e-03  -7.49046047e-05   2.48420026e-04   3.75645818e-04
+   -9.64663905e-05  -1.85654806e-02   8.01274837e-03   1.84478002e-05
+   -2.97775558e-02  -6.52211323e-02   2.76617348e-03  -7.35266315e-03
+    1.85759609e-02  -3.30478424e-04  -3.11095085e-03   9.12090037e-03
+    5.54841364e-05   1.66542332e-03   1.94625999e-02   8.21918585e-05
+    4.47334980e-04]]
+Output of intercept =[ 0.40781619], n_iter_ = [47] 
+=========================================================
+Performing experiemnt # 2
+Stats on file count : len=1407, median=19.0,  mean=54.1080312722, max=2237, min=1,
+Sanitized versions that will be used in study  721
+Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0,
+non zero high_vscore_versions  410
+non zero  len_vscore_versions  139
+<------------ Performing Logistic Regression ------------->
+Output of score (mean accuracy of test features and prediction classs) 
+0.761384335155
+
+
+Output of co-efficients =[[ -4.63136543e-03  -1.98611794e-04  -3.62519488e-04   4.36735740e-04
+    4.99571882e-04  -5.52655638e-03  -3.18136620e-01   3.59434693e-05
+   -1.79321054e-02  -3.39440760e-02   6.02570244e-03  -1.41955386e-02
+    2.19756701e-02  -1.06287590e-03  -3.07241009e-03   1.16729975e-02
+    8.37190659e-05   1.38279423e-02   9.09971169e-03   5.57301301e-04
+    1.10064657e-03]]
+Output of intercept =[ 2.060204], n_iter_ = [72] 
+=========================================================
+Done ;-)
+eb2-2206-mac03-4:project akond$ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

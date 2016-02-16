@@ -79,5 +79,33 @@ def dumpIntoFile(fileNameP,  CQP, scoreP, medianPaarm, headerParam=True):
     strToWrite = header + "\n"  + allLinestr  + "\n"      
   else: 
     strToWrite =  allLinestr  + "\n"  
+  writeStrToFile(fileNameP, strToWrite)  
+
+
+def dumpVersionContents(fileNameP,  CQP, scoreP, headerParam=True):   
+  Str1= "versionID, classes, ncloc, functions, duplicated_lines, complexity, class_complexity, function_complexity,  "
+  #Str1= " classes, ncloc, functions, duplicated_lines, complexity, class_complexity, function_complexity,  "  
+  Str2= "comment_lines, comment_lines_density, duplicated_lines_density, files, directories, file_complexity, violations, "
+  Str3= "duplicated_blocks, duplicated_files, lines, blocker_violations, critical_violations, major_violations, minor_violations"  
+  header = Str1 + Str2 + Str3 + "," + "class_vscore" + ",END-EMPTY"
+  strToWrite=""
+  delimiter=","  
+  allLinestr = ""
+  ## gettign the high ones 
+  for _k_, _v_ in scoreP.items():
+    classLbale = str(_v_)
+    cqItems = CQP[_k_]  
+    perLineStr = ""    
+    perLineStr = perLineStr + str(_k_) + delimiter
+    for item  in cqItems:
+      perLineStr = perLineStr  + str(item)    + delimiter
+    perLineStr = perLineStr + classLbale + delimiter 
+    allLinestr = allLinestr + perLineStr + "\n"
+
+    
+  if headerParam: 
+    strToWrite = header + "\n"  + allLinestr  + "\n"      
+  else: 
+    strToWrite =  allLinestr  + "\n"  
   writeStrToFile(fileNameP, strToWrite)      
     

@@ -96,3 +96,34 @@ def experiemnt_two(dbFileName):
 	themegaFile_All = "non_zero_all-CQ-HL.csv"
 	IO_.dumpIntoFile( themegaFile_All,sanitizedVersions_CQ , NonZero_sanitizedVersionsWithScore, threshold, False )
 	LGR.performLogiRegression(themegaFile_All)  
+ 
+def experiemnt_three(dbFileName):
+	'''
+	This experiemnt is abandones because logistic reression si a binary classifier 
+	and not an estmator 
+	'''
+
+	print "Performing experiemnt # 3: Only high versions consiered "
+
+	versionAndCodeQualityDict =  DEFT.getValuesFrom_CodingStandard(dbFileName)
+	sanitizedVersions = sanityCheck.getCodeQualityofVersions(versionAndCodeQualityDict)
+	print "Sanitized versions that will be used in study ", len(sanitizedVersions)
+	#print "Sanitized versions ..." , sanitizedVersions
+	NonZero_sanitizedVersionsWithScore = sanityCheck.getNonZeroVulnerbailityScoreOfSelectedVersions(sanitizedVersions)
+
+	'''
+	  Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0	
+	'''
+
+	############################## 
+	sanitizedVersions_CQ = sanitizedVersions
+
+	#######  high vScore versions started  
+	threshold = 51.1111111111
+	high_CQ_dict = utility.getHighVScoreVersions_CQ( NonZero_sanitizedVersionsWithScore , sanitizedVersions_CQ , threshold)
+	high_vScore_Dict = utility.getHighVScoreVersions_VScore(NonZero_sanitizedVersionsWithScore, threshold)
+	print "only high_vscore_versions ", len(high_vScore_Dict)
+	#######  high vScore versions ended   
+	only_the_high_versions_file_name = "only_the_high_versions.csv"
+	IO_.dumpVersionContents(only_the_high_versions_file_name, sanitizedVersions_CQ, high_vScore_Dict, False  )  
+	LGR.performLogiRegression(only_the_high_versions_file_name)   
