@@ -147,8 +147,5 @@ def experiemnt_three(dbFileName, meanFlag):
 
 
 
-def experiemnt_four(fileNameParam, trainizingSizeParam):
-	import classifiers 
-	
-	classifiers.runSVM(fileNameParam, trainizingSizeParam)
+
 

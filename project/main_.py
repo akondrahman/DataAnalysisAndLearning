@@ -41,9 +41,7 @@ print "=========================================================================
 This is experiemnt 4 : classification with  NO versions that has ZERO scores 
 '''  
 fileNameParam="TheNonZeroDataset.csv"
-trainizingSizeParam = 0.80
-print "Running the SVM classifier with a traning size of ", trainizingSizeParam
-experiments.experiemnt_four(fileNameParam, trainizingSizeParam)
+experiments.experiemnt_four(fileNameParam)
 print "=================================================================================================================="
 print "Done ;-)"
 print "Ended at: ", IO_.giveTimeStamp()
