@@ -147,5 +147,11 @@ def experiemnt_three(dbFileName, meanFlag):
 
 
 
-
+def experiemnt_four(fileNameParam):
+	import classifiers 
+	emperiemntSplitters=[float(x)/float(10) for x in xrange(10) if x > 0] 
+	for elem in emperiemntSplitters:
+		print "Training size: ", float(elem*100)
+		classifiers.runSVM(fileNameParam, elem)
+		print "---------------------------------------------------------------"
 
