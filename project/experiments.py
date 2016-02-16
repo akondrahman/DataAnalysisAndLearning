@@ -8,11 +8,11 @@ Created on Mon Feb 15 17:28:27 2016
 
 
 import DataExtractionFromTables as DEFT, sanityCheck, utility , IO_, logiRegre as LGR
-def experiemnt_one(dbFileName):
+def experiemnt_one(dbFileName, meanFlag, outputStrParam):
 	print "Performing experiment # 1"
 	#import correlation as corr_
 	versionAndCodeQualityDict =  DEFT.getValuesFrom_CodingStandard(dbFileName)
-	sanitizedVersions = sanityCheck.getCodeQualityofVersions(versionAndCodeQualityDict)
+	sanitizedVersions = sanityCheck.getCodeQualityofVersions(versionAndCodeQualityDict, meanFlag)
 	print "Sanitized versions that will be used in study ", len(sanitizedVersions)
 	#print "Sanitized versions ..." , sanitizedVersions
 	sanitizedVersionsWithScore = sanityCheck.getVulnerbailityScoreOfSelectedVersions(sanitizedVersions)
@@ -22,7 +22,11 @@ def experiemnt_one(dbFileName):
 	'''
 
 
-
+	riskStatus = sanityCheck.getVulnerbailityScoreStatus(sanitizedVersionsWithScore)
+	if meanFlag:       
+	 threshold = riskStatus[0]   ## first returned index is mean 
+	else: 
+	 threshold = riskStatus[1]  
 
 
 
@@ -31,7 +35,7 @@ def experiemnt_one(dbFileName):
 	sanitizedVersions_CQ = sanitizedVersions
 
 	#######  high vScore versions started  
-	threshold = 51.1111111111
+
 	high_CQ_dict = utility.getHighVScoreVersions_CQ( sanitizedVersionsWithScore , sanitizedVersions_CQ , threshold)
 	high_vScore_Dict = utility.getHighVScoreVersions_VScore(sanitizedVersionsWithScore, threshold)
 	print "high_vscore_versions ", len(high_vScore_Dict)
@@ -45,11 +49,11 @@ def experiemnt_one(dbFileName):
 	#######  low vScore versions ended   
 	##### dumpin time 
 	### three ways: first by dumping all highs then all lows 
-	themegaFile_Seperated = "all-CQ-HL-Seperated.csv"
+	themegaFile_Seperated = outputStrParam + "_" + "all-CQ-HL-Seperated.csv"
 	IO_.dumpIntoFileByHighAndLow( themegaFile_Seperated, high_CQ_dict, low_CQ_dict )
 
 	### three ways : second by dumping as it si 
-	themegaFile_All = "all-CQ-HL.csv"
+	themegaFile_All = outputStrParam + "_" + "all-CQ-HL.csv"
 	IO_.dumpIntoFile( themegaFile_All,sanitizedVersions_CQ , sanitizedVersionsWithScore, threshold, False )
 	LGR.performLogiRegression(themegaFile_All)
  
@@ -57,25 +61,35 @@ def experiemnt_one(dbFileName):
 
 
 
-def experiemnt_two(dbFileName):
-
+def experiemnt_two(dbFileName, meanFlag, outputStrParam ):
 	print "Performing experiemnt # 2"
+
+
+
 	#import correlation as corr_
 	versionAndCodeQualityDict =  DEFT.getValuesFrom_CodingStandard(dbFileName)
-	sanitizedVersions = sanityCheck.getCodeQualityofVersions(versionAndCodeQualityDict)
+	sanitizedVersions = sanityCheck.getCodeQualityofVersions(versionAndCodeQualityDict, meanFlag)
 	print "Sanitized versions that will be used in study ", len(sanitizedVersions)
 	#print "Sanitized versions ..." , sanitizedVersions
 	NonZero_sanitizedVersionsWithScore = sanityCheck.getNonZeroVulnerbailityScoreOfSelectedVersions(sanitizedVersions)
 
 	'''
-	  Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0	
+	Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0	
 	'''
 
 	############################## 
 	sanitizedVersions_CQ = sanitizedVersions
 
+
+	riskStatus = sanityCheck.getVulnerbailityScoreStatus(NonZero_sanitizedVersionsWithScore)
+	if meanFlag:       
+	 threshold = riskStatus[0]   ## first returned index is mean 
+	else: 
+	 threshold = riskStatus[1]  
+
+
 	#######  high vScore versions started  
-	threshold = 51.1111111111
+
 	high_CQ_dict = utility.getHighVScoreVersions_CQ( NonZero_sanitizedVersionsWithScore , sanitizedVersions_CQ , threshold)
 	high_vScore_Dict = utility.getHighVScoreVersions_VScore(NonZero_sanitizedVersionsWithScore, threshold)
 	print "non zero high_vscore_versions ", len(high_vScore_Dict)
@@ -89,15 +103,15 @@ def experiemnt_two(dbFileName):
 	#######  low vScore versions ended   
 	##### dumpin time 
 	### three ways: first by dumping all highs then all lows 
-	themegaFile_Seperated = "non_zero_all-CQ-HL-Seperated.csv"
+	themegaFile_Seperated = outputStrParam + "_" + "non_zero_all-CQ-HL-Seperated.csv"
 	IO_.dumpIntoFileByHighAndLow( themegaFile_Seperated, high_CQ_dict, low_CQ_dict )
 
 	### three ways : second by dumping as it si 
-	themegaFile_All = "non_zero_all-CQ-HL.csv"
+	themegaFile_All = outputStrParam + "_" + "non_zero_all-CQ-HL.csv"
 	IO_.dumpIntoFile( themegaFile_All,sanitizedVersions_CQ , NonZero_sanitizedVersionsWithScore, threshold, False )
 	LGR.performLogiRegression(themegaFile_All)  
  
-def experiemnt_three(dbFileName):
+def experiemnt_three(dbFileName, meanFlag):
 	'''
 	This experiemnt is abandones because logistic reression si a binary classifier 
 	and not an estmator 
@@ -106,13 +120,13 @@ def experiemnt_three(dbFileName):
 	print "Performing experiemnt # 3: Only high versions consiered "
 
 	versionAndCodeQualityDict =  DEFT.getValuesFrom_CodingStandard(dbFileName)
-	sanitizedVersions = sanityCheck.getCodeQualityofVersions(versionAndCodeQualityDict)
+	sanitizedVersions = sanityCheck.getCodeQualityofVersions(versionAndCodeQualityDict, meanFlag)
 	print "Sanitized versions that will be used in study ", len(sanitizedVersions)
 	#print "Sanitized versions ..." , sanitizedVersions
 	NonZero_sanitizedVersionsWithScore = sanityCheck.getNonZeroVulnerbailityScoreOfSelectedVersions(sanitizedVersions)
 
 	'''
-	  Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0	
+	Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0	
 	'''
 
 	############################## 
@@ -125,5 +139,16 @@ def experiemnt_three(dbFileName):
 	print "only high_vscore_versions ", len(high_vScore_Dict)
 	#######  high vScore versions ended   
 	only_the_high_versions_file_name = "only_the_high_versions.csv"
-	IO_.dumpVersionContents(only_the_high_versions_file_name, sanitizedVersions_CQ, high_vScore_Dict, False  )  
-	LGR.performLogiRegression(only_the_high_versions_file_name)   
+	IO_.dumpVersionContents(only_the_high_versions_file_name, high_CQ_dict, high_vScore_Dict, False  )  
+	LGR.performLogiRegression(only_the_high_versions_file_name)  
+
+
+
+
+
+
+def experiemnt_four(fileNameParam, trainizingSizeParam):
+	import classifiers 
+	
+	classifiers.runSVM(fileNameParam, trainizingSizeParam)
+

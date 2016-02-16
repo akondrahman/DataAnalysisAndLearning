@@ -14,7 +14,7 @@ import numpy as np
 
 
 
-def getCodeQualityofVersions(dictParam):
+def getCodeQualityofVersions(dictParam, meanFlag=True):
   versionDictToRet = {}
   versionRiskDict = DEFT.getValuesFrom_Vulnerability(dbFileName)
   ### 
@@ -28,13 +28,18 @@ def getCodeQualityofVersions(dictParam):
         fileList.append(fileCount)  
         #print "Version #{} has #{} files".format(versionIDInRiskDict, fileCount) 
   print "Stats on file count : len={}, median={},  mean={}, max={}, min={},".format(len(fileList), np.median(fileList), np.mean(fileList), max(fileList), min(fileList))  
-  medianFileCount = np.median(fileList)
+  
+
+  if meanFlag: 
+    thres = np.mean(fileList)
+  else:
+    thres = np.median(fileList)      
   for k_, v_ in versionRiskDict.items():
     versionIDInRiskDict = k_ 
     if versionIDInRiskDict in dictParam:
       fileCount =  dictParam[versionIDInRiskDict][10]
       # then lets check if the file coutn is at least the mdian file count 
-      if fileCount >= medianFileCount : 
+      if fileCount >= thres : 
         versionDictToRet[versionIDInRiskDict] = dictParam[versionIDInRiskDict]      
   return versionDictToRet
 
@@ -67,7 +72,14 @@ def getNonZeroVulnerbailityScoreOfSelectedVersions(dictParam):
   print "Stats on risk score (non-zero elemnts)-->len={}, median={},  mean={}, max={}, min={},".format(len(riskList), np.median(riskList), np.mean(riskList), max(riskList), min(riskList))      
   return validDictToret         
 
-
+def getVulnerbailityScoreStatus(dictParam):
+  riskList=[]
+  original_versionRiskDict = DEFT.getValuesFrom_Vulnerability(dbFileName)
+  for k_, v_ in dictParam.items():
+    ## get the scores for the valid versions 
+    riskScore = original_versionRiskDict[k_]
+    riskList.append(riskScore)
+  return np.mean(riskList), np.median(riskList)     
 #versionAndCodeQualityDict =  DEFT.getValuesFrom_CodingStandard(dbFileName)
 #sanitizedVersions = getCodeQualityofVersions(versionAndCodeQualityDict)
 #print "Sanitized versions that will be used in study ", len(sanitizedVersions)

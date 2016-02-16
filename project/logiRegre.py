@@ -7,11 +7,11 @@ Created on Mon Feb 15 15:27:23 2016
 
 
 
-import  pandas as pd
+import utility 
 from sklearn import linear_model
 def performLogiRegression(fileNamaParam):
   # get test and train data together  
-  test_trainData = giveMePandaDataFrame(fileNamaParam)    
+  test_trainData = utility.giveMePandaDataFrame(fileNamaParam)    
   #print test_trainData.head()
   # get tarining data 
   trainingCols = test_trainData.columns[0:21]
@@ -36,25 +36,8 @@ def performLogiRegression(fileNamaParam):
   logisticRModel.fit(trainData, testData)
   print "Output of score (mean accuracy of test features and prediction classs) "
   print logisticRModel.score(trainData, testData)
-  print "\n"
   print "Output of co-efficients ={}".format(logisticRModel.coef_)
   print "Output of intercept ={}, n_iter_ = {} ".format(logisticRModel.intercept_, logisticRModel.n_iter_)
 
 
     
-def giveMePandaDataFrame(fileNamaParam):    
-  '''  
-  colNames=[ "versionID", "classes", "ncloc", "functions" , "duplicated_lines", "complexity", "class_complexity", "function_complexity",
-           "comment_lines", "comment_lines_density", "duplicated_lines_density", "files", "directories", "file_complexity", "violations", 
-           "duplicated_blocks", "duplicated_files", "lines", "blocker_violations", "critical_violations", "major_violations", "minor_violations" , "class_vscore", "END-EMPTY" ]
-  #print len(colNames)
-  indics=[ _ for _ in xrange(24) ]
-  '''
-  df = pd.read_csv(fileNamaParam, sep=",", header=None)
-  #print df.head()
-  #print df.describe()
-  #print df.columns
-  test_train_cols = df.columns[1:23]
-  test_trainData  = df[test_train_cols]
-  #print trainData.head()
-  return test_trainData 

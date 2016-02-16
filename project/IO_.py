@@ -108,4 +108,12 @@ def dumpVersionContents(fileNameP,  CQP, scoreP, headerParam=True):
   else: 
     strToWrite =  allLinestr  + "\n"  
   writeStrToFile(fileNameP, strToWrite)      
-    
+
+
+
+
+def giveTimeStamp():
+  import time, datetime
+  tsObj = time.time()
+  strToret = datetime.datetime.fromtimestamp(tsObj).strftime('%Y-%m-%d %H:%M:%S')
+  return strToret     
