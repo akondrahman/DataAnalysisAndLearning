@@ -1,0 +1,197 @@
+Last login: Tue Feb 16 17:35:27 on ttys001
+eb2-2206-mac03-4:gitRepo akond$ cd project/
+eb2-2206-mac03-4:project akond$ python main_.py 
+Started at:  2016-02-16 19:04:26
+Training size:  10.0
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+   Low_Risk       1.00      0.02      0.05       128
+  High_Risk       0.75      1.00      0.85       367
+
+avg / total       0.81      0.75      0.65       495
+
+*********************
+Area under the ROC curve is  0.51171875
+*********************
+Mean absolute errro output  is  0.252525252525
+*********************
+Accuracy output  is  0.747474747475
+*********************
+Hamming loss output  is  0.252525252525
+*********************
+Jaccardian output  is  0.747474747475
+*********************
+---------------------------------------------------------------
+Training size:  20.0
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+   Low_Risk       1.00      0.04      0.08       114
+  High_Risk       0.75      1.00      0.86       326
+
+avg / total       0.81      0.75      0.66       440
+
+*********************
+Area under the ROC curve is  0.521929824561
+*********************
+Mean absolute errro output  is  0.247727272727
+*********************
+Accuracy output  is  0.752272727273
+*********************
+Hamming loss output  is  0.247727272727
+*********************
+Jaccardian output  is  0.752272727273
+*********************
+---------------------------------------------------------------
+Training size:  30.0
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+   Low_Risk       1.00      0.04      0.08       101
+  High_Risk       0.75      1.00      0.85       284
+
+avg / total       0.81      0.75      0.65       385
+
+*********************
+Area under the ROC curve is  0.519801980198
+*********************
+Mean absolute errro output  is  0.251948051948
+*********************
+Accuracy output  is  0.748051948052
+*********************
+Hamming loss output  is  0.251948051948
+*********************
+Jaccardian output  is  0.748051948052
+*********************
+---------------------------------------------------------------
+Training size:  40.0
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+   Low_Risk       1.00      0.07      0.14        82
+  High_Risk       0.77      1.00      0.87       248
+
+avg / total       0.82      0.77      0.69       330
+
+*********************
+Area under the ROC curve is  0.536585365854
+*********************
+Mean absolute errro output  is  0.230303030303
+*********************
+Accuracy output  is  0.769696969697
+*********************
+Hamming loss output  is  0.230303030303
+*********************
+Jaccardian output  is  0.769696969697
+*********************
+---------------------------------------------------------------
+Training size:  50.0
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+   Low_Risk       1.00      0.09      0.16        67
+  High_Risk       0.77      1.00      0.87       208
+
+avg / total       0.83      0.78      0.70       275
+
+*********************
+Area under the ROC curve is  0.544776119403
+*********************
+Mean absolute errro output  is  0.221818181818
+*********************
+Accuracy output  is  0.778181818182
+*********************
+Hamming loss output  is  0.221818181818
+*********************
+Jaccardian output  is  0.778181818182
+*********************
+---------------------------------------------------------------
+Training size:  60.0
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+   Low_Risk       1.00      0.16      0.28        50
+  High_Risk       0.80      1.00      0.89       170
+
+avg / total       0.85      0.81      0.75       220
+
+*********************
+Area under the ROC curve is  0.58
+*********************
+Mean absolute errro output  is  0.190909090909
+*********************
+Accuracy output  is  0.809090909091
+*********************
+Hamming loss output  is  0.190909090909
+*********************
+Jaccardian output  is  0.809090909091
+*********************
+---------------------------------------------------------------
+Training size:  70.0
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+   Low_Risk       1.00      0.18      0.30        39
+  High_Risk       0.80      1.00      0.89       126
+
+avg / total       0.85      0.81      0.75       165
+
+*********************
+Area under the ROC curve is  0.589743589744
+*********************
+Mean absolute errro output  is  0.193939393939
+*********************
+Accuracy output  is  0.806060606061
+*********************
+Hamming loss output  is  0.193939393939
+*********************
+Jaccardian output  is  0.806060606061
+*********************
+---------------------------------------------------------------
+Training size:  80.0
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+   Low_Risk       1.00      0.10      0.18        20
+  High_Risk       0.83      1.00      0.91        90
+
+avg / total       0.86      0.84      0.78       110
+
+*********************
+Area under the ROC curve is  0.55
+*********************
+Mean absolute errro output  is  0.163636363636
+*********************
+Accuracy output  is  0.836363636364
+*********************
+Hamming loss output  is  0.163636363636
+*********************
+Jaccardian output  is  0.836363636364
+*********************
+---------------------------------------------------------------
+Training size:  90.0
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+   Low_Risk       1.00      0.11      0.20         9
+  High_Risk       0.85      1.00      0.92        46
+
+avg / total       0.88      0.85      0.80        55
+
+*********************
+Area under the ROC curve is  0.555555555556
+*********************
+Mean absolute errro output  is  0.145454545455
+*********************
+Accuracy output  is  0.854545454545
+*********************
+Hamming loss output  is  0.145454545455
+*********************
+Jaccardian output  is  0.854545454545
+*********************
+---------------------------------------------------------------
+==================================================================================================================
+Done ;-)
+Ended at:  2016-02-16 19:04:26
+eb2-2206-mac03-4:project akond$ 
