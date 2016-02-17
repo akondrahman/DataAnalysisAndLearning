@@ -42,16 +42,18 @@ This is experiemnt 2 : there are NO versions with ZERO scores
 '''
 This is experiemnt 4 : classification with  NO versions that has ZERO scores + used Median  for clustering 
 '''  
-fileNameParam="NonZeroDataset_Median.csv"
-experiments.experiemnt_svm(fileNameParam)
-print "=================================================================================================================="
+#print "This is experiemnt 4 : classification with  NO versions that has ZERO scores + used Median for High and Low"
+#fileNameParam="NonZeroDataset_Median.csv"
+#experiments.experiemnt_svm(fileNameParam)
+#print "=================================================================================================================="
 
 '''
 This is experiemnt 5 : classification with  NO versions that has ZERO scores + used K-Means  for clustering 
 '''  
-#fileNameParam="NonZeroDataset_Cluster.csv"
-#experiments.experiemnt_svm(fileNameParam)
-#print "=================================================================================================================="
+print "This is experiemnt 5 : classification with  NO versions that has ZERO scores + used K-Means for High and Low"
+fileNameParam="NonZeroDataset_Cluster.csv"
+experiments.experiemnt_svm(fileNameParam)
+print "=================================================================================================================="
 
 print "Done ;-)"
 print "Ended at: ", IO_.giveTimeStamp()
