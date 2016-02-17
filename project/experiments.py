@@ -134,12 +134,18 @@ def experiemnt_three(dbFileName, meanFlag, outputStrParam, clusterFlag):
 	reshapedNonZerSanitizedScores = np.reshape(onlyTheNonZeroSanitizedVScores, (-1, 1))
 	clusteringType.fit(reshapedNonZerSanitizedScores)
 	labelsFroVersions = clusteringType.labels_
-	centroids = clusteringType.cluster_centers_
-	#print "And the labels are .... "
-	#print len(labels) 
-	print "And the centroids are .... ", centroids
+	if clusterFlag:
+		centroids = clusteringType.cluster_centers_
+		print "And the centroids are .... ", centroids		
+		NonZer_Santized_versionDictWithLabels = utility.clusterByKmeansLabel( onlyTheNonZeroSanitizedVersionIDs , labelsFroVersions) 
+	else:
+		print "No centroids for Aggolomerative clustering"			
+		NonZer_Santized_versionDictWithLabels = utility.clusterByAggoloLabel( onlyTheNonZeroSanitizedVersionIDs , labelsFroVersions) 	
+	print "And the labels are .... "
+	print labelsFroVersions
+
 	   
-	NonZer_Santized_versionDictWithLabels = utility.clusterByKmeansLabel( onlyTheNonZeroSanitizedVersionIDs , labelsFroVersions) 
+
 	#print "versionDictWithLabels"
 	#print len(versionDictWithLabels)
 

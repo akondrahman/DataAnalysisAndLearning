@@ -88,5 +88,14 @@ def clusterByKmeansLabel(versionIDs, versionLabels):
       labeledVersions[versionIDs[cnt]] = labelVal
       
   
-  return labeledVersions     
+  return labeledVersions    
+  
+  
+  
+def clusterByAggoloLabel(versionIDs, versionLabels):  
+  labeledVersions ={}
+  if len(versionIDs)==len(versionLabels):
+    for cnt in xrange(len(versionIDs)): 
+      labeledVersions[versionIDs[cnt]] = versionLabels[cnt]
+  return labeledVersions        
   

@@ -35,9 +35,13 @@ This is experiemnt 2 : there are NO versions with ZERO scores
 
 
 '''
-#clsuterFlag = True # True means  kmeans, Flase DBSCAN
-#print "########################## Applying the '"+  str_ + "' approach with K-Means ###############################"
-#experiments.experiemnt_three(dbFileName,meanFlag, "Exp_3_" + outputStr, clsuterFlag )
+#clsuterFlag = False # True means  kmeans, Flase hierarchical
+#if clsuterFlag: 
+#  clusterStr="K-Means"    
+#else:
+#  clusterStr="Aggolomerative"        
+#print "########################## Applying the '"+  str_ + "' approach with " + clusterStr +  " ###############################"
+#experiments.experiemnt_three(dbFileName,meanFlag, "Exp_3_" + outputStr + "_" + clusterStr, clsuterFlag )
 #print "=================================================================================================================="
 '''
 This is experiemnt 4 : classification with  NO versions that has ZERO scores + used Median  for clustering 
@@ -50,8 +54,9 @@ This is experiemnt 4 : classification with  NO versions that has ZERO scores + u
 '''
 This is experiemnt 5 : classification with  NO versions that has ZERO scores + used K-Means  for clustering 
 '''  
-print "This is experiemnt 5 : classification with  NO versions that has ZERO scores + used K-Means for High and Low"
-fileNameParam="NonZeroDataset_Cluster.csv"
+print "This is experiemnt 5 : classification with  NO versions that has ZERO scores + used Aggolo for High and Low"
+#fileNameParam="NonZeroDataset_KMeans.csv"
+fileNameParam="NonZeroDataset_Aggolo.csv"
 experiments.experiemnt_svm(fileNameParam)
 print "=================================================================================================================="
 
