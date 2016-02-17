@@ -148,3 +148,18 @@ def dumpIntoClusterifiedFile(fileNameP,  CQP, scoreP,  headerParam=True):
   else: 
     strToWrite =  allLinestr  + "\n"  
   writeStrToFile(fileNameP, strToWrite)  
+  
+  
+  
+  
+def giveTestAndTrainingData(fileNamaParam):  
+  import utility  
+  # get test and train data together  
+  test_trainData = utility.giveMePandaDataFrame(fileNamaParam)  
+  # training data 
+  trainingCols = test_trainData.columns[0:21]
+  trainData = test_trainData[trainingCols]
+  # test data 
+  testColn = test_trainData.columns[-1]
+  testData  = test_trainData[testColn]  
+  return trainData, testData
