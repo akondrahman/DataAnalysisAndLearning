@@ -11,7 +11,7 @@ import  experiments, IO_
 print "Started at: ", IO_.giveTimeStamp()
 # -----------------------------------------------------------------------
 dbFileName="/Users/akond/Documents/Spring-2016/CSC522/OSSAndroidAppDataset/androSec.db"
-meanFlag=True
+meanFlag=False
 # -----------------------------------------------------------------------
 if meanFlag:
   str_ = "M-E-A-N" 
@@ -31,17 +31,27 @@ This is experiemnt 2 : there are NO versions with ZERO scores
 #experiments.experiemnt_two(dbFileName, meanFlag, "Exp_2_" + outputStr)
 #print "=================================================================================================================="
 '''
-	This experiemnt is abandones because logistic reression si a binary classifier 
-	and not an estmator 
+	This is experiemnt # 3 where we split the vulnerability scores with clustering  
 
-experiments.experiemnt_three(dbFileName, meanFlag)
-print "=================================================================================================================="
+
 '''
+#clsuterFlag = True # True means  kmeans, Flase DBSCAN
+#print "########################## Applying the '"+  str_ + "' approach with K-Means ###############################"
+#experiments.experiemnt_three(dbFileName,meanFlag, "Exp_3_" + outputStr, clsuterFlag )
+#print "=================================================================================================================="
 '''
-This is experiemnt 4 : classification with  NO versions that has ZERO scores 
+This is experiemnt 4 : classification with  NO versions that has ZERO scores + used Median  for clustering 
 '''  
-fileNameParam="TheNonZeroDataset.csv"
-experiments.experiemnt_four(fileNameParam)
-print "=================================================================================================================="
+#fileNameParam="NonZeroDataset_Median.csv"
+#experiments.experiemnt_svm(fileNameParam)
+#print "=================================================================================================================="
+
+'''
+This is experiemnt 5 : classification with  NO versions that has ZERO scores + used K-Means  for clustering 
+'''  
+#fileNameParam="NonZeroDataset_Cluster.csv"
+#experiments.experiemnt_svm(fileNameParam)
+#print "=================================================================================================================="
+
 print "Done ;-)"
 print "Ended at: ", IO_.giveTimeStamp()

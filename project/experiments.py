@@ -7,7 +7,7 @@ Created on Mon Feb 15 17:28:27 2016
 
 
 
-import DataExtractionFromTables as DEFT, sanityCheck, utility , IO_, logiRegre as LGR
+import DataExtractionFromTables as DEFT, sanityCheck, utility , IO_, logiRegre as LGR, numpy as np
 def experiemnt_one(dbFileName, meanFlag, outputStrParam):
 	print "Performing experiment # 1"
 	#import correlation as corr_
@@ -111,43 +111,52 @@ def experiemnt_two(dbFileName, meanFlag, outputStrParam ):
 	IO_.dumpIntoFile( themegaFile_All,sanitizedVersions_CQ , NonZero_sanitizedVersionsWithScore, threshold, False )
 	LGR.performLogiRegression(themegaFile_All)  
  
-def experiemnt_three(dbFileName, meanFlag):
-	'''
-	This experiemnt is abandones because logistic reression si a binary classifier 
-	and not an estmator 
-	'''
+def experiemnt_three(dbFileName, meanFlag, outputStrParam, clusterFlag):
+	from sklearn import cluster
+	clusteringType = None  
+	if clusterFlag:
+		clusteringType = cluster.KMeans(n_clusters=2)
+	else:
+		clusteringType = cluster.AgglomerativeClustering(n_clusters=2)  
 
-	print "Performing experiemnt # 3: Only high versions consiered "
 
+	print "Performing experiemnt # 3: Clustering score into two clusters "
 	versionAndCodeQualityDict =  DEFT.getValuesFrom_CodingStandard(dbFileName)
 	sanitizedVersions = sanityCheck.getCodeQualityofVersions(versionAndCodeQualityDict, meanFlag)
-	print "Sanitized versions that will be used in study ", len(sanitizedVersions)
+	sanitizedVersions_CQ = sanitizedVersions
+	#print "Sanitized versions that will be used in study ", len(sanitizedVersions)
 	#print "Sanitized versions ..." , sanitizedVersions
 	NonZero_sanitizedVersionsWithScore = sanityCheck.getNonZeroVulnerbailityScoreOfSelectedVersions(sanitizedVersions)
+	#print "zzzz", len(NonZero_sanitizedVersionsWithScore)
+	brokenDict = utility.getVScoreList(NonZero_sanitizedVersionsWithScore)
+	onlyTheNonZeroSanitizedVersionIDs, onlyTheNonZeroSanitizedVScores = brokenDict[0], brokenDict[1]
+	#print "lalalaa ", onlyTheNonZeroSanitizedVScores
+	reshapedNonZerSanitizedScores = np.reshape(onlyTheNonZeroSanitizedVScores, (-1, 1))
+	clusteringType.fit(reshapedNonZerSanitizedScores)
+	labelsFroVersions = clusteringType.labels_
+	centroids = clusteringType.cluster_centers_
+	#print "And the labels are .... "
+	#print len(labels) 
+	print "And the centroids are .... ", centroids
+	   
+	NonZer_Santized_versionDictWithLabels = utility.clusterByKmeansLabel( onlyTheNonZeroSanitizedVersionIDs , labelsFroVersions) 
+	#print "versionDictWithLabels"
+	#print len(versionDictWithLabels)
 
-	'''
-	Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0	
-	'''
+
+
 
 	############################## 
-	sanitizedVersions_CQ = sanitizedVersions
-
-	#######  high vScore versions started  
-	threshold = 51.1111111111
-	high_CQ_dict = utility.getHighVScoreVersions_CQ( NonZero_sanitizedVersionsWithScore , sanitizedVersions_CQ , threshold)
-	high_vScore_Dict = utility.getHighVScoreVersions_VScore(NonZero_sanitizedVersionsWithScore, threshold)
-	print "only high_vscore_versions ", len(high_vScore_Dict)
-	#######  high vScore versions ended   
-	only_the_high_versions_file_name = "only_the_high_versions.csv"
-	IO_.dumpVersionContents(only_the_high_versions_file_name, high_CQ_dict, high_vScore_Dict, False  )  
-	LGR.performLogiRegression(only_the_high_versions_file_name)  
+	themegaFile_All = outputStrParam + "_" + "culsterified_non_zero_all-CQ-HL.csv"
+	IO_.dumpIntoClusterifiedFile( themegaFile_All,sanitizedVersions_CQ , NonZer_Santized_versionDictWithLabels, False )
+	LGR.performLogiRegression(themegaFile_All)  
 
 
 
 
 
 
-def experiemnt_four(fileNameParam):
+def experiemnt_svm(fileNameParam):
 	import classifiers 
 	emperiemntSplitters=[float(x)/float(10) for x in xrange(10) if x > 0] 
 	for elem in emperiemntSplitters:

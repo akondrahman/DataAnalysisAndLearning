@@ -64,3 +64,29 @@ def giveMePandaDataFrame(fileNamaParam):
   #print trainData.head()
   return test_trainData   
   
+  
+  
+  
+def getVScoreList(VScoreDictP):
+  versionIDs, Vscores =[], []  
+  for k_, v_ in VScoreDictP.items():
+    versionIDs.append(k_)
+    Vscores.append(v_)
+  return versionIDs, Vscores  
+
+
+
+
+def clusterByKmeansLabel(versionIDs, versionLabels):
+  labeledVersions ={}
+  if len(versionIDs)==len(versionLabels):
+    for cnt in xrange(len(versionIDs)): 
+      if versionLabels[cnt]==0:
+        labelVal = 1 
+      else: 
+        labelVal =  0   
+      labeledVersions[versionIDs[cnt]] = labelVal
+      
+  
+  return labeledVersions     
+  
