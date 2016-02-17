@@ -49,9 +49,9 @@ This is experiemnt 4 : classification with  NO versions that has ZERO scores + u
 '''
 This is experiemnt 5 : classification with  NO versions that has ZERO scores + used K-Means  for clustering 
 '''  
-#fileNameParam="NonZeroDataset_Cluster.csv"
-#experiments.experiemnt_svm(fileNameParam)
-#print "=================================================================================================================="
+fileNameParam="NonZeroDataset_Cluster.csv"
+experiments.experiemnt_svm(fileNameParam)
+print "=================================================================================================================="
 
 print "Done ;-)"
 print "Ended at: ", IO_.giveTimeStamp()
