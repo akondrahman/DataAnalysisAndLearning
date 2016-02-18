@@ -1,0 +1,143 @@
+Last login: Wed Feb 17 10:49:40 on ttys000
+eb2-2206-mac03-4:gitRepo akond$ cd project/
+eb2-2206-mac03-4:project akond$ python main_.py 
+Started at:  2016-02-17 21:19:07
+This is experiemnt 6 : correlation different to that of 4 and 5 
+Stats on file count : len=1407, median=19.0,  mean=54.1080312722, max=2237, min=1,
+Sanitized versions that will be used in study  337
+Stats on risk score-->len=337, median=51.1111111111,  mean=42.579722913, max=53.3333333333, min=0.0,
+------------------
+Correlating vScore and classCount
+Pearson:0.228238859098, P-P:0.0121675344055, Spaeramn:0.200168218151, S-P:0.0283783050016, MIC:0.292210874649, Non-Linearity:0.240117897847
+------------------
+Correlating vScore and lineWithStrings 
+Pearson:0.204314865514, P-P:0.0251950902921, Spaeramn:0.225243335853, S-P:0.0133810668868, MIC:0.394245934387, Non-Linearity:0.352501370117
+------------------
+Correlating vScore and noOfFunctions 
+Pearson:0.162088156768, P-P:0.0769410333283, Spaeramn:0.14737001441, S-P:0.108220462794, MIC:0.418275146534, Non-Linearity:0.392002575969
+------------------
+Correlating vScore and noOfDuplicatedLines 
+Pearson:0.190420464668, P-P:0.0372312147228, Spaeramn:0.21284756093, S-P:0.0195938699652, MIC:0.288813415276, Non-Linearity:0.252553461911
+------------------
+Correlating vScore and totComplexity 
+Pearson:0.204856160017, P-P:0.0248029849005, Spaeramn:0.208306113088, S-P:0.0224244707952, MIC:0.380707579455, Non-Linearity:0.338741533157
+------------------
+Correlating vScore and classComplexity 
+Pearson:-0.0130657719646, P-P:0.887367305602, Spaeramn:0.0542949068891, S-P:0.555874568599, MIC:0.217153541051, Non-Linearity:0.216982826654
+------------------
+Correlating vScore and funcCmplexity 
+Pearson:0.229729753702, P-P:0.011600266467, Spaeramn:0.263856809577, S-P:0.00359190212388, MIC:0.400263470627, Non-Linearity:0.347487710891
+------------------
+Correlating vScore and commentsLines 
+Pearson:-0.00459740988665, P-P:0.96025369626, Spaeramn:0.047678958338, S-P:0.605069441579, MIC:0.309547598952, Non-Linearity:0.309526462774
+------------------
+Correlating vScore and commentsLineDensity 
+Pearson:-0.19118699215, P-P:0.0364596926855, Spaeramn:-0.179239581283, S-P:0.0501346398759, MIC:0.384645983338, Non-Linearity:0.348093517371
+------------------
+Correlating vScore and duplicatedLineDensity 
+Pearson:0.118177991509, P-P:0.198605473389, Spaeramn:0.160668287365, S-P:0.0795988650943, MIC:0.228703666486, Non-Linearity:0.214737628809
+------------------
+Correlating vScore and no of Files 
+Pearson:0.191985174031, P-P:0.0356706485829, Spaeramn:0.201855595113, S-P:0.0270439274502, MIC:0.339039646001, Non-Linearity:0.302181338953
+------------------
+Correlating vScore and no. of directories  
+Pearson:0.169724568973, P-P:0.0638467323389, Spaeramn:0.154402762472, S-P:0.0922189614091, MIC:0.21053889196, Non-Linearity:0.181732462647
+------------------
+Correlating vScore and fileComplexity 
+Pearson:0.0954233034573, P-P:0.299858607213, Spaeramn:0.12705362796, S-P:0.166712117823, MIC:0.271682356676, Non-Linearity:0.262576749833
+------------------
+Correlating vScore and no. of violations  
+Pearson:0.311755912925, P-P:0.000527926963461, Spaeramn:0.368851292748, S-P:3.39198923445e-05, MIC:0.366571089953, Non-Linearity:0.269379340709
+------------------
+Correlating vScore and duplicated block count  
+Pearson:0.152931859433, P-P:0.0954003149344, Spaeramn:0.20159275629, S-P:0.0272481962373, MIC:0.249930386144, Non-Linearity:0.226542232515
+------------------
+Correlating vScore and duplicated files count 
+Pearson:0.263769021997, P-P:0.0036034715334, Spaeramn:0.329877450115, S-P:0.000233831080131, MIC:0.237808991817, Non-Linearity:0.168234894852
+------------------
+Correlating vScore and total lines 
+Pearson:0.178094981975, P-P:0.05164271398, Spaeramn:0.183432695984, S-P:0.0449179408212, MIC:0.345468326688, Non-Linearity:0.313750504083
+------------------
+Correlating vScore and blocker violations count 
+Pearson:-0.0396826580504, P-P:0.666961923029, Spaeramn:0.158557146594, S-P:0.0836863744653, MIC:0.152892285508, Non-Linearity:0.151317572158
+------------------
+Correlating vScore and critical violations 
+Pearson:0.393632905842, P-P:8.67434470206e-06, Spaeramn:0.384747758948, S-P:1.43252654021e-05, MIC:0.301634383796, Non-Linearity:0.146687519234
+------------------
+Correlating vScore and major violations  
+Pearson:0.34297514141, P-P:0.000125683072139, Spaeramn:0.410890215302, S-P:3.13854661179e-06, MIC:0.418554276839, Non-Linearity:0.300922329213
+------------------
+Correlating vScore and minor violations  
+Pearson:0.20377814061, P-P:0.0255891033715, Spaeramn:0.273129740741, S-P:0.0025421645483, MIC:0.270100887692, Non-Linearity:0.228575357102
+Performing experiemnt # Correlation: Clustering score into two clusters 
+Stats on file count : len=1407, median=19.0,  mean=54.1080312722, max=2237, min=1,
+Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0,
+And the centroids are ....  [[ 50.82030058]
+ [ 22.35294118]]
+------------------
+Correlating vScore and classCount
+Pearson:0.059342801414, P-P:0.1717086011, Spaeramn:0.0777559059774, S-P:0.0731417855303, MIC:0.21166067849, Non-Linearity:0.208139110411
+------------------
+Correlating vScore and lineWithStrings 
+Pearson:0.0641324801577, P-P:0.139604521088, Spaeramn:0.0610210614987, S-P:0.159885188619, MIC:0.228597424081, Non-Linearity:0.22448444907
+------------------
+Correlating vScore and noOfFunctions 
+Pearson:0.0710734610909, P-P:0.101519007506, Spaeramn:0.073184344062, S-P:0.0917385303265, MIC:0.22549042165, Non-Linearity:0.220438984778
+------------------
+Correlating vScore and noOfDuplicatedLines 
+Pearson:0.0656950461858, P-P:0.13019447165, Spaeramn:0.0835570755259, S-P:0.0540930784565, MIC:0.25412029481, Non-Linearity:0.249804455717
+------------------
+Correlating vScore and totComplexity 
+Pearson:0.0699845506809, P-P:0.106878625586, Spaeramn:0.0426985159735, S-P:0.325618053513, MIC:0.196317341414, Non-Linearity:0.19141950408
+------------------
+Correlating vScore and classComplexity 
+Pearson:0.0205969496994, P-P:0.635497010543, Spaeramn:-0.0313962962494, S-P:0.469904578632, MIC:0.178784899474, Non-Linearity:0.178360665137
+------------------
+Correlating vScore and funcCmplexity 
+Pearson:-0.0545656855031, P-P:0.208920150491, Spaeramn:-0.131005208283, S-P:0.00246502523676, MIC:0.19945030792, Non-Linearity:0.196472893885
+------------------
+Correlating vScore and commentsLines 
+Pearson:0.0746369366174, P-P:0.0854578057124, Spaeramn:0.0142287764231, S-P:0.743340311166, MIC:0.200751826454, Non-Linearity:0.195181154146
+------------------
+Correlating vScore and commentsLineDensity 
+Pearson:0.0412190520432, P-P:0.34267674295, Spaeramn:-0.0351158408678, S-P:0.418920530087, MIC:0.206856243788, Non-Linearity:0.205157233536
+------------------
+Correlating vScore and duplicatedLineDensity 
+Pearson:0.0756789220282, P-P:0.0811696240691, Spaeramn:0.0695253766747, S-P:0.109204653555, MIC:0.114717341457, Non-Linearity:0.108990042218
+------------------
+Correlating vScore and no of Files 
+Pearson:0.0459904377789, P-P:0.289672466352, Spaeramn:0.0484398940687, S-P:0.264722313584, MIC:0.20113188531, Non-Linearity:0.199016764943
+------------------
+Correlating vScore and no. of directories  
+Pearson:0.0314459997982, P-P:0.4692014929, Spaeramn:0.0349657394548, S-P:0.420913005394, MIC:0.121277815487, Non-Linearity:0.120288964583
+------------------
+Correlating vScore and fileComplexity 
+Pearson:0.0405415577391, P-P:0.350675246062, Spaeramn:0.0231420569641, S-P:0.594317257172, MIC:0.154221213002, Non-Linearity:0.152577595098
+------------------
+Correlating vScore and no. of violations  
+Pearson:0.040012574357, P-P:0.35700180602, Spaeramn:0.0139338494757, S-P:0.748478980431, MIC:0.22842902873, Non-Linearity:0.226828022624
+------------------
+Correlating vScore and duplicated block count  
+Pearson:0.0210912222565, P-P:0.62740581453, Spaeramn:0.0746924541345, S-P:0.0852248135354, MIC:0.173791861725, Non-Linearity:0.173347022069
+------------------
+Correlating vScore and duplicated files count 
+Pearson:0.0540438940777, P-P:0.213313107331, Spaeramn:0.0687011693787, S-P:0.113479762589, MIC:0.124146919594, Non-Linearity:0.121226177107
+------------------
+Correlating vScore and total lines 
+Pearson:0.0616081055131, P-P:0.155897726762, Spaeramn:0.065588378989, S-P:0.130820815423, MIC:0.229381057554, Non-Linearity:0.225585498889
+------------------
+Correlating vScore and blocker violations count 
+Pearson:0.0238072282366, P-P:0.583758683656, Spaeramn:-0.0407264672161, S-P:0.348480580333, MIC:0.0765327407348, Non-Linearity:0.0759659566185
+------------------
+Correlating vScore and critical violations 
+Pearson:0.0419247772126, P-P:0.334469646421, Spaeramn:0.00462134477381, S-P:0.915311214387, MIC:0.145936984074, Non-Linearity:0.14417929713
+------------------
+Correlating vScore and major violations  
+Pearson:0.0349802607936, P-P:0.420720004313, Spaeramn:0.0268739241869, S-P:0.536243065498, MIC:0.214104721096, Non-Linearity:0.212881102451
+------------------
+Correlating vScore and minor violations  
+Pearson:0.0454646865158, P-P:0.295227166467, Spaeramn:-0.0215866171635, S-P:0.619340831086, MIC:0.212295791716, Non-Linearity:0.210228753996
+==================================================================================================================
+Done ;-)
+Ended at:  2016-02-17 21:19:08
+eb2-2206-mac03-4:project akond$ 

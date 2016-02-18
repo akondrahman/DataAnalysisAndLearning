@@ -170,3 +170,45 @@ def experiemnt_svm(fileNameParam):
 		classifiers.runSVM(fileNameParam, elem)
 		print "---------------------------------------------------------------"
 
+
+
+def experiemnt_correlation(dbFileName, meanFlag, outputStrParam, clusterFlag):
+	import correlation	
+	from sklearn import cluster
+	clusteringType = None  
+	if clusterFlag:
+		clusteringType = cluster.KMeans(n_clusters=2)
+	else:
+		clusteringType = cluster.AgglomerativeClustering(n_clusters=2)  
+
+
+	print "Performing experiemnt # Correlation: Clustering score into two clusters "
+	versionAndCodeQualityDict =  DEFT.getValuesFrom_CodingStandard(dbFileName)
+	sanitizedVersions = sanityCheck.getCodeQualityofVersions(versionAndCodeQualityDict, meanFlag)
+	sanitizedVersions_CQ = sanitizedVersions
+	#print "Sanitized versions that will be used in study ", len(sanitizedVersions)
+	#print "Sanitized versions ..." , sanitizedVersions
+	NonZero_sanitizedVersionsWithScore = sanityCheck.getNonZeroVulnerbailityScoreOfSelectedVersions(sanitizedVersions)
+	#print "zzzz", len(NonZero_sanitizedVersionsWithScore)
+	brokenDict = utility.getVScoreList(NonZero_sanitizedVersionsWithScore)
+	onlyTheNonZeroSanitizedVersionIDs, onlyTheNonZeroSanitizedVScores = brokenDict[0], brokenDict[1]
+	#print "lalalaa ", onlyTheNonZeroSanitizedVScores
+	reshapedNonZerSanitizedScores = np.reshape(onlyTheNonZeroSanitizedVScores, (-1, 1))
+	clusteringType.fit(reshapedNonZerSanitizedScores)
+	labelsFroVersions = clusteringType.labels_
+	if clusterFlag:
+		centroids = clusteringType.cluster_centers_
+		print "And the centroids are .... ", centroids		
+		NonZer_Santized_versionDictWithLabels = utility.clusterByKmeansLabel( onlyTheNonZeroSanitizedVersionIDs , labelsFroVersions) 
+	else:
+		print "No centroids for Aggolomerative clustering"			
+		NonZer_Santized_versionDictWithLabels = utility.clusterByAggoloLabel( onlyTheNonZeroSanitizedVersionIDs , labelsFroVersions) 	
+	#print "And the labels are .... "
+	#print labelsFroVersions
+
+	   
+
+	#print "versionDictWithLabels"
+	#print len(versionDictWithLabels)
+	onlyHighV_Scores_Dict = utility.getH_Scores_ForCorr(NonZer_Santized_versionDictWithLabels, NonZero_sanitizedVersionsWithScore)
+	correlation.performCorrBasedOnIndiMetrics(onlyHighV_Scores_Dict, sanitizedVersions_CQ)

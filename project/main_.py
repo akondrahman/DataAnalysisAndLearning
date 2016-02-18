@@ -54,11 +54,32 @@ This is experiemnt 4 : classification with  NO versions that has ZERO scores + u
 '''
 This is experiemnt 5 : classification with  NO versions that has ZERO scores + used K-Means  for clustering 
 '''  
-print "This is experiemnt 5 : classification with  NO versions that has ZERO scores + used Aggolo for High and Low"
-#fileNameParam="NonZeroDataset_KMeans.csv"
-fileNameParam="NonZeroDataset_Aggolo.csv"
-experiments.experiemnt_svm(fileNameParam)
-print "=================================================================================================================="
+#print "This is experiemnt 5 : classification with  NO versions that has ZERO scores + used Aggolo for High and Low"
+##fileNameParam="NonZeroDataset_KMeans.csv"
+#fileNameParam="NonZeroDataset_Aggolo.csv"
+#experiments.experiemnt_svm(fileNameParam)
+#print "=================================================================================================================="
+
+
+
+'''
+This is experiemnt 6 : correlation : different to that of 4 and 5  
+'''  
+#clsuterFlag = True # True means  kmeans, Flase hierarchical
+#if clsuterFlag: 
+#  clusterStr="K-Means"    
+#else:
+#  clusterStr="Aggolomerative"        
+#print "This is experiemnt 6 : 'correlation' different to that of 4 and 5 "
+#experiments.experiemnt_correlation(dbFileName,meanFlag, "Exp_6_" + outputStr + "_" + clusterStr, clsuterFlag)
+'''
+Only foudn one metric that has a Spearman correlation p-value < 0.05 for high defect scores. it was func_complexity  
+Found no  metric that has a Pearson correlation p-value < 0.05 for high defect scores. 
+Almost all metrics shows shome valeu for MIC and non-linearity. 
+Can be preneted in paper as learning curve and say the imprtance of simple logistic regression analysis 
+
+'''
+#print "=================================================================================================================="
 
 print "Done ;-)"
 print "Ended at: ", IO_.giveTimeStamp()

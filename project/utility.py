@@ -97,5 +97,15 @@ def clusterByAggoloLabel(versionIDs, versionLabels):
   if len(versionIDs)==len(versionLabels):
     for cnt in xrange(len(versionIDs)): 
       labeledVersions[versionIDs[cnt]] = versionLabels[cnt]
-  return labeledVersions        
+  return labeledVersions      
+
+
+
+
+def getH_Scores_ForCorr(labelDictP, scoreDictP):
+  dic_Ret={}
+  for k_, v_ in labelDictP.items(): 
+    if v_==1:  
+      dic_Ret[k_] = scoreDictP[k_]    
+  return dic_Ret    
   
