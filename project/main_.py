@@ -95,11 +95,11 @@ Classifier: RandmonForests
 This is experiemnt 8 : classification with  NO versions that has ZERO scores + used K-Means  for clustering 
 Classifier: RandmonForests
 '''  
-print "This is experiemnt 8 : classification (Random Forests) with  NO versions that has ZERO scores + used K-Means for High and Low"
-fileNameParam="NonZeroDataset_KMeans.csv"
-#fileNameParam="NonZeroDataset_Aggolo.csv"
-experiments.experiemnt_random_forest(fileNameParam)
-print "=================================================================================================================="
+#print "This is experiemnt 8 : classification (Random Forests) with  NO versions that has ZERO scores + used K-Means for High and Low"
+#fileNameParam="NonZeroDataset_KMeans.csv"
+##fileNameParam="NonZeroDataset_Aggolo.csv"
+#experiments.experiemnt_random_forest(fileNameParam)
+#print "=================================================================================================================="
 
 print "Done ;-)"
 print "Ended at: ", IO_.giveTimeStamp()
