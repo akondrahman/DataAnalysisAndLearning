@@ -11,6 +11,7 @@ import IO_
 from sklearn import cross_validation, svm
 from sklearn.metrics import classification_report, roc_auc_score, mean_absolute_error, accuracy_score, hamming_loss, jaccard_similarity_score
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.qda import QDA
 def runSVM(fileNamaParam, trainizingSizeParam):
   # what percent will you use ? 
   testSplitSize = 1.0 - trainizingSizeParam
@@ -18,7 +19,9 @@ def runSVM(fileNamaParam, trainizingSizeParam):
   trainData = testAndTrainData[0]
   testData = testAndTrainData[1]
   ### classification   
+  ## get the test and training sets   
   featureSpace_train, featureSpace_test, vScore_train, vScore_test = cross_validation.train_test_split(trainData, testData, test_size=testSplitSize, random_state=0) 
+  ## fire up the model 
   theSVMModel = svm.SVC(kernel='rbf', C=1).fit(featureSpace_train, vScore_train)   
   thePredictedScores = theSVMModel.predict(featureSpace_test)
   #print "The original vector: "
@@ -28,6 +31,7 @@ def runSVM(fileNamaParam, trainizingSizeParam):
   evalClassifier(vScore_test, thePredictedScores) 
   # preserve the order first test(real values from dataset), then predcited (from the classifier )  
   
+
 def runRandomForest(fileNamaParam, trainizingSizeParam):
   # what percent will you use ? 
   testSplitSize = 1.0 - trainizingSizeParam
@@ -35,7 +39,9 @@ def runRandomForest(fileNamaParam, trainizingSizeParam):
   trainData = testAndTrainData[0]
   testData = testAndTrainData[1]
   ### classification   
+  ## get the test and training sets   
   featureSpace_train, featureSpace_test, vScore_train, vScore_test = cross_validation.train_test_split(trainData, testData, test_size=testSplitSize, random_state=0) 
+  ## fire up the model   
   theRndForestModel = RandomForestClassifier(n_estimators=10)
   theRndForestModel.fit(featureSpace_train, vScore_train)
   thePredictedScores = theRndForestModel.predict(featureSpace_test)
@@ -48,6 +54,29 @@ def runRandomForest(fileNamaParam, trainizingSizeParam):
 
 
 
+
+
+
+def runQDA(fileNamaParam, trainizingSizeParam):
+  # what percent will you use ? 
+  testSplitSize = 1.0 - trainizingSizeParam
+  testAndTrainData = IO_.giveTestAndTrainingData(fileNamaParam)
+  trainData = testAndTrainData[0]
+  testData = testAndTrainData[1]
+  ### classification   
+  ## get the test and training sets 
+  featureSpace_train, featureSpace_test, vScore_train, vScore_test = cross_validation.train_test_split(trainData, testData, test_size=testSplitSize, random_state=0) 
+  ## fire up the model   
+  theQDAModel = QDA()
+  theQDAModel.fit(featureSpace_train, vScore_train)
+  thePredictedScores = theQDAModel.predict(featureSpace_test)
+  #print "The original vector: "
+  #print vScore_test
+  #print "The predicted score vector: "
+  #print thePredictedScores
+  evalClassifier(vScore_test, thePredictedScores) 
+  # preserve the order first test(real values from dataset), then predcited (from the classifier )      
+    
   
 def evalClassifier(vScore_test, thePredictedScores):  
   target_names = ['Low_Risk', 'High_Risk']

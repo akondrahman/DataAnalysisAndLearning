@@ -100,6 +100,24 @@ Classifier: RandmonForests
 ##fileNameParam="NonZeroDataset_Aggolo.csv"
 #experiments.experiemnt_random_forest(fileNameParam)
 #print "=================================================================================================================="
+'''
+This is experiemnt 9 : classification with  NO versions that has ZERO scores + used Median  for clustering
+Classifier: Quadratic Determinsitic Analysis  (QDA)
+'''  
+#print "This is experiemnt 9 : classification  (QDA) with  NO versions that has ZERO scores + used Median for High and Low"
+#fileNameParam="NonZeroDataset_Median.csv"
+#experiments.experiemnt_qda(fileNameParam)
+#print "=================================================================================================================="
+
+'''
+This is experiemnt 10 : classification with  NO versions that has ZERO scores + used K-Means  for clustering 
+Classifier: Quadratic Determinsitic Analysis 
+'''  
+print "This is experiemnt 10 : classification (QDA) with  NO versions that has ZERO scores + used K-Means for High and Low"
+#fileNameParam="NonZeroDataset_KMeans.csv"
+fileNameParam="NonZeroDataset_Aggolo.csv"
+experiments.experiemnt_qda(fileNameParam)
+print "=================================================================================================================="
 
 print "Done ;-)"
 print "Ended at: ", IO_.giveTimeStamp()

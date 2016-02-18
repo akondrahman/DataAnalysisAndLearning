@@ -219,3 +219,13 @@ def experiemnt_random_forest(fileNameParam):
 		print "Training size: {} %".format(float(elem*100))
 		classifiers.runRandomForest(fileNameParam, elem)
 		print "---------------------------------------------------------------"	
+
+
+
+def experiemnt_qda(fileNameParam):
+	import classifiers 
+	emperiemntSplitters=[float(x+2)/float(10) for x in xrange(10) if x > 0] 
+	for elem in emperiemntSplitters:
+		print "Training size: {} %".format(float(elem*100))
+		classifiers.runQDA(fileNameParam, elem)
+		print "---------------------------------------------------------------"			
