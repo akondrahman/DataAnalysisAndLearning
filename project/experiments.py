@@ -212,3 +212,10 @@ def experiemnt_correlation(dbFileName, meanFlag, outputStrParam, clusterFlag):
 	#print len(versionDictWithLabels)
 	onlyHighV_Scores_Dict = utility.getH_Scores_ForCorr(NonZer_Santized_versionDictWithLabels, NonZero_sanitizedVersionsWithScore)
 	correlation.performCorrBasedOnIndiMetrics(onlyHighV_Scores_Dict, sanitizedVersions_CQ)
+def experiemnt_random_forest(fileNameParam):
+	import classifiers 
+	emperiemntSplitters=[float(x)/float(10) for x in xrange(10) if x > 0] 
+	for elem in emperiemntSplitters:
+		print "Training size: {} %".format(float(elem*100))
+		classifiers.runRandomForest(fileNameParam, elem)
+		print "---------------------------------------------------------------"	
