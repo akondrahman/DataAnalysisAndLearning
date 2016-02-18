@@ -12,6 +12,11 @@ from sklearn import cross_validation, svm
 from sklearn.metrics import classification_report, roc_auc_score, mean_absolute_error, accuracy_score, hamming_loss, jaccard_similarity_score
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.qda import QDA
+from sklearn.tree import DecisionTreeClassifier 
+
+
+
+
 def runSVM(fileNamaParam, trainizingSizeParam):
   # what percent will you use ? 
   testSplitSize = 1.0 - trainizingSizeParam
@@ -76,7 +81,26 @@ def runQDA(fileNamaParam, trainizingSizeParam):
   #print thePredictedScores
   evalClassifier(vScore_test, thePredictedScores) 
   # preserve the order first test(real values from dataset), then predcited (from the classifier )      
-    
+  
+def runCART(fileNamaParam, trainizingSizeParam):  
+  # what percent will you use ? 
+  testSplitSize = 1.0 - trainizingSizeParam
+  testAndTrainData = IO_.giveTestAndTrainingData(fileNamaParam)
+  trainData = testAndTrainData[0]
+  testData = testAndTrainData[1]
+  ### classification   
+  ## get the test and training sets 
+  featureSpace_train, featureSpace_test, vScore_train, vScore_test = cross_validation.train_test_split(trainData, testData, test_size=testSplitSize, random_state=0) 
+  ## fire up the model   
+  theQDAModel = DecisionTreeClassifier()
+  theQDAModel.fit(featureSpace_train, vScore_train)
+  thePredictedScores = theQDAModel.predict(featureSpace_test)
+  #print "The original vector: "
+  #print vScore_test
+  #print "The predicted score vector: "
+  #print thePredictedScores
+  evalClassifier(vScore_test, thePredictedScores) 
+  # preserve the order first test(real values from dataset), then predcited (from the classifier )          
   
 def evalClassifier(vScore_test, thePredictedScores):  
   target_names = ['Low_Risk', 'High_Risk']

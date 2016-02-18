@@ -1,0 +1,199 @@
+Last login: Thu Feb 18 17:32:32 on ttys002
+eb2-2206-mac03-4:project akond$ python main_.py 
+Started at:  2016-02-18 17:50:44
+This is experiemnt 12 : classification (CART) with  NO versions that has ZERO scores + used Aggolo for High and Low
+/Applications/AnacondaInstallation/anaconda/lib/python2.7/site-packages/sklearn/qda.py:4: DeprecationWarning: qda.QDA has been moved to discriminant_analysis.QuadraticDiscriminantAnalysis in 0.17 and will be removed in 0.19.
+  "in 0.17 and will be removed in 0.19.", DeprecationWarning)
+Training size: 10.0 %
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+   Low_Risk       0.00      0.00      0.00        16
+  High_Risk       0.97      1.00      0.98       479
+
+avg / total       0.94      0.96      0.95       495
+
+*********************
+Area under the ROC curve is  0.497912317328
+*********************
+Mean absolute errro output  is  0.0363636363636
+*********************
+Accuracy output  is  0.963636363636
+*********************
+Hamming loss output  is  0.0363636363636
+*********************
+Jaccardian output  is  0.963636363636
+*********************
+---------------------------------------------------------------
+Training size: 20.0 %
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+   Low_Risk       0.24      0.29      0.26        14
+  High_Risk       0.98      0.97      0.97       426
+
+avg / total       0.95      0.95      0.95       440
+
+*********************
+Area under the ROC curve is  0.627598926895
+*********************
+Mean absolute errro output  is  0.0522727272727
+*********************
+Accuracy output  is  0.947727272727
+*********************
+Hamming loss output  is  0.0522727272727
+*********************
+Jaccardian output  is  0.947727272727
+*********************
+---------------------------------------------------------------
+Training size: 30.0 %
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+   Low_Risk       0.11      0.20      0.14        10
+  High_Risk       0.98      0.95      0.97       375
+
+avg / total       0.96      0.94      0.94       385
+
+*********************
+Area under the ROC curve is  0.577333333333
+*********************
+Mean absolute errro output  is  0.0649350649351
+*********************
+Accuracy output  is  0.935064935065
+*********************
+Hamming loss output  is  0.0649350649351
+*********************
+Jaccardian output  is  0.935064935065
+*********************
+---------------------------------------------------------------
+Training size: 40.0 %
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+   Low_Risk       0.43      0.43      0.43         7
+  High_Risk       0.99      0.99      0.99       323
+
+avg / total       0.98      0.98      0.98       330
+
+*********************
+Area under the ROC curve is  0.708093763821
+*********************
+Mean absolute errro output  is  0.0242424242424
+*********************
+Accuracy output  is  0.975757575758
+*********************
+Hamming loss output  is  0.0242424242424
+*********************
+Jaccardian output  is  0.975757575758
+*********************
+---------------------------------------------------------------
+Training size: 50.0 %
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+   Low_Risk       0.38      0.43      0.40         7
+  High_Risk       0.99      0.98      0.98       268
+
+avg / total       0.97      0.97      0.97       275
+
+*********************
+Area under the ROC curve is  0.704957356077
+*********************
+Mean absolute errro output  is  0.0327272727273
+*********************
+Accuracy output  is  0.967272727273
+*********************
+Hamming loss output  is  0.0327272727273
+*********************
+Jaccardian output  is  0.967272727273
+*********************
+---------------------------------------------------------------
+Training size: 60.0 %
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+   Low_Risk       0.40      0.57      0.47         7
+  High_Risk       0.99      0.97      0.98       213
+
+avg / total       0.97      0.96      0.96       220
+
+*********************
+Area under the ROC curve is  0.771629778672
+*********************
+Mean absolute errro output  is  0.0409090909091
+*********************
+Accuracy output  is  0.959090909091
+*********************
+Hamming loss output  is  0.0409090909091
+*********************
+Jaccardian output  is  0.959090909091
+*********************
+---------------------------------------------------------------
+Training size: 70.0 %
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+   Low_Risk       0.50      0.57      0.53         7
+  High_Risk       0.98      0.97      0.98       158
+
+avg / total       0.96      0.96      0.96       165
+
+*********************
+Area under the ROC curve is  0.773056057866
+*********************
+Mean absolute errro output  is  0.0424242424242
+*********************
+Accuracy output  is  0.957575757576
+*********************
+Hamming loss output  is  0.0424242424242
+*********************
+Jaccardian output  is  0.957575757576
+*********************
+---------------------------------------------------------------
+Training size: 80.0 %
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+   Low_Risk       0.67      1.00      0.80         2
+  High_Risk       1.00      0.99      1.00       108
+
+avg / total       0.99      0.99      0.99       110
+
+*********************
+Area under the ROC curve is  0.99537037037
+*********************
+Mean absolute errro output  is  0.00909090909091
+*********************
+Accuracy output  is  0.990909090909
+*********************
+Hamming loss output  is  0.00909090909091
+*********************
+Jaccardian output  is  0.990909090909
+*********************
+---------------------------------------------------------------
+Training size: 90.0 %
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+   Low_Risk       1.00      1.00      1.00         1
+  High_Risk       1.00      1.00      1.00        54
+
+avg / total       1.00      1.00      1.00        55
+
+*********************
+Area under the ROC curve is  1.0
+*********************
+Mean absolute errro output  is  0.0
+*********************
+Accuracy output  is  1.0
+*********************
+Hamming loss output  is  0.0
+*********************
+Jaccardian output  is  1.0
+*********************
+---------------------------------------------------------------
+==================================================================================================================
+Done ;-)
+Ended at:  2016-02-18 17:50:45
+eb2-2206-mac03-4:project akond$ 

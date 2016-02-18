@@ -103,6 +103,7 @@ Classifier: RandmonForests
 '''
 This is experiemnt 9 : classification with  NO versions that has ZERO scores + used Median  for clustering
 Classifier: Quadratic Determinsitic Analysis  (QDA)
+As thsi expeirment gives bad results , we will not use it 
 '''  
 #print "This is experiemnt 9 : classification  (QDA) with  NO versions that has ZERO scores + used Median for High and Low"
 #fileNameParam="NonZeroDataset_Median.csv"
@@ -112,12 +113,31 @@ Classifier: Quadratic Determinsitic Analysis  (QDA)
 '''
 This is experiemnt 10 : classification with  NO versions that has ZERO scores + used K-Means  for clustering 
 Classifier: Quadratic Determinsitic Analysis 
+As thsi expeirment gives bad results , we will not use it 
 '''  
-print "This is experiemnt 10 : classification (QDA) with  NO versions that has ZERO scores + used K-Means for High and Low"
+#print "This is experiemnt 10 : classification (QDA) with  NO versions that has ZERO scores + used Aggolo for High and Low"
+##fileNameParam="NonZeroDataset_KMeans.csv"
+#fileNameParam="NonZeroDataset_Aggolo.csv"
+#experiments.experiemnt_qda(fileNameParam)
+#print "=================================================================================================================="
+'''
+This is experiemnt 11: classification with  NO versions that has ZERO scores + used Median  for clustering
+Classifier: Decision Tree (CART)
+'''  
+#print "This is experiemnt 11 : classification  (CART) with  NO versions that has ZERO scores + used Median for High and Low"
+#fileNameParam="NonZeroDataset_Median.csv"
+#experiments.experiemnt_cart(fileNameParam)
+#print "=================================================================================================================="
+
+'''
+This is experiemnt 12 : classification with  NO versions that has ZERO scores + used K-Means  for clustering 
+Classifier: Decision Tree (CART)
+'''  
+#print "This is experiemnt 12 : classification (CART) with  NO versions that has ZERO scores + used K-Means for High and Low"
 #fileNameParam="NonZeroDataset_KMeans.csv"
-fileNameParam="NonZeroDataset_Aggolo.csv"
-experiments.experiemnt_qda(fileNameParam)
-print "=================================================================================================================="
+##fileNameParam="NonZeroDataset_Aggolo.csv"
+#experiments.experiemnt_cart(fileNameParam)
+#print "=================================================================================================================="
 
 print "Done ;-)"
 print "Ended at: ", IO_.giveTimeStamp()
