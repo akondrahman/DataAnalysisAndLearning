@@ -12,9 +12,10 @@ def experiemnt_logireg(fileNameParam):
   print "Performing experiemnt # X:LGR: LGR with class lebals : 1 and 0   "  
   LGR.performLogiRegression(fileNameParam)  
      
-def experiemnt_decision_tree(fileNameParam):
+def experiemnt_random_forest(fileNameParam):
   import exp_x_classifiers , IO_ 
   testAndTrainData = IO_.giveTestAndTrainingData(fileNameParam)
+  print "This is 'experiemnt_random_forest' "  
   
   # settign up train data 
   trainData = testAndTrainData[0]
@@ -27,7 +28,7 @@ def experiemnt_decision_tree(fileNameParam):
   for selCount in xrange(original_cols):
     count_ = selCount + 1 
     if count_ < original_cols:      
-      slected_training_data = giveSelectedTrainingData(trainData, testData, 2 ) 
+      slected_training_data = giveSelectedTrainingData(trainData, testData, count_ ) 
       print "#################  No. of features to work with={}  ############".format(count_)
       print "Size of selected training data : ", slected_training_data.shape
       emperiemntSplitters=[float(x)/float(10) for x in xrange(10) if x > 0] 
@@ -35,11 +36,12 @@ def experiemnt_decision_tree(fileNameParam):
 	  print "Training size: {} %".format(float(elem*100))
 	  exp_x_classifiers.runRandomForest(slected_training_data, testData, elem)
 	  print "---------------------------------------------------------------"	 
-  
-  
-def experiemnt_SVM(fileNameParam):
+   
+   
+def experiemnt_gaussian_naive_bayes(fileNameParam):
   import exp_x_classifiers , IO_ 
   testAndTrainData = IO_.giveTestAndTrainingData(fileNameParam)
+  print "This is 'experiemnt_gaussian_naive_bayes' "  
   
   # settign up train data 
   trainData = testAndTrainData[0]
@@ -52,7 +54,33 @@ def experiemnt_SVM(fileNameParam):
   for selCount in xrange(original_cols):
     count_ = selCount + 1 
     if count_ < original_cols:      
-      slected_training_data = giveSelectedTrainingData(trainData, testData, 2 ) 
+      slected_training_data = giveSelectedTrainingData(trainData, testData, count_ ) 
+      print "#################  No. of features to work with={}  ############".format(count_)
+      print "Size of selected training data : ", slected_training_data.shape
+      emperiemntSplitters=[float(x)/float(10) for x in xrange(10) if x > 0] 
+      for elem in emperiemntSplitters:
+	  print "Training size: {} %".format(float(elem*100))
+	  exp_x_classifiers.runGNB(slected_training_data, testData, elem)
+	  print "---------------------------------------------------------------"	    
+  
+  
+def experiemnt_SVM(fileNameParam):
+  import exp_x_classifiers , IO_ 
+  testAndTrainData = IO_.giveTestAndTrainingData(fileNameParam)
+  print "This is 'experiemnt_SVM' "    
+  
+  # settign up train data 
+  trainData = testAndTrainData[0]
+  original_rows = trainData.shape[0]
+  original_cols =  trainData.shape[1] 
+  print "Size of  training data : rows: {}, columns: {}".format( original_rows , original_cols )
+  
+  # settign up test data 
+  testData = testAndTrainData[1]   
+  for selCount in xrange(original_cols):
+    count_ = selCount + 1 
+    if count_ < original_cols:      
+      slected_training_data = giveSelectedTrainingData(trainData, testData, count_ ) 
       print "#################  No. of features to work with={}  ############".format(count_)
       print "Size of selected training data : ", slected_training_data.shape
       emperiemntSplitters=[float(x)/float(10) for x in xrange(10) if x > 0] 
@@ -65,6 +93,7 @@ def experiemnt_SVM(fileNameParam):
 def experiemnt_CART(fileNameParam):
   import exp_x_classifiers , IO_ 
   testAndTrainData = IO_.giveTestAndTrainingData(fileNameParam)
+  print "This is 'experiemnt_CART' "      
   
   # settign up train data 
   trainData = testAndTrainData[0]
@@ -77,7 +106,7 @@ def experiemnt_CART(fileNameParam):
   for selCount in xrange(original_cols):
     count_ = selCount + 1 
     if count_ < original_cols:      
-      slected_training_data = giveSelectedTrainingData(trainData, testData, 2 ) 
+      slected_training_data = giveSelectedTrainingData(trainData, testData, count_ ) 
       print "#################  No. of features to work with={}  ############".format(count_)
       print "Size of selected training data : ", slected_training_data.shape
       emperiemntSplitters=[float(x)/float(10) for x in xrange(10) if x > 0] 
@@ -85,6 +114,34 @@ def experiemnt_CART(fileNameParam):
 	  print "Training size: {} %".format(float(elem*100))
 	  exp_x_classifiers.runCART(slected_training_data, testData, elem)
 	  print "---------------------------------------------------------------"	 
+
+
+
+def experiemnt_KNN(fileNameParam):
+  import exp_x_classifiers , IO_ 
+  testAndTrainData = IO_.giveTestAndTrainingData(fileNameParam)
+  print "This is 'experiemnt_KNN' "      
+  
+  # settign up train data 
+  trainData = testAndTrainData[0]
+  original_rows = trainData.shape[0]
+  original_cols =  trainData.shape[1] 
+  print "Size of  training data : rows: {}, columns: {}".format( original_rows , original_cols )
+  
+  # settign up test data 
+  testData = testAndTrainData[1]   
+  for selCount in xrange(original_cols):
+    count_ = selCount + 1 
+    if count_ < original_cols:      
+      slected_training_data = giveSelectedTrainingData(trainData, testData, count_ ) 
+      print "#################  No. of features to work with={}  ############".format(count_)
+      print "Size of selected training data : ", slected_training_data.shape
+      emperiemntSplitters=[float(x)/float(10) for x in xrange(10) if x > 0] 
+      for elem in emperiemntSplitters:
+	  print "Training size: {} %".format(float(elem*100))
+	  exp_x_classifiers.runKNN(slected_training_data, testData, elem)
+	  print "---------------------------------------------------------------"	 
+
 
 
 

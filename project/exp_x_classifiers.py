@@ -7,11 +7,17 @@ Created on Mon Mar 14 20:06:14 2016
 
 
 
-import IO_ 
+#import IO_ 
 from sklearn import cross_validation, svm
 from sklearn.metrics import classification_report, roc_auc_score, mean_absolute_error, accuracy_score, hamming_loss, jaccard_similarity_score
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.tree import DecisionTreeClassifier 
+from sklearn.naive_bayes import GaussianNB
+#from sklearn.neural_network import MLPClassifier
+from sklearn.neighbors import KNeighborsClassifier
+
+
+
 
 def runRandomForest(trainDataParam, testDataParam, trainizingSizeParam):
   # what percent will you use ? 
@@ -62,9 +68,51 @@ def runCART(trainDataParam, testDataParam, trainizingSizeParam):
   evalClassifier(vScore_test, thePredictedScores) 
   # preserve the order first test(real values from dataset), then predcited (from the classifier )            
   
+def runGNB(trainDataParam, testDataParam, trainizingSizeParam):  
+  # what percent will you use ? 
+  testSplitSize = 1.0 - trainizingSizeParam
+
+  ### classification   
+
+  featureSpace_train, featureSpace_test, vScore_train, vScore_test = cross_validation.train_test_split(trainDataParam, testDataParam, test_size=testSplitSize, random_state=0) 
+  ## fire up the model   
+  theGNBModel = GaussianNB()
+  theGNBModel.fit(featureSpace_train, vScore_train)
+  thePredictedScores = theGNBModel.predict(featureSpace_test)
+
+  evalClassifier(vScore_test, thePredictedScores) 
+  # preserve the order first test(real values from dataset), then predcited (from the classifier ) 
+
+def runKNN(trainDataParam, testDataParam, trainizingSizeParam):  
+  # what percent will you use ? 
+  testSplitSize = 1.0 - trainizingSizeParam
+
+  ### classification   
+
+  featureSpace_train, featureSpace_test, vScore_train, vScore_test = cross_validation.train_test_split(trainDataParam, testDataParam, test_size=testSplitSize, random_state=0) 
+  ## fire up the model   
+  theKNNModel = KNeighborsClassifier()
+  theKNNModel.fit(featureSpace_train, vScore_train)
+  thePredictedScores = theKNNModel.predict(featureSpace_test)
+
+  evalClassifier(vScore_test, thePredictedScores) 
+  # preserve the order first test(real values from dataset), then predcited (from the classifier )
+
   
-  
-  
+# def runMLP(trainDataParam, testDataParam, trainizingSizeParam):  
+#   # what percent will you use ? 
+#   testSplitSize = 1.0 - trainizingSizeParam
+
+#   ### classification   
+
+#   featureSpace_train, featureSpace_test, vScore_train, vScore_test = cross_validation.train_test_split(trainDataParam, testDataParam, test_size=testSplitSize, random_state=0) 
+#   ## fire up the model   
+#   theMLPModel = MLPClassifier()
+#   theMLPModel.fit(featureSpace_train, vScore_train)
+#   thePredictedScores = theMLPModel.predict(featureSpace_test)
+
+#   evalClassifier(vScore_test, thePredictedScores) 
+#   # preserve the order first test(real values from dataset), then predcited (from the classifier )              
 
 
 def evalClassifier(vScore_test, thePredictedScores):  
