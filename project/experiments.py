@@ -240,3 +240,47 @@ def experiemnt_cart(fileNameParam):
 		print "Training size: {} %".format(float(elem*100))
 		classifiers.runCART(fileNameParam, elem)
 		print "---------------------------------------------------------------"			
+
+
+def experiemnt_select_classifier(dbFileName, meanFlag, outputStrParam, clusterFlag):
+	from sklearn import cluster 
+	from sklearn.metrics import silhouette_samples, silhouette_score
+
+
+	print "Performing experiemnt: Select Classifier"
+	clusters=[2, 3, 4, 5, 6, 7, 8, 9, 10]
+	for clsuter_cnt in clusters:
+	  print "this is iteration #", clsuter_cnt
+	  versionAndCodeQualityDict =  DEFT.getValuesFrom_CodingStandard(dbFileName)
+	  sanitizedVersions = sanityCheck.getCodeQualityofVersions(versionAndCodeQualityDict, meanFlag)
+	  sanitizedVersions_CQ = sanitizedVersions
+
+	  NonZero_sanitizedVersionsWithScore = sanityCheck.getNonZeroVulnerbailityScoreOfSelectedVersions(sanitizedVersions)
+	  #print "zzzz", len(NonZero_sanitizedVersionsWithScore)
+	  brokenDict = utility.getVScoreList(NonZero_sanitizedVersionsWithScore)
+	  onlyTheNonZeroSanitizedVersionIDs, onlyTheNonZeroSanitizedVScores = brokenDict[0], brokenDict[1]
+	  #print "lalalaa ", onlyTheNonZeroSanitizedVScores
+	  reshapedNonZerSanitizedScores = np.reshape(onlyTheNonZeroSanitizedVScores, (-1, 1))
+	  clusteringType = None  
+	  if clusterFlag:
+	    clusteringType = cluster.KMeans(n_clusters=clsuter_cnt)
+	  else:
+	    clusteringType = cluster.AgglomerativeClustering(n_clusters=clsuter_cnt)  
+
+	  cluster_labels = clusteringType.fit_predict(reshapedNonZerSanitizedScores)
+
+	  silhouette_avg = silhouette_score(reshapedNonZerSanitizedScores, cluster_labels)
+	  print "::::: For n_clusters ={}, The average silhouette_score is ={} :::::".format(clsuter_cnt, silhouette_avg)
+
+	  if clusterFlag:
+	    centroids = clusteringType.cluster_centers_
+	    print "::::::: And the centroids are .... :::::::", centroids	
+	    NonZer_Santized_versionDictWithLabels = utility.clusterByKmeansLabel( onlyTheNonZeroSanitizedVersionIDs , cluster_labels) 
+
+	  else:
+	    print "No centroids for Aggolomerative clustering"			
+	    NonZer_Santized_versionDictWithLabels = utility.clusterByAggoloLabel( onlyTheNonZeroSanitizedVersionIDs , cluster_labels) 	
+	  #print "And the labels are .... "
+	  #print cluster_labels
+
+

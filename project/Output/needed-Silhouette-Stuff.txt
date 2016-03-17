@@ -1,0 +1,151 @@
+Last login: Thu Mar 17 13:17:34 on ttys000
+eb2-2206-mac03-4:project akond$ python main_.py 
+Started at:  2016-03-17 13:32:47
+Extra experiemnt for cluster slection 
+Performing experiemnt: Select Classifier
+this is iteration # 2
+Stats on file count : len=1407, median=19.0,  mean=54.1080312722, max=2237, min=1,
+Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0,
+::::: For n_clusters =2, The average silhouette_score is =0.966808913355 :::::
+::::::: And the centroids are .... ::::::: [[ 50.82030058]
+ [ 22.35294118]]
+this is iteration # 3
+Stats on file count : len=1407, median=19.0,  mean=54.1080312722, max=2237, min=1,
+Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0,
+::::: For n_clusters =3, The average silhouette_score is =0.961782298116 :::::
+::::::: And the centroids are .... ::::::: [[ 50.82030058]
+ [ 17.        ]
+ [ 30.        ]]
+this is iteration # 4
+Stats on file count : len=1407, median=19.0,  mean=54.1080312722, max=2237, min=1,
+Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0,
+::::: For n_clusters =4, The average silhouette_score is =0.926008887868 :::::
+::::::: And the centroids are .... ::::::: [[ 50.93443136]
+ [ 17.        ]
+ [ 30.        ]
+ [ 44.18803419]]
+this is iteration # 5
+Stats on file count : len=1407, median=19.0,  mean=54.1080312722, max=2237, min=1,
+Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0,
+::::: For n_clusters =5, The average silhouette_score is =0.917724955042 :::::
+::::::: And the centroids are .... ::::::: [[ 51.17196068]
+ [ 17.        ]
+ [ 30.        ]
+ [ 44.18803419]
+ [ 50.        ]]
+this is iteration # 6
+Stats on file count : len=1407, median=19.0,  mean=54.1080312722, max=2237, min=1,
+Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0,
+::::: For n_clusters =6, The average silhouette_score is =0.921772718653 :::::
+::::::: And the centroids are .... ::::::: [[ 51.17196068]
+ [ 15.        ]
+ [ 30.        ]
+ [ 44.18803419]
+ [ 20.        ]
+ [ 50.        ]]
+this is iteration # 7
+Stats on file count : len=1407, median=19.0,  mean=54.1080312722, max=2237, min=1,
+Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0,
+::::: For n_clusters =7, The average silhouette_score is =0.972623410052 :::::
+::::::: And the centroids are .... ::::::: [[ 51.10333333]
+ [ 20.        ]
+ [ 50.        ]
+ [ 30.        ]
+ [ 44.18803419]
+ [ 15.        ]
+ [ 52.78672171]]
+this is iteration # 8
+Stats on file count : len=1407, median=19.0,  mean=54.1080312722, max=2237, min=1,
+Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0,
+::::: For n_clusters =8, The average silhouette_score is =0.977176166166 :::::
+::::::: And the centroids are .... ::::::: [[ 51.10333333]
+ [ 15.        ]
+ [ 30.        ]
+ [ 44.18803419]
+ [ 50.        ]
+ [ 20.        ]
+ [ 53.22222222]
+ [ 52.29678363]]
+this is iteration # 9
+Stats on file count : len=1407, median=19.0,  mean=54.1080312722, max=2237, min=1,
+Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0,
+::::: For n_clusters =9, The average silhouette_score is =0.978940112602 :::::
+::::::: And the centroids are .... ::::::: [[ 15.        ]
+ [ 51.10333333]
+ [ 30.        ]
+ [ 44.61538462]
+ [ 20.        ]
+ [ 50.        ]
+ [ 52.29678363]
+ [ 43.33333333]
+ [ 53.22222222]]
+this is iteration # 10
+Stats on file count : len=1407, median=19.0,  mean=54.1080312722, max=2237, min=1,
+Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0,
+::::: For n_clusters =10, The average silhouette_score is =0.992330050871 :::::
+::::::: And the centroids are .... ::::::: [[ 53.22222222]
+ [ 20.        ]
+ [ 51.11111111]
+ [ 30.        ]
+ [ 44.61538462]
+ [ 15.        ]
+ [ 50.        ]
+ [ 43.33333333]
+ [ 52.29678363]
+ [ 50.66666667]]
+#########################-----##################
+Done ;-)
+Ended at:  2016-03-17 13:32:48
+eb2-2206-mac03-4:project akond$ python main_.py 
+Started at:  2016-03-17 13:33:09
+Extra experiemnt for cluster slection 
+Performing experiemnt: Select Classifier
+this is iteration # 2
+Stats on file count : len=1407, median=19.0,  mean=54.1080312722, max=2237, min=1,
+Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0,
+::::: For n_clusters =2, The average silhouette_score is =0.966808913355 :::::
+No centroids for Aggolomerative clustering
+this is iteration # 3
+Stats on file count : len=1407, median=19.0,  mean=54.1080312722, max=2237, min=1,
+Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0,
+::::: For n_clusters =3, The average silhouette_score is =0.961782298116 :::::
+No centroids for Aggolomerative clustering
+this is iteration # 4
+Stats on file count : len=1407, median=19.0,  mean=54.1080312722, max=2237, min=1,
+Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0,
+::::: For n_clusters =4, The average silhouette_score is =0.926008887868 :::::
+No centroids for Aggolomerative clustering
+this is iteration # 5
+Stats on file count : len=1407, median=19.0,  mean=54.1080312722, max=2237, min=1,
+Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0,
+::::: For n_clusters =5, The average silhouette_score is =0.917724955042 :::::
+No centroids for Aggolomerative clustering
+this is iteration # 6
+Stats on file count : len=1407, median=19.0,  mean=54.1080312722, max=2237, min=1,
+Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0,
+::::: For n_clusters =6, The average silhouette_score is =0.921772718653 :::::
+No centroids for Aggolomerative clustering
+this is iteration # 7
+Stats on file count : len=1407, median=19.0,  mean=54.1080312722, max=2237, min=1,
+Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0,
+::::: For n_clusters =7, The average silhouette_score is =0.972623410052 :::::
+No centroids for Aggolomerative clustering
+this is iteration # 8
+Stats on file count : len=1407, median=19.0,  mean=54.1080312722, max=2237, min=1,
+Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0,
+::::: For n_clusters =8, The average silhouette_score is =0.975411907201 :::::
+No centroids for Aggolomerative clustering
+this is iteration # 9
+Stats on file count : len=1407, median=19.0,  mean=54.1080312722, max=2237, min=1,
+Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0,
+::::: For n_clusters =9, The average silhouette_score is =0.977175853638 :::::
+No centroids for Aggolomerative clustering
+this is iteration # 10
+Stats on file count : len=1407, median=19.0,  mean=54.1080312722, max=2237, min=1,
+Stats on risk score (non-zero elemnts)-->len=549, median=51.1111111111,  mean=49.9387976503, max=53.3333333333, min=15.0,
+::::: For n_clusters =10, The average silhouette_score is =0.990741094543 :::::
+No centroids for Aggolomerative clustering
+#########################-----##################
+Done ;-)
+Ended at:  2016-03-17 13:33:11
+eb2-2206-mac03-4:project akond$ 

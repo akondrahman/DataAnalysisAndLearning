@@ -142,5 +142,33 @@ Classifier: Decision Tree (CART)
 
 
 
+'''
+Extra experiemnt for cluster slection 
+'''
+print "Extra experiemnt for cluster slection "
+dbFileName="/Users/akond/Documents/Spring-2016/CSC522/OSSAndroidAppDataset/androSec.db"
+meanFlag=False
+# -----------------------------------------------------------------------
+if meanFlag:
+  str_ = "M-E-A-N" 
+  outputStr="AVG"   
+else:
+  str_ = "M-E-D-I-A-N"      
+  outputStr="MEDI"  
+clsuterFlag = False # True means  kmeans, Flase hierarchical
+if clsuterFlag: 
+  clusterStr="K-Means"    
+else:
+  clusterStr="Aggolomerative"          
+experiments.experiemnt_select_classifier(dbFileName, meanFlag, clusterStr, clsuterFlag)
+print "#########################-----##################"
+'''
+Did not get expected rsults: with bigger no.  of clsuters the Silhouette Index increases 
+expectation was two clusters will get the best result. 
+Still will use the average Silhouette index in report/paper
+Average silhuette score for Kmeans  =  0.966808913355
+Average silhuette score for Aggolo  =  0.966808913355  
+'''
+
 print "Done ;-)"
 print "Ended at: ", IO_.giveTimeStamp()
