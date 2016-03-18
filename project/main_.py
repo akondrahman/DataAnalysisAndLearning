@@ -35,14 +35,14 @@ This is experiemnt 2 : there are NO versions with ZERO scores
 
 
 '''
-#clsuterFlag = False # True means  kmeans, Flase hierarchical
-#if clsuterFlag: 
-#  clusterStr="K-Means"    
-#else:
-#  clusterStr="Aggolomerative"        
-#print "########################## Applying the '"+  str_ + "' approach with " + clusterStr +  " ###############################"
-#experiments.experiemnt_three(dbFileName,meanFlag, "Exp_3_" + outputStr + "_" + clusterStr, clsuterFlag )
-#print "=================================================================================================================="
+clsuterFlag = True # True means  kmeans, Flase hierarchical
+if clsuterFlag: 
+ clusterStr="K-Means"    
+else:
+ clusterStr="Aggolomerative"        
+print "########################## Applying the '"+  str_ + "' approach with " + clusterStr +  " ###############################"
+experiments.experiemnt_three(dbFileName,meanFlag, "Exp_3_" + outputStr + "_" + clusterStr, clsuterFlag )
+print "=================================================================================================================="
 '''
 This is experiemnt 4 : classification with  NO versions that has ZERO scores + used Median  for clustering
 Classifier: SVM 
@@ -145,23 +145,23 @@ Classifier: Decision Tree (CART)
 '''
 Extra experiemnt for cluster slection 
 '''
-print "Extra experiemnt for cluster slection "
-dbFileName="/Users/akond/Documents/Spring-2016/CSC522/OSSAndroidAppDataset/androSec.db"
-meanFlag=False
-# -----------------------------------------------------------------------
-if meanFlag:
-  str_ = "M-E-A-N" 
-  outputStr="AVG"   
-else:
-  str_ = "M-E-D-I-A-N"      
-  outputStr="MEDI"  
-clsuterFlag = False # True means  kmeans, Flase hierarchical
-if clsuterFlag: 
-  clusterStr="K-Means"    
-else:
-  clusterStr="Aggolomerative"          
-experiments.experiemnt_select_classifier(dbFileName, meanFlag, clusterStr, clsuterFlag)
-print "#########################-----##################"
+# print "Extra experiemnt for cluster slection "
+# dbFileName="/Users/akond/Documents/Spring-2016/CSC522/OSSAndroidAppDataset/androSec.db"
+# meanFlag=False
+# # -----------------------------------------------------------------------
+# if meanFlag:
+#   str_ = "M-E-A-N" 
+#   outputStr="AVG"   
+# else:
+#   str_ = "M-E-D-I-A-N"      
+#   outputStr="MEDI"  
+# clsuterFlag = False # True means  kmeans, Flase hierarchical
+# if clsuterFlag: 
+#   clusterStr="K-Means"    
+# else:
+#   clusterStr="Aggolomerative"          
+# experiments.experiemnt_select_classifier(dbFileName, meanFlag, clusterStr, clsuterFlag)
+# print "#########################-----##################"
 '''
 Did not get expected rsults: with bigger no.  of clsuters the Silhouette Index increases 
 expectation was two clusters will get the best result. 

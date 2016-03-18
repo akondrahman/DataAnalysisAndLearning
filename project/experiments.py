@@ -113,6 +113,7 @@ def experiemnt_two(dbFileName, meanFlag, outputStrParam ):
  
 def experiemnt_three(dbFileName, meanFlag, outputStrParam, clusterFlag):
 	from sklearn import cluster
+	import plotter 
 	clusteringType = None  
 	if clusterFlag:
 		clusteringType = cluster.KMeans(n_clusters=2)
@@ -138,12 +139,17 @@ def experiemnt_three(dbFileName, meanFlag, outputStrParam, clusterFlag):
 		centroids = clusteringType.cluster_centers_
 		print "And the centroids are .... ", centroids	
 		NonZer_Santized_versionDictWithLabels = utility.clusterByKmeansLabel( onlyTheNonZeroSanitizedVersionIDs , labelsFroVersions) 
-
+		##### plotting clusters start 
+		#low_cluster_y, high_cluster_y = utility.plotClusterByLabel( onlyTheNonZeroSanitizedVersionIDs , labelsFroVersions, NonZero_sanitizedVersionsWithScore) 		
+		#low_cluster_x = [ 22.35294118 for x in low_cluster_y]
+		#hig_cluster_x = [ 50.82030058 for x in high_cluster_y]
+		#plotter.createClusterPlots(low_cluster_x, low_cluster_y, hig_cluster_x, high_cluster_y)
+    ##### plottign clusters end 
 	else:
 		print "No centroids for Aggolomerative clustering"			
 		NonZer_Santized_versionDictWithLabels = utility.clusterByAggoloLabel( onlyTheNonZeroSanitizedVersionIDs , labelsFroVersions) 	
 	print "And the labels are .... "
-	print labelsFroVersions
+	print len(labelsFroVersions)
 
 	   
 
@@ -154,9 +160,9 @@ def experiemnt_three(dbFileName, meanFlag, outputStrParam, clusterFlag):
 
 
 	############################## 
-	themegaFile_All = outputStrParam + "_" + "culsterified_non_zero_all-CQ-HL.csv"
-	IO_.dumpIntoClusterifiedFile( themegaFile_All,sanitizedVersions_CQ , NonZer_Santized_versionDictWithLabels, False )
-	LGR.performLogiRegression(themegaFile_All)  
+	#themegaFile_All = outputStrParam + "_" + "culsterified_non_zero_all-CQ-HL.csv"
+	#IO_.dumpIntoClusterifiedFile( themegaFile_All,sanitizedVersions_CQ , NonZer_Santized_versionDictWithLabels, False )
+	#LGR.performLogiRegression(themegaFile_All)  
 
 
 
@@ -248,7 +254,8 @@ def experiemnt_select_classifier(dbFileName, meanFlag, outputStrParam, clusterFl
 
 
 	print "Performing experiemnt: Select Classifier"
-	clusters=[2, 3, 4, 5, 6, 7, 8, 9, 10]
+	#clusters=[2, 3, 4, 5, 6, 7, 8, 9, 10]
+	clusters=[2]
 	for clsuter_cnt in clusters:
 	  print "this is iteration #", clsuter_cnt
 	  versionAndCodeQualityDict =  DEFT.getValuesFrom_CodingStandard(dbFileName)

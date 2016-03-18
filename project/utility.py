@@ -108,4 +108,19 @@ def getH_Scores_ForCorr(labelDictP, scoreDictP):
     if v_==1:  
       dic_Ret[k_] = scoreDictP[k_]    
   return dic_Ret    
+
+
+
+
+def plotClusterByLabel(versionIDs, versionLabels, scoreDictParam):
+  low_score, high_score = [], []
+  if len(versionIDs)==len(versionLabels):
+    for cnt in xrange(len(versionIDs)): 
+      score_of_version = scoreDictParam[versionIDs[cnt]]     
+      if versionLabels[cnt]==0:
+        high_score.append(score_of_version)    
+      else: 
+        low_score.append(score_of_version)            
+  return low_score, high_score
+
   
