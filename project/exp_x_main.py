@@ -8,6 +8,16 @@ Created on Mon Mar 14 20:02:00 2016
 
 
 import  exp_x_experiments, IO_
+import sys 
+
+
+
+###open logger 
+#old_stdout = sys.stdout
+#output_file_name="Output/knn_cross_validation_5.txt"
+#log_file = open( output_file_name,  "w")
+#sys.stdout = log_file
+
 print "Started at: ", IO_.giveTimeStamp()
 
 
@@ -20,7 +30,7 @@ print "This is experiemnt X : classification with  NO versions that has ZERO sco
 print "Classifier: Decision Tree (CART), Random Forest, SVM(rbf), Gaussian NAive Bayes , KNN"
 ##fileNameParam="NonZeroDataset_KMeans.csv"
 fileNameParam="NonZeroDataset_Aggolo.csv"
-exp_counts=2
+exp_counts=1
 
 for cnt in xrange(exp_counts):
   itn = cnt + 1   
@@ -50,3 +60,8 @@ print "=========================================================================
 
 print "Done ;-)"
 print "Ended at: ", IO_.giveTimeStamp()
+
+
+#### close logger       
+#sys.stdout = old_stdout
+#log_file.close()  

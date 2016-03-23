@@ -17,104 +17,6 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 
 
-
-
-def runRandomForest(trainDataParam, testDataParam, trainizingSizeParam):
-  # what percent will you use ? 
-  testSplitSize = 1.0 - trainizingSizeParam
-
-  ### classification   
-
-  featureSpace_train, featureSpace_test, vScore_train, vScore_test = cross_validation.train_test_split(trainDataParam, testDataParam, test_size=testSplitSize, random_state=0) 
-  ## fire up the model   
-  theRndForestModel = RandomForestClassifier(n_estimators=10)
-  theRndForestModel.fit(featureSpace_train, vScore_train)
-  thePredictedScores = theRndForestModel.predict(featureSpace_test)
-
-  evalClassifier(vScore_test, thePredictedScores) 
-  # preserve the order first test(real values from dataset), then predcited (from the classifier )  
-  
-  
-  
-  
-  
-def runSVM(trainDataParam, testDataParam, trainizingSizeParam):
-  # what percent will you use ? 
-  testSplitSize = 1.0 - trainizingSizeParam
-
-  ### classification   
-  ## get the test and training sets   
-  featureSpace_train, featureSpace_test, vScore_train, vScore_test = cross_validation.train_test_split(trainDataParam, testDataParam, test_size=testSplitSize, random_state=0) 
-  ## fire up the model 
-  theSVMModel = svm.SVC(kernel='rbf', C=1).fit(featureSpace_train, vScore_train)   
-  thePredictedScores = theSVMModel.predict(featureSpace_test)
-
-  evalClassifier(vScore_test, thePredictedScores) 
-  # preserve the order first test(real values from dataset), then predcited (from the classifier )    
-  
-  
-def runCART(trainDataParam, testDataParam, trainizingSizeParam):  
-  # what percent will you use ? 
-  testSplitSize = 1.0 - trainizingSizeParam
-
-  ### classification   
-
-  featureSpace_train, featureSpace_test, vScore_train, vScore_test = cross_validation.train_test_split(trainDataParam, testDataParam, test_size=testSplitSize, random_state=0) 
-  ## fire up the model   
-  theCARTModel = DecisionTreeClassifier()
-  theCARTModel.fit(featureSpace_train, vScore_train)
-  thePredictedScores = theCARTModel.predict(featureSpace_test)
-
-  evalClassifier(vScore_test, thePredictedScores) 
-  # preserve the order first test(real values from dataset), then predcited (from the classifier )            
-  
-def runGNB(trainDataParam, testDataParam, trainizingSizeParam):  
-  # what percent will you use ? 
-  testSplitSize = 1.0 - trainizingSizeParam
-
-  ### classification   
-
-  featureSpace_train, featureSpace_test, vScore_train, vScore_test = cross_validation.train_test_split(trainDataParam, testDataParam, test_size=testSplitSize, random_state=0) 
-  ## fire up the model   
-  theGNBModel = GaussianNB()
-  theGNBModel.fit(featureSpace_train, vScore_train)
-  thePredictedScores = theGNBModel.predict(featureSpace_test)
-
-  evalClassifier(vScore_test, thePredictedScores) 
-  # preserve the order first test(real values from dataset), then predcited (from the classifier ) 
-
-def runKNN(trainDataParam, testDataParam, trainizingSizeParam):  
-  # what percent will you use ? 
-  testSplitSize = 1.0 - trainizingSizeParam
-
-  ### classification   
-
-  featureSpace_train, featureSpace_test, vScore_train, vScore_test = cross_validation.train_test_split(trainDataParam, testDataParam, test_size=testSplitSize, random_state=0) 
-  ## fire up the model   
-  theKNNModel = KNeighborsClassifier()
-  theKNNModel.fit(featureSpace_train, vScore_train)
-  thePredictedScores = theKNNModel.predict(featureSpace_test)
-
-  evalClassifier(vScore_test, thePredictedScores) 
-  # preserve the order first test(real values from dataset), then predcited (from the classifier )
-
-  
-# def runMLP(trainDataParam, testDataParam, trainizingSizeParam):  
-#   # what percent will you use ? 
-#   testSplitSize = 1.0 - trainizingSizeParam
-
-#   ### classification   
-
-#   featureSpace_train, featureSpace_test, vScore_train, vScore_test = cross_validation.train_test_split(trainDataParam, testDataParam, test_size=testSplitSize, random_state=0) 
-#   ## fire up the model   
-#   theMLPModel = MLPClassifier()
-#   theMLPModel.fit(featureSpace_train, vScore_train)
-#   thePredictedScores = theMLPModel.predict(featureSpace_test)
-
-#   evalClassifier(vScore_test, thePredictedScores) 
-#   # preserve the order first test(real values from dataset), then predcited (from the classifier )              
-
-
 def evalClassifier(vScore_test, thePredictedScores):  
   target_names = ['Low_Risk', 'High_Risk']
   '''
@@ -169,3 +71,132 @@ def evalClassifier(vScore_test, thePredictedScores):
 #  # preserve the order first test(real values from dataset), then predcited (from the classifier )  
 #  print "Jaccardian output  is ", jaccardian_output     
 #  print"*********************" 
+
+
+
+
+
+
+def perform_cross_validation(classiferP, trainingP, testP, cross_vali_param):
+  print "||||| ----- Performing cross validation (start) -----  |||||"  
+  predicted_via_cv = cross_validation.cross_val_predict(classiferP, trainingP , testP , cv=10)  
+  evalClassifier(testP, predicted_via_cv)
+  print "||||| ----- Performing cross validation (end) -----  |||||"      
+
+def runRandomForest(trainDataParam, testDataParam, trainizingSizeParam):
+  # what percent will you use ? 
+  testSplitSize = 1.0 - trainizingSizeParam
+
+  ### classification   
+
+  featureSpace_train, featureSpace_test, vScore_train, vScore_test = cross_validation.train_test_split(trainDataParam, testDataParam, test_size=testSplitSize, random_state=0) 
+  ## fire up the model   
+  theRndForestModel = RandomForestClassifier(n_estimators=10)
+  theRndForestModel.fit(featureSpace_train, vScore_train)
+  thePredictedScores = theRndForestModel.predict(featureSpace_test)
+
+  #evalClassifier(vScore_test, thePredictedScores) 
+  # preserve the order first test(real values from dataset), then predcited (from the classifier )  
+  
+  # first one does holdout, this does corss validation  
+  #if trainizingSizeParam==0.90:
+  #  perform_cross_validation(theRndForestModel, trainDataParam, testDataParam, 5)
+  
+  
+  
+  
+  
+def runSVM(trainDataParam, testDataParam, trainizingSizeParam):
+  # what percent will you use ? 
+  testSplitSize = 1.0 - trainizingSizeParam
+
+  ### classification   
+  ## get the test and training sets   
+  featureSpace_train, featureSpace_test, vScore_train, vScore_test = cross_validation.train_test_split(trainDataParam, testDataParam, test_size=testSplitSize, random_state=0) 
+  ## fire up the model 
+  theSVMModel = svm.SVC(kernel='rbf', C=1).fit(featureSpace_train, vScore_train)   
+  thePredictedScores = theSVMModel.predict(featureSpace_test)
+
+  #evalClassifier(vScore_test, thePredictedScores) 
+  # preserve the order first test(real values from dataset), then predcited (from the classifier )   
+  
+  # first one does holdout, this does corss validation  
+  #if trainizingSizeParam==0.90:
+  #  perform_cross_validation(theSVMModel, trainDataParam, testDataParam, 5)
+  
+  
+def runCART(trainDataParam, testDataParam, trainizingSizeParam):  
+  # what percent will you use ? 
+  testSplitSize = 1.0 - trainizingSizeParam
+
+  ### classification   
+
+  featureSpace_train, featureSpace_test, vScore_train, vScore_test = cross_validation.train_test_split(trainDataParam, testDataParam, test_size=testSplitSize, random_state=0) 
+  ## fire up the model   
+  theCARTModel = DecisionTreeClassifier()
+  theCARTModel.fit(featureSpace_train, vScore_train)
+  thePredictedScores = theCARTModel.predict(featureSpace_test)
+
+  #evalClassifier(vScore_test, thePredictedScores) 
+  # preserve the order first test(real values from dataset), then predcited (from the classifier )     
+  
+  # first one does holdout, this does corss validation  
+  #if trainizingSizeParam==0.90:
+  #  perform_cross_validation(theCARTModel, trainDataParam, testDataParam, 5)
+       
+  
+def runGNB(trainDataParam, testDataParam, trainizingSizeParam):  
+  # what percent will you use ? 
+  testSplitSize = 1.0 - trainizingSizeParam
+
+  ### classification   
+
+  featureSpace_train, featureSpace_test, vScore_train, vScore_test = cross_validation.train_test_split(trainDataParam, testDataParam, test_size=testSplitSize, random_state=0) 
+  ## fire up the model   
+  theGNBModel = GaussianNB()
+  theGNBModel.fit(featureSpace_train, vScore_train)
+  thePredictedScores = theGNBModel.predict(featureSpace_test)
+
+  #evalClassifier(vScore_test, thePredictedScores) 
+  # preserve the order first test(real values from dataset), then predcited (from the classifier ) 
+  
+  # first one does holdout, this does corss validation  
+  #if trainizingSizeParam==0.90:
+  #  perform_cross_validation(theGNBModel, trainDataParam, testDataParam, 5)
+
+def runKNN(trainDataParam, testDataParam, trainizingSizeParam):  
+  # what percent will you use ? 
+  testSplitSize = 1.0 - trainizingSizeParam
+
+  ### classification   
+
+  featureSpace_train, featureSpace_test, vScore_train, vScore_test = cross_validation.train_test_split(trainDataParam, testDataParam, test_size=testSplitSize, random_state=0) 
+  ## fire up the model   
+  theKNNModel = KNeighborsClassifier()
+  theKNNModel.fit(featureSpace_train, vScore_train)
+  thePredictedScores = theKNNModel.predict(featureSpace_test)
+
+  #evalClassifier(vScore_test, thePredictedScores) 
+  # preserve the order first test(real values from dataset), then predcited (from the classifier )
+  
+  # first one does holdout, this does corss validation  
+  #if trainizingSizeParam==0.90:
+  #  perform_cross_validation(theKNNModel, trainDataParam, testDataParam, 5)
+
+  
+# def runMLP(trainDataParam, testDataParam, trainizingSizeParam):  
+#   # what percent will you use ? 
+#   testSplitSize = 1.0 - trainizingSizeParam
+
+#   ### classification   
+
+#   featureSpace_train, featureSpace_test, vScore_train, vScore_test = cross_validation.train_test_split(trainDataParam, testDataParam, test_size=testSplitSize, random_state=0) 
+#   ## fire up the model   
+#   theMLPModel = MLPClassifier()
+#   theMLPModel.fit(featureSpace_train, vScore_train)
+#   thePredictedScores = theMLPModel.predict(featureSpace_test)
+
+#   evalClassifier(vScore_test, thePredictedScores) 
+#   # preserve the order first test(real values from dataset), then predcited (from the classifier )              
+
+
