@@ -163,3 +163,17 @@ def giveTestAndTrainingData(fileNamaParam):
   testColn = test_trainData.columns[-1]
   testData  = test_trainData[testColn]  
   return trainData, testData
+  
+  
+  
+  
+def dumpScoreIntoFile(fileNamapeParam, listParam):
+  strToWrite=""  
+  for it in listParam:
+    cnt = it[0]
+    score=it[1]
+    strToWrite = strToWrite +  str(cnt) +  "," + str(score) + "," + "\n"
+  fileToWrite = open( fileNamapeParam, 'w')
+  fileToWrite.write(strToWrite + "\n")  
+  fileToWrite.close()       
+    

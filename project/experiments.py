@@ -6,7 +6,7 @@ Created on Mon Feb 15 17:28:27 2016
 """
 
 
-
+from sklearn.metrics import silhouette_samples, silhouette_score
 import DataExtractionFromTables as DEFT, sanityCheck, utility , IO_, logiRegre as LGR, numpy as np
 def experiemnt_one(dbFileName, meanFlag, outputStrParam):
 	print "Performing experiment # 1"
@@ -116,9 +116,9 @@ def experiemnt_three(dbFileName, meanFlag, outputStrParam, clusterFlag):
 	import plotter 
 	clusteringType = None  
 	if clusterFlag:
-		clusteringType = cluster.KMeans(n_clusters=2)
+		clusteringType = cluster.KMeans(n_clusters=3)
 	else:
-		clusteringType = cluster.AgglomerativeClustering(n_clusters=2)  
+		clusteringType = cluster.AgglomerativeClustering(n_clusters=3)  
 
 
 	print "Performing experiemnt # 3: Clustering score into two clusters "
@@ -150,7 +150,9 @@ def experiemnt_three(dbFileName, meanFlag, outputStrParam, clusterFlag):
 		NonZer_Santized_versionDictWithLabels = utility.clusterByAggoloLabel( onlyTheNonZeroSanitizedVersionIDs , labelsFroVersions) 	
 	print "And the labels are .... "
 	print len(labelsFroVersions)
-
+	cluster_labels = clusteringType.fit_predict(reshapedNonZerSanitizedScores)	
+	silhouette_avg = silhouette_score(reshapedNonZerSanitizedScores, cluster_labels)
+	print "Silhouette average---> ", silhouette_avg   
 	   
 
 	#print "versionDictWithLabels"
@@ -160,9 +162,9 @@ def experiemnt_three(dbFileName, meanFlag, outputStrParam, clusterFlag):
 
 
 	############################## 
-	#themegaFile_All = outputStrParam + "_" + "culsterified_non_zero_all-CQ-HL.csv"
-	#IO_.dumpIntoClusterifiedFile( themegaFile_All,sanitizedVersions_CQ , NonZer_Santized_versionDictWithLabels, False )
-	#LGR.performLogiRegression(themegaFile_All)  
+	themegaFile_All = outputStrParam + "_" + "culsterified_non_zero_all-CQ-HL.csv"
+	IO_.dumpIntoClusterifiedFile( themegaFile_All,sanitizedVersions_CQ , NonZer_Santized_versionDictWithLabels, False )
+	LGR.performLogiRegression(themegaFile_All)  
 
 
 
@@ -213,7 +215,6 @@ def experiemnt_correlation(dbFileName, meanFlag, outputStrParam, clusterFlag):
 	#print "And the labels are .... "
 	#print labelsFroVersions
 
-	   
 
 	#print "versionDictWithLabels"
 	#print len(versionDictWithLabels)
@@ -248,46 +249,51 @@ def experiemnt_cart(fileNameParam):
 		print "---------------------------------------------------------------"			
 
 
-def experiemnt_select_classifier(dbFileName, meanFlag, outputStrParam, clusterFlag):
+def experiemnt_select_classifier(dbFileName, meanFlag, outputStrParam, clusterFlag, scoreTypeParam):
 	from sklearn import cluster 
-	from sklearn.metrics import silhouette_samples, silhouette_score
+	from sklearn.metrics import silhouette_samples, silhouette_score, v_measure_score, adjusted_mutual_info_score, completeness_score
 
-
+	scoreListToret=[]
 	print "Performing experiemnt: Select Classifier"
-	#clusters=[2, 3, 4, 5, 6, 7, 8, 9, 10]
-	clusters=[2]
+	clusters=[x for x in xrange(100) if x > 1 ]
+	#clusters=[2]
 	for clsuter_cnt in clusters:
-	  print "this is iteration #", clsuter_cnt
-	  versionAndCodeQualityDict =  DEFT.getValuesFrom_CodingStandard(dbFileName)
-	  sanitizedVersions = sanityCheck.getCodeQualityofVersions(versionAndCodeQualityDict, meanFlag)
-	  sanitizedVersions_CQ = sanitizedVersions
+		print "this is iteration #", clsuter_cnt
+		versionAndCodeQualityDict =  DEFT.getValuesFrom_CodingStandard(dbFileName)
+		sanitizedVersions = sanityCheck.getCodeQualityofVersions(versionAndCodeQualityDict, meanFlag)
+		sanitizedVersions_CQ = sanitizedVersions
 
-	  NonZero_sanitizedVersionsWithScore = sanityCheck.getNonZeroVulnerbailityScoreOfSelectedVersions(sanitizedVersions)
-	  #print "zzzz", len(NonZero_sanitizedVersionsWithScore)
-	  brokenDict = utility.getVScoreList(NonZero_sanitizedVersionsWithScore)
-	  onlyTheNonZeroSanitizedVersionIDs, onlyTheNonZeroSanitizedVScores = brokenDict[0], brokenDict[1]
-	  #print "lalalaa ", onlyTheNonZeroSanitizedVScores
-	  reshapedNonZerSanitizedScores = np.reshape(onlyTheNonZeroSanitizedVScores, (-1, 1))
-	  clusteringType = None  
-	  if clusterFlag:
-	    clusteringType = cluster.KMeans(n_clusters=clsuter_cnt)
-	  else:
-	    clusteringType = cluster.AgglomerativeClustering(n_clusters=clsuter_cnt)  
+		NonZero_sanitizedVersionsWithScore = sanityCheck.getNonZeroVulnerbailityScoreOfSelectedVersions(sanitizedVersions)
+		#print "zzzz", len(NonZero_sanitizedVersionsWithScore)
+		brokenDict = utility.getVScoreList(NonZero_sanitizedVersionsWithScore)
+		onlyTheNonZeroSanitizedVersionIDs, onlyTheNonZeroSanitizedVScores = brokenDict[0], brokenDict[1]
+		#print "lalalaa ", onlyTheNonZeroSanitizedVScores
+		reshapedNonZerSanitizedScores = np.reshape(onlyTheNonZeroSanitizedVScores, (-1, 1))
+		clusteringType = None  
+		if clusterFlag:
+			clusteringType = cluster.KMeans(n_clusters=clsuter_cnt)
+		else:
+			clusteringType = cluster.AgglomerativeClustering(n_clusters=clsuter_cnt)  
 
-	  cluster_labels = clusteringType.fit_predict(reshapedNonZerSanitizedScores)
+		cluster_labels = clusteringType.fit_predict(reshapedNonZerSanitizedScores)
+		scores=0 
+		if scoreTypeParam==0:
+			scores = silhouette_score(reshapedNonZerSanitizedScores, cluster_labels)
+			score_type='Silhouette'
+		# elif scoreTypeParam==1:
+		# 	scores = v_measure_score(reshapedNonZerSanitizedScores, cluster_labels)	  
+		# 	score_type='V-measure'	
+		# elif scoreTypeParam==2:
+		# 	scores = adjusted_mutual_info_score(reshapedNonZerSanitizedScores, cluster_labels)	  	
+		# 	score_type='adjusted mutual info'
+		# elif scoreTypeParam==3:      
+		# 	scores = completeness_score(reshapedNonZerSanitizedScores, cluster_labels)	  
+		# 	score_type='completeness'	
+		score_combo = (clsuter_cnt, scores)
+		scoreListToret.append(score_combo)
+		print "::::: score_type={}, For n_clusters ={}, The clustering _score is ={} :::::".format(score_type, clsuter_cnt, scores)
 
-	  silhouette_avg = silhouette_score(reshapedNonZerSanitizedScores, cluster_labels)
-	  print "::::: For n_clusters ={}, The average silhouette_score is ={} :::::".format(clsuter_cnt, silhouette_avg)
 
-	  if clusterFlag:
-	    centroids = clusteringType.cluster_centers_
-	    print "::::::: And the centroids are .... :::::::", centroids	
-	    NonZer_Santized_versionDictWithLabels = utility.clusterByKmeansLabel( onlyTheNonZeroSanitizedVersionIDs , cluster_labels) 
-
-	  else:
-	    print "No centroids for Aggolomerative clustering"			
-	    NonZer_Santized_versionDictWithLabels = utility.clusterByAggoloLabel( onlyTheNonZeroSanitizedVersionIDs , cluster_labels) 	
-	  #print "And the labels are .... "
-	  #print cluster_labels
+	return scoreListToret  
 
 

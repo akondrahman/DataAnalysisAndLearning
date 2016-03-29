@@ -18,23 +18,33 @@ from sklearn.neighbors import KNeighborsClassifier
 
 
 def evalClassifier(vScore_test, thePredictedScores):  
-  target_names = ['Low_Risk', 'High_Risk']
+  target_names_3 = [ 'H', 'L', 'M']  ## same thing for kmeans and aggolo
+  #target_names_5_aggolo = [ 'VL', 'VH', 'L', 'M', 'H']  #4=50, 1=51.11, 0=15, 2=30, 3=44.61
+  #target_names_10_aggolo = [ '51_1', '20', '30', '44_61', '15', '50_0', '52_29', '43_33', '53_22', '50_67']
+  ##3=51.1, 4=50.0, 1=52.00, 5=20.0, 0=53.33, 9=50.667, 8=44.61, 6=30, 7=15, 2=43.33 
+  ##0=53.33, 1=52.00, 2=43.33, 3=51.1, 4=50.0,  5=20.0, 6=30, 7=15, 8=44.61,  9=50.667,
+  target_names_10_aggolo = ['L9' , 'L8', 'L3' , 'L7', 'L5', 'L1', 'L2', 'L0', 'L4', 'L6']    
+    
+  #target_names_5_kmeans = [ 'H', 'VL', 'L', 'VH', 'M']
+  #target_names_7 = [ '51_1', '20', '30', '44_61', '15', '50_0', '52_29']
+  #target_names_10 = [ '51_1', '20', '30', '44_61', '15', '50_0', '52_29', '43_33', '53_22', '50_67']
+  #target_names_13 = [ '51_1', '15', '30', '44_61', '50_0', '20_0', '53_3', '52_2',  '43_3', '50_6', '53', '52_63', '52']
   '''
     the way skelarn treats is the following: first index -> lower index -> 0 -> 'Low'
     the way skelarn treats is the following: next index after first  -> next lower index -> 1 -> 'high'    
   '''
   print "precison, recall, F-stat"
-  print(classification_report(vScore_test, thePredictedScores, target_names=target_names))
+  print(classification_report(vScore_test, thePredictedScores, target_names=target_names_10_aggolo))
   print"*********************"
   # preserve the order first test(real values from dataset), then predcited (from the classifier )
   '''
     are under the curve values .... reff: http://gim.unmc.edu/dxtests/roc3.htm 
     0.80~0.90 -> good, any thing less than 0.70 bad , 0.90~1.00 -> excellent 
   '''
-  area_roc_output = roc_auc_score(vScore_test, thePredictedScores)
+  #area_roc_output = roc_auc_score(vScore_test, thePredictedScores)
   # preserve the order first test(real values from dataset), then predcited (from the classifier )  
-  print "Area under the ROC curve is ", area_roc_output
-  print"*********************"  
+  #print "Area under the ROC curve is ", area_roc_output
+  #print"*********************"  
   '''
     mean absolute error (mae) values .... reff: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html
     the smaller the better , ideally expect 0.0 
@@ -44,14 +54,14 @@ def evalClassifier(vScore_test, thePredictedScores):
   print "Mean absolute errro output  is ", mae_output  
   print"*********************"  
   
-#  '''
-#  accuracy_score ... reff: http://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter .... percentage of correct predictions 
-#  ideally 1.0, higher the better 
-#  '''
-#  accuracy_score_output = accuracy_score(vScore_test, thePredictedScores)
-#  # preserve the order first test(real values from dataset), then predcited (from the classifier )  
-#  print "Accuracy output  is ", accuracy_score_output   
-#  print"*********************"  
+  '''
+  accuracy_score ... reff: http://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter .... percentage of correct predictions 
+  ideally 1.0, higher the better 
+  '''
+  accuracy_score_output = accuracy_score(vScore_test, thePredictedScores)
+  # preserve the order first test(real values from dataset), then predcited (from the classifier )  
+  print "Accuracy output  is ", accuracy_score_output   
+  print"*********************"  
 #  
 #  '''
 #  hamming_loss ... reff: http://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter .... percentage of correct predictions 
@@ -79,7 +89,7 @@ def evalClassifier(vScore_test, thePredictedScores):
 
 def perform_cross_validation(classiferP, trainingP, testP, cross_vali_param):
   print "||||| ----- Performing cross validation (start) -----  |||||"  
-  predicted_via_cv = cross_validation.cross_val_predict(classiferP, trainingP , testP , cv=10)  
+  predicted_via_cv = cross_validation.cross_val_predict(classiferP, trainingP , testP , cv=cross_vali_param)  
   evalClassifier(testP, predicted_via_cv)
   print "||||| ----- Performing cross validation (end) -----  |||||"      
 
@@ -91,7 +101,7 @@ def runRandomForest(trainDataParam, testDataParam, trainizingSizeParam):
 
   featureSpace_train, featureSpace_test, vScore_train, vScore_test = cross_validation.train_test_split(trainDataParam, testDataParam, test_size=testSplitSize, random_state=0) 
   ## fire up the model   
-  theRndForestModel = RandomForestClassifier(n_estimators=10)
+  theRndForestModel = RandomForestClassifier(n_estimators=50)
   theRndForestModel.fit(featureSpace_train, vScore_train)
   thePredictedScores = theRndForestModel.predict(featureSpace_test)
 
@@ -99,8 +109,8 @@ def runRandomForest(trainDataParam, testDataParam, trainizingSizeParam):
   # preserve the order first test(real values from dataset), then predcited (from the classifier )  
   
   # first one does holdout, this does corss validation  
-  #if trainizingSizeParam==0.90:
-  #  perform_cross_validation(theRndForestModel, trainDataParam, testDataParam, 5)
+  if trainizingSizeParam==0.90:
+    perform_cross_validation(theRndForestModel, trainDataParam, testDataParam, 5)
   
   
   
@@ -121,8 +131,8 @@ def runSVM(trainDataParam, testDataParam, trainizingSizeParam):
   # preserve the order first test(real values from dataset), then predcited (from the classifier )   
   
   # first one does holdout, this does corss validation  
-  #if trainizingSizeParam==0.90:
-  #  perform_cross_validation(theSVMModel, trainDataParam, testDataParam, 5)
+  if trainizingSizeParam==0.90:
+    perform_cross_validation(theSVMModel, trainDataParam, testDataParam, 5)
   
   
 def runCART(trainDataParam, testDataParam, trainizingSizeParam):  
@@ -141,8 +151,8 @@ def runCART(trainDataParam, testDataParam, trainizingSizeParam):
   # preserve the order first test(real values from dataset), then predcited (from the classifier )     
   
   # first one does holdout, this does corss validation  
-  #if trainizingSizeParam==0.90:
-  #  perform_cross_validation(theCARTModel, trainDataParam, testDataParam, 5)
+  if trainizingSizeParam==0.90:
+    perform_cross_validation(theCARTModel, trainDataParam, testDataParam, 5)
        
   
 def runGNB(trainDataParam, testDataParam, trainizingSizeParam):  
@@ -161,8 +171,8 @@ def runGNB(trainDataParam, testDataParam, trainizingSizeParam):
   # preserve the order first test(real values from dataset), then predcited (from the classifier ) 
   
   # first one does holdout, this does corss validation  
-  #if trainizingSizeParam==0.90:
-  #  perform_cross_validation(theGNBModel, trainDataParam, testDataParam, 5)
+  if trainizingSizeParam==0.90:
+    perform_cross_validation(theGNBModel, trainDataParam, testDataParam, 5)
 
 def runKNN(trainDataParam, testDataParam, trainizingSizeParam):  
   # what percent will you use ? 
@@ -180,8 +190,8 @@ def runKNN(trainDataParam, testDataParam, trainizingSizeParam):
   # preserve the order first test(real values from dataset), then predcited (from the classifier )
   
   # first one does holdout, this does corss validation  
-  #if trainizingSizeParam==0.90:
-  #  perform_cross_validation(theKNNModel, trainDataParam, testDataParam, 5)
+  if trainizingSizeParam==0.90:
+    perform_cross_validation(theKNNModel, trainDataParam, testDataParam, 5)
 
   
 # def runMLP(trainDataParam, testDataParam, trainizingSizeParam):  
