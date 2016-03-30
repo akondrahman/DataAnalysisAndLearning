@@ -18,23 +18,29 @@ from sklearn.neighbors import KNeighborsClassifier
 
 
 def evalClassifier(vScore_test, thePredictedScores):  
-  target_names_3 = [ 'H', 'L', 'M']  ## same thing for kmeans and aggolo
+  #target_names_3_aggolo = [ 'H', 'L', 'M']  ## same thing for kmeans and aggolo
   #target_names_5_aggolo = [ 'VL', 'VH', 'L', 'M', 'H']  #4=50, 1=51.11, 0=15, 2=30, 3=44.61
   #target_names_10_aggolo = [ '51_1', '20', '30', '44_61', '15', '50_0', '52_29', '43_33', '53_22', '50_67']
+  #target_names_10_aggolo = ['L9' , 'L8', 'L3' , 'L7', 'L5', 'L1', 'L2', 'L0', 'L4', 'L6']  
+
+  ### 10 clusters 
   ##3=51.1, 4=50.0, 1=52.00, 5=20.0, 0=53.33, 9=50.667, 8=44.61, 6=30, 7=15, 2=43.33 
   ##0=53.33, 1=52.00, 2=43.33, 3=51.1, 4=50.0,  5=20.0, 6=30, 7=15, 8=44.61,  9=50.667,
-  target_names_10_aggolo = ['L9' , 'L8', 'L3' , 'L7', 'L5', 'L1', 'L2', 'L0', 'L4', 'L6']    
+
+  ### 13 clusters  
+  ##  0=51.11, 1=50.0,  12=52.0, 11=20.0, 4=53.33, 
+  ##  6=30.0, 9=50.67, 8=44.615, 7=15.0, 3=53.0,  
+  ##  10= 52.22 , 5=43.33 , 2=52.631     
+  target_names_13_aggolo = ['L7', 'L5', 'L10', 'L11', 'L12', 'L3', 'L2', 'L0', 'L4', 'L6', 'L9', 'L1', 'L8']  
     
   #target_names_5_kmeans = [ 'H', 'VL', 'L', 'VH', 'M']
-  #target_names_7 = [ '51_1', '20', '30', '44_61', '15', '50_0', '52_29']
-  #target_names_10 = [ '51_1', '20', '30', '44_61', '15', '50_0', '52_29', '43_33', '53_22', '50_67']
-  #target_names_13 = [ '51_1', '15', '30', '44_61', '50_0', '20_0', '53_3', '52_2',  '43_3', '50_6', '53', '52_63', '52']
+
   '''
     the way skelarn treats is the following: first index -> lower index -> 0 -> 'Low'
     the way skelarn treats is the following: next index after first  -> next lower index -> 1 -> 'high'    
   '''
   print "precison, recall, F-stat"
-  print(classification_report(vScore_test, thePredictedScores, target_names=target_names_10_aggolo))
+  print(classification_report(vScore_test, thePredictedScores, target_names=target_names_13_aggolo))
   print"*********************"
   # preserve the order first test(real values from dataset), then predcited (from the classifier )
   '''
