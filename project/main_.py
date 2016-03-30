@@ -40,9 +40,9 @@ if clsuterFlag:
  clusterStr="K-Means"    
 else:
  clusterStr="Aggolomerative"        
-#print "########################## Applying the '"+  str_ + "' approach with " + clusterStr +  " ###############################"
-#experiments.experiemnt_three(dbFileName,meanFlag, "Exp_3_" + outputStr + "_" + clusterStr, clsuterFlag )
-#print "=================================================================================================================="
+print "########################## Applying the '"+  str_ + "' approach with " + clusterStr +  " ###############################"
+experiments.experiemnt_three(dbFileName,meanFlag, "Exp_3_" + outputStr + "_" + clusterStr, clsuterFlag )
+print "=================================================================================================================="
 '''
 This is experiemnt 4 : classification with  NO versions that has ZERO scores + used Median  for clustering
 Classifier: SVM 
@@ -155,15 +155,15 @@ Extra experiemnt for cluster slection
 #else:
 #   str_ = "M-E-D-I-A-N"      
 #   outputStr="MEDI"  
-score_type= 0 # type of clustering score 
-clsuterFlag = False # True means  kmeans, Flase hierarchical
-if clsuterFlag: 
-   clusterStr="K-Means"    
-else:
-   clusterStr="Aggolomerative"          
-score_output_ = experiments.experiemnt_select_classifier(dbFileName, meanFlag, clusterStr, clsuterFlag, score_type)
-IO_.dumpScoreIntoFile("_clster_scores.csv", score_output_)
-print "#########################-----##################"
+#score_type= 0 # type of clustering score 
+#clsuterFlag = False # True means  kmeans, Flase hierarchical
+#if clsuterFlag: 
+#   clusterStr="K-Means"    
+#else:
+#   clusterStr="Aggolomerative"          
+#score_output_ = experiments.experiemnt_select_classifier(dbFileName, meanFlag, clusterStr, clsuterFlag, score_type)
+#IO_.dumpScoreIntoFile("_clster_scores.csv", score_output_)
+#print "#########################-----##################"
 '''
 Did not get expected rsults: with bigger no.  of clsuters the Silhouette Index increases 
 expectation was two clusters will get the best result. 

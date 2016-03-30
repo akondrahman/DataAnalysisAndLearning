@@ -116,9 +116,9 @@ def experiemnt_three(dbFileName, meanFlag, outputStrParam, clusterFlag):
 	import plotter 
 	clusteringType = None  
 	if clusterFlag:
-		clusteringType = cluster.KMeans(n_clusters=3)
+		clusteringType = cluster.KMeans(n_clusters=13)
 	else:
-		clusteringType = cluster.AgglomerativeClustering(n_clusters=3)  
+		clusteringType = cluster.AgglomerativeClustering(n_clusters=13)  
 
 
 	print "Performing experiemnt # 3: Clustering score into two clusters "
