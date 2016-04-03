@@ -1,0 +1,18 @@
+#install.packages("clValid")  
+library(clValid)
+risk_score = read.csv("scores_for_clustering_measure.csv", header = F)
+#summary(risk_score)
+#print(risk_score)
+risk_score_value=risk_score$V1
+df_risk_score_value <- as.data.frame(risk_score_value)
+#head(df_risk_score_value)
+#summary(df_risk_score_value)
+#print(nrow(risk_score))
+#print(ncol(risk_score))
+
+print("##### Cluster Analysis: Internal Validity #####")
+internal_summary <- clValid(df_risk_score_value, 2:100,  clMethods=c("hierarchical"), validation="internal")
+print("----- Summary -----")
+summary(internal_summary)
+print("----- Details -----")
+print(internal_summary)

@@ -31,7 +31,13 @@ def evalClassifier(vScore_test, thePredictedScores):
   ##  0=51.11, 1=50.0,  12=52.0, 11=20.0, 4=53.33, 
   ##  6=30.0, 9=50.67, 8=44.615, 7=15.0, 3=53.0,  
   ##  10= 52.22 , 5=43.33 , 2=52.631     
-  target_names_13_aggolo = ['L7', 'L5', 'L10', 'L11', 'L12', 'L3', 'L2', 'L0', 'L4', 'L6', 'L9', 'L1', 'L8']  
+  #target_names_13_aggolo = ['L7', 'L5', 'L10', 'L11', 'L12', 'L3', 'L2', 'L0', 'L4', 'L6', 'L9', 'L1', 'L8']  
+
+  ### 12 clusters  
+  ## 1=51.11, 4=50.0, 0=52.0, 11=20.0, 
+  ## 10=53.33, 6=30.0, 9=50.67, 8=44.61, 
+  ##  3=53.0, 5=43.33, 2=52.63, 7=15.0 
+  target_names_12_aggolo = [ 'L8', 'L7', 'L9', 'L10', 'L5', 'L3', 'L2', 'L0', 'L4', 'L6', 'L11' , 'L1']  
     
   #target_names_5_kmeans = [ 'H', 'VL', 'L', 'VH', 'M']
 
@@ -40,7 +46,7 @@ def evalClassifier(vScore_test, thePredictedScores):
     the way skelarn treats is the following: next index after first  -> next lower index -> 1 -> 'high'    
   '''
   print "precison, recall, F-stat"
-  print(classification_report(vScore_test, thePredictedScores, target_names=target_names_13_aggolo))
+  print(classification_report(vScore_test, thePredictedScores, target_names=target_names_12_aggolo))
   print"*********************"
   # preserve the order first test(real values from dataset), then predcited (from the classifier )
   '''

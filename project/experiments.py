@@ -116,9 +116,9 @@ def experiemnt_three(dbFileName, meanFlag, outputStrParam, clusterFlag):
 	import plotter 
 	clusteringType = None  
 	if clusterFlag:
-		clusteringType = cluster.KMeans(n_clusters=13)
+		clusteringType = cluster.KMeans(n_clusters=12)
 	else:
-		clusteringType = cluster.AgglomerativeClustering(n_clusters=13)  
+		clusteringType = cluster.AgglomerativeClustering(n_clusters=12)  
 
 
 	print "Performing experiemnt # 3: Clustering score into two clusters "
@@ -129,9 +129,19 @@ def experiemnt_three(dbFileName, meanFlag, outputStrParam, clusterFlag):
 	#print "Sanitized versions ..." , sanitizedVersions
 	NonZero_sanitizedVersionsWithScore = sanityCheck.getNonZeroVulnerbailityScoreOfSelectedVersions(sanitizedVersions)
 	#print "zzzz", len(NonZero_sanitizedVersionsWithScore)
+	### dyumping scores ...
+
 	brokenDict = utility.getVScoreList(NonZero_sanitizedVersionsWithScore)
 	onlyTheNonZeroSanitizedVersionIDs, onlyTheNonZeroSanitizedVScores = brokenDict[0], brokenDict[1]
 	#print "lalalaa ", onlyTheNonZeroSanitizedVScores
+
+	#strOfScoresToDump=""
+	#for elem in onlyTheNonZeroSanitizedVScores:
+	#	strOfScoresToDump = strOfScoresToDump + str(elem) +  "," + "\n"
+
+	###
+	#IO_.writeStrToFile("scores_for_clustering_measure.csv", strOfScoresToDump)
+
 	reshapedNonZerSanitizedScores = np.reshape(onlyTheNonZeroSanitizedVScores, (-1, 1))
 	clusteringType.fit(reshapedNonZerSanitizedScores)
 	labelsFroVersions = clusteringType.labels_
@@ -153,10 +163,6 @@ def experiemnt_three(dbFileName, meanFlag, outputStrParam, clusterFlag):
 	cluster_labels = clusteringType.fit_predict(reshapedNonZerSanitizedScores)	
 	silhouette_avg = silhouette_score(reshapedNonZerSanitizedScores, cluster_labels)
 	print "Silhouette average---> ", silhouette_avg   
-	   
-
-	#print "versionDictWithLabels"
-	#print len(versionDictWithLabels)
 
 
 
@@ -164,7 +170,7 @@ def experiemnt_three(dbFileName, meanFlag, outputStrParam, clusterFlag):
 	############################## 
 	themegaFile_All = outputStrParam + "_" + "culsterified_non_zero_all-CQ-HL.csv"
 	IO_.dumpIntoClusterifiedFile( themegaFile_All,sanitizedVersions_CQ , NonZer_Santized_versionDictWithLabels, False )
-	LGR.performLogiRegression(themegaFile_All)  
+	#LGR.performLogiRegression(themegaFile_All)  
 
 
 
