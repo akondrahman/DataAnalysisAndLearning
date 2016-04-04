@@ -44,7 +44,7 @@ for cnt in xrange(exp_counts):
   ### Exp-4
   #exp_x_experiments.experiemnt_gaussian_naive_bayes(fileNameParam)
   ### Exp-5
-  #exp_x_experiments.experiemnt_KNN(fileNameParam)  
+  exp_x_experiments.experiemnt_KNN(fileNameParam)  
 
   
   

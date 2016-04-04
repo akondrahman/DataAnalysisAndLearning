@@ -129,7 +129,8 @@ def experiemnt_KNN(fileNameParam):
   print "Size of  training data : rows: {}, columns: {}".format( original_rows , original_cols )
   
   # settign up test data 
-  testData = testAndTrainData[1]   
+  testData = testAndTrainData[1]
+   
   for selCount in xrange(original_cols):
     count_ = selCount + 1 
     if count_ < original_cols:      
@@ -138,9 +139,9 @@ def experiemnt_KNN(fileNameParam):
       print "Size of selected training data : ", slected_training_data.shape
       emperiemntSplitters=[float(x)/float(10) for x in xrange(10) if x > 0] 
       for elem in emperiemntSplitters:
-	  #print "Training size: {} %".format(float(elem*100))
-	  exp_x_classifiers.runKNN(slected_training_data, testData, elem)
-	  #print "---------------------------------------------------------------"	 
+	      #print "Training size: {} %".format(float(elem*100))
+	      exp_x_classifiers.runKNN(slected_training_data, testData, elem)
+	      #print "---------------------------------------------------------------"	 
 
 
 

@@ -15,6 +15,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import GaussianNB
 #from sklearn.neural_network import MLPClassifier
 from sklearn.neighbors import KNeighborsClassifier
+import model_params as modp
 
 
 def evalClassifier(vScore_test, thePredictedScores):  
@@ -136,15 +137,23 @@ def runSVM(trainDataParam, testDataParam, trainizingSizeParam):
   ## get the test and training sets   
   featureSpace_train, featureSpace_test, vScore_train, vScore_test = cross_validation.train_test_split(trainDataParam, testDataParam, test_size=testSplitSize, random_state=0) 
   ## fire up the model 
-  theSVMModel = svm.SVC(kernel='rbf', C=1).fit(featureSpace_train, vScore_train)   
-  thePredictedScores = theSVMModel.predict(featureSpace_test)
-
-  #evalClassifier(vScore_test, thePredictedScores) 
-  # preserve the order first test(real values from dataset), then predcited (from the classifier )   
   
-  # first one does holdout, this does corss validation  
-  if trainizingSizeParam==0.90:
-    perform_cross_validation(theSVMModel, trainDataParam, testDataParam, 5)
+  params = modp.svm_params
+  
+  for val1 in params['C']:
+    for val2 in params['shrinking']:
+      for val3 in params['tol']:
+        for val4 in params['decision_function_shape']:
+          if trainizingSizeParam==0.90:
+            print '---->For params: C='+str(val1)+' shrinking='+str(val2)+' tol='+str(val3)+' decision_function_shape='+str(val4)
+          theSVMModel = svm.SVC(kernel='rbf', C = val1, shrinking = val2, tol = val3, decision_function_shape = val4).fit(featureSpace_train, vScore_train)   
+          thePredictedScores = theSVMModel.predict(featureSpace_test)
+          
+          #evalClassifier(vScore_test, thePredictedScores) 
+          # preserve the order first test(real values from dataset), then predcited (from the classifier )   
+          # first one does holdout, this does corss validation  
+          if trainizingSizeParam==0.90:
+            perform_cross_validation(theSVMModel, trainDataParam, testDataParam, 5)
   
   
 def runCART(trainDataParam, testDataParam, trainizingSizeParam):  
@@ -193,17 +202,29 @@ def runKNN(trainDataParam, testDataParam, trainizingSizeParam):
   ### classification   
 
   featureSpace_train, featureSpace_test, vScore_train, vScore_test = cross_validation.train_test_split(trainDataParam, testDataParam, test_size=testSplitSize, random_state=0) 
-  ## fire up the model   
-  theKNNModel = KNeighborsClassifier()
-  theKNNModel.fit(featureSpace_train, vScore_train)
-  thePredictedScores = theKNNModel.predict(featureSpace_test)
-
-  #evalClassifier(vScore_test, thePredictedScores) 
-  # preserve the order first test(real values from dataset), then predcited (from the classifier )
+  ## fire up the model  
   
-  # first one does holdout, this does corss validation  
-  if trainizingSizeParam==0.90:
-    perform_cross_validation(theKNNModel, trainDataParam, testDataParam, 5)
+  params = modp.knn_params
+  
+  for val1 in params['n_neighbors']:
+    if val1 > len(featureSpace_train):
+      continue
+    for val2 in params['weights']:
+      for val3 in params['metric']:
+        for val4 in params['p']:
+          for val5 in params['algorithm']:  
+            if trainizingSizeParam==0.90:
+              print '---->For params: n_neighbors='+str(val1)+' weights='+str(val2)+' metric='+str(val3)+' p='+str(val4)+' algorithm='+str(val5)
+            theKNNModel = KNeighborsClassifier(n_neighbors=val1, weights=val2, metric=val3, p=val4, algorithm=val5)
+            theKNNModel.fit(featureSpace_train, vScore_train)
+            thePredictedScores = theKNNModel.predict(featureSpace_test)
+          
+            #evalClassifier(vScore_test, thePredictedScores)
+            # preserve the order first test(real values from dataset), then predcited (from the classifier )
+  
+            # first one does holdout, this does corss validation  
+            if trainizingSizeParam==0.90:
+              perform_cross_validation(theKNNModel, trainDataParam, testDataParam, 5)
 
   
 # def runMLP(trainDataParam, testDataParam, trainizingSizeParam):  
