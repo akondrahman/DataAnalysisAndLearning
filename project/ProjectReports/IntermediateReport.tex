@@ -1,0 +1,130 @@
+\documentclass[11pt]{article} %Sets the default text size to 11pt and class to article.
+%------------------------Dimensions--------------------------------------------
+\topmargin=0.0in %length of margin at the top of the page (1 inch added by default)
+\oddsidemargin=0.0in %length of margin on sides for odd pages
+\evensidemargin=0in %length of margin on sides for even pages
+\textwidth=6.5in %How wide you want your text to be
+\marginparwidth=0.5in
+\headheight=0pt %1in margins at top and bottom (1 inch is added to this value by default)
+\headsep=0pt %Increase to increase white space in between headers and the top of the page
+\textheight=9.0in %How tall the text body is allowed to be on each page
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{lmodern} % load a font with all the characters
+
+
+%New colors defined below
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour},   commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=1
+}
+
+%"mystyle" code listing set
+\lstset{style=mystyle}
+\graphicspath{ {images2/} }
+\begin{document}
+\noindent{\LARGE \bf CSC522: Intermediate project report}\\
+\textbf{Title}: Are Software Metrics Good Predictors for Vulnerability Assessment of Android Applications?  
+\\
+\textbf{Team}: Repo Miners \\
+\line(1,0){470}
+
+\section{Introduction}
+Introduction 
+With the increase in popularity and use of Android apps, security and privacy issues of Android apps are becoming a concern \cite{01}\cite{03}. Android app developers can benefit in writing better quality apps if a study can systematically analyze which software engineering issues such as coding conventions and software metric contribute to Android app vulnerability. Prior studies have shown how software related metrics can be used to predict software defects. We draw inspiration from these studies and identify the possibility of applying data mining techniques to predict vulnerability in Android apps. In this project we aim to predict vulnerability risk score for each version of apps from different features from the dataset such as number of commits, number of contributors, number of classes, number of lines per code, and number of functions.  
+
+\section{Dataset}
+The dataset \cite{02} is a 87. 5 MB SQLite database containing software related metrics data and vulnerability data of 1179 open source Android apps that has 4416 different versions. The dataset contains a vulnerability risk score for each of the versions of the 1179 applications. The dataset also contains software metrics for each version of the 1179 apps such as number of files, number of directories, file complexity, and number of violations. 
+
+\section{Methodology}
+In this work, we focus our efforts on predicting how much Android applications are  susceptible to vulnerability. The dataset provides a ‘risk score’ for all the Android application versions. We hypothesize that raw risk scores might not be helpful Android applications. Instead of predicting the risk scores we categorize the scores in two categories: high and low (defined as per the median of scores in our labeled data-set). For categorizing the scores we use hierarchical clustering.Hierarchical clustering categorizes the all the scores into two categories:high and low. Next, we use the following steps to classify if an Android application is highly or less susceptible to vulnerability, by applying the following steps:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=15cm,height=3cm]{fig0}
+    \caption{Major steps of the study}
+    \label{fig0}
+\end{figure}
+\\For this purpose, we applied classification models as mentioned below on our labeled dataset:
+\begin{itemize}
+    \item Feature Selection/Reduction:  We observed 20 software-metric related features in the dataset that can be used for classification. We have used simple logistic regression model to determine the features that will be used to classify the high and low risk applications. After applying logistic regression if the observed correlation coefficients were non-zero for a certain feature, then we consider that feature for classification. After applying simple logistic regression model we observed that all the features had non-zero correlation coefficients, and hence we included all the 20 features for classification.    
+    \item Classification models: Three classification models were applied on the dataset : SVM, Random Forests and Decision Trees using the sklearn python library.
+    \item Validation: For the purpose of validation, we compared the Precision, Recall and Area under the ROC curve measures for different sizes of the training data sets (10%,20%..90%).
+\end{itemize}
+
+\section{Findings} 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=12cm, height=6cm]{fig1}
+    \caption{Precision for low risk android versions}
+    \label{fig1}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=12cm, height=6cm]{fig2}
+    \caption{Precision for high risk android versions}
+    \label{fig2}
+\end{figure}
+Figure \ref{fig1} and \ref{fig2} compare the precision for low and high risk clusters respectively. From Figure \ref{fig1}, we can conclude that for the low-risk cluster, SVM and Random Forests classification models have higher precision in comparison to CART classification model. 
+
+Whereas, Figure \ref{fig2} represents that for the high-risk cluster, CART and Random Forest provide a higher precision than SVM classification model. Thus, we can conclude that overall Random Forest classification model performs the best in terms of precision.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=12cm, height=6cm]{fig3}
+    \caption{Recall for low risk android versions}
+    \label{fig3}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=12cm, height=6cm]{fig4}
+    \caption{Recall for high risk android versions}
+    \label{fig4}
+\end{figure}
+Figure \ref{fig3} and \ref{fig4} compare the recall for low and high risk clusters respectively. Similarly, from Figure \ref{fig3}, it can be observed that for the low-risk cluster, CART and Random Forests classification models have higher recall value in comparison to SVM classification model. 
+
+Whereas, Figure \ref{fig4} shows that for the high-risk cluster, SVM and Random Forest provide a higher recall value than CART classification model. Thus, through these observations it can be concluded that Random Forest classification model performs the best in terms of recall too.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=12cm, height=6cm]{fig5}
+    \caption{AUC for the three classification models}
+    \label{fig5}
+\end{figure}
+Figure \ref{fig5} displays the area under ROC curve for all three classification models. On observing this graph ,it can be seen that Random Forest and CART reach the best possible value (1.0) with a smaller training size compared to that of SVM.
+
+
+\begin{thebibliography}{9}
+\bibitem{01}
+Long Lu, Zhichun Li, Zhenyu Wu, Wenke Lee, and Guofei Jiang. 2012. CHEX: statically vetting Android apps for component hijacking vulnerabilities. In Proceedings of the 2012 ACM conference on Computer and communications security (CCS '12). ACM, New York, NY, USA, 229-240.
+\bibitem{02}
+Daniel E. Krutz, Mehdi Mirakhorli, Samuel A. Malachowsky, Andres Ruiz, Jacob Peterson, Andrew Filipski, and Jared Smith. 2015. A dataset of open-source Android applications. In Proceedings of the 12th Working Conference on Mining Software Repositories (MSR '15). IEEE Press, Piscataway, NJ, USA, 522-525.
+\bibitem{03}
+http://www.scmagazine.com/researcher-discovers-thousands-of-vulnerable-apps/article/410418/
+
+\end{thebibliography}
+\end{document}
+
+
