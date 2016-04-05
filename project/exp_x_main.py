@@ -29,7 +29,7 @@ Selctive Feature
 print "This is experiemnt X : classification with  NO versions that has ZERO scores + used K-Means for High and Low + Selectiev Feature "
 print "Classifier: Decision Tree (CART), Random Forest, SVM(rbf), Gaussian NAive Bayes , KNN"
 ##fileNameParam="NonZeroDataset_KMeans.csv"
-fileNameParam="12_NonZeroDataset_Aggolo.csv"
+fileNameParam="5_NonZeroDataset_Aggolo.csv"
 exp_counts=1
 
 for cnt in xrange(exp_counts):
@@ -38,13 +38,13 @@ for cnt in xrange(exp_counts):
   ## Exp-1   
   #exp_x_experiments.experiemnt_CART(fileNameParam)
   ### Exp-2
-  #exp_x_experiments.experiemnt_random_forest(fileNameParam)
+  exp_x_experiments.experiemnt_random_forest(fileNameParam)
   ### Exp-3
   #exp_x_experiments.experiemnt_SVM(fileNameParam)
   ### Exp-4
   #exp_x_experiments.experiemnt_gaussian_naive_bayes(fileNameParam)
   ### Exp-5
-  exp_x_experiments.experiemnt_KNN(fileNameParam)  
+  #exp_x_experiments.experiemnt_KNN(fileNameParam)  
 
   
   

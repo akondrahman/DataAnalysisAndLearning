@@ -1,0 +1,4 @@
+Name,Highest,Lowest
+Avg.Accuracy,1000_gini_auto_1000_1000_True_1_False_0.0_True,50_entropy_None_1000_1000_False_1_False_0.0_False
+MAE,1000_entropy_None_1000_1000_False_1_False_0.0_True,1000_gini_auto_1000_1000_True_1_False_0.0_True
+
