@@ -109,13 +109,13 @@ def stat_a12_test_(valueListParam):
 
 ####### Open loggger ####
 old_stdout = sys.stdout
-output_file_name="a12_res_.txt"
+output_file_name="a12_res_13Clusters.txt"
 log_file = open( output_file_name,  "w")
 sys.stdout = log_file  
 
 print "Started at: ", IO_.giveTimeStamp()
-count=100000
-file_="12_NonZeroDataset_Aggolo.csv"
+count=10000
+file_="13_NonZeroDataset_Aggolo.csv"
 all_accu_moea = runs(count, file_)
 all_acuu = all_accu_moea[0]
 all_moea = all_accu_moea[1]

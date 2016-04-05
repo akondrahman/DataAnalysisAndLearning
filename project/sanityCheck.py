@@ -33,7 +33,9 @@ def getCodeQualityofVersions(dictParam, meanFlag=True):
   if meanFlag: 
     thres = np.mean(fileList)
   else:
-    thres = np.median(fileList)      
+    #thres = np.median(fileList)      
+    thres = np.percentile(fileList, 25)
+    #print "50th percentile of file count ... ", thres          
   for k_, v_ in versionRiskDict.items():
     versionIDInRiskDict = k_ 
     if versionIDInRiskDict in dictParam:

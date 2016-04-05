@@ -116,9 +116,9 @@ def experiemnt_three(dbFileName, meanFlag, outputStrParam, clusterFlag):
 	import plotter 
 	clusteringType = None  
 	if clusterFlag:
-		clusteringType = cluster.KMeans(n_clusters=12)
+		clusteringType = cluster.KMeans(n_clusters=13)
 	else:
-		clusteringType = cluster.AgglomerativeClustering(n_clusters=12)  
+		clusteringType = cluster.AgglomerativeClustering(n_clusters=13)  
 
 
 	print "Performing experiemnt # 3: Clustering score into two clusters "
@@ -137,7 +137,7 @@ def experiemnt_three(dbFileName, meanFlag, outputStrParam, clusterFlag):
 
 	#strOfScoresToDump=""
 	#for elem in onlyTheNonZeroSanitizedVScores:
-	#	strOfScoresToDump = strOfScoresToDump + str(elem) +  "," + "\n"
+	#  strOfScoresToDump = strOfScoresToDump + str(elem) +  "," + "\n"
 
 	###
 	#IO_.writeStrToFile("scores_for_clustering_measure.csv", strOfScoresToDump)

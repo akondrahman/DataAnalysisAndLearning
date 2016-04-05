@@ -15,12 +15,14 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import GaussianNB
 #from sklearn.neural_network import MLPClassifier
 from sklearn.neighbors import KNeighborsClassifier
-import model_params as modp
+
 
 
 def evalClassifier(vScore_test, thePredictedScores):  
+  #target_names_2_aggolo = [ 'L', 'H']  ## same thing for kmeans and aggolo    
+  
   #target_names_3_aggolo = [ 'H', 'L', 'M']  ## same thing for kmeans and aggolo
-  target_names_5_aggolo = [ 'VL', 'VH', 'L', 'M', 'H']  #4=50, 1=51.11, 0=15, 2=30, 3=44.61
+  #target_names_5_aggolo = [ 'VL', 'VH', 'L', 'M', 'H']  #4=50, 1=51.11, 0=15, 2=30, 3=44.61
   #target_names_10_aggolo = [ '51_1', '20', '30', '44_61', '15', '50_0', '52_29', '43_33', '53_22', '50_67']
   #target_names_10_aggolo = ['L9' , 'L8', 'L3' , 'L7', 'L5', 'L1', 'L2', 'L0', 'L4', 'L6']  
 
@@ -47,7 +49,7 @@ def evalClassifier(vScore_test, thePredictedScores):
     the way skelarn treats is the following: next index after first  -> next lower index -> 1 -> 'high'    
   '''
   print "precison, recall, F-stat"
-  print(classification_report(vScore_test, thePredictedScores, target_names=target_names_5_aggolo))
+  print(classification_report(vScore_test, thePredictedScores, target_names=target_names_12_aggolo))
   print"*********************"
   # preserve the order first test(real values from dataset), then predcited (from the classifier )
   '''
@@ -110,6 +112,7 @@ def perform_cross_validation(classiferP, trainingP, testP, cross_vali_param):
   print "||||| ----- Performing cross validation (end) -----  |||||"      
 
 def runRandomForest(trainDataParam, testDataParam, trainizingSizeParam):
+
   # what percent will you use ? 
   testSplitSize = 1.0 - trainizingSizeParam
 
@@ -127,6 +130,7 @@ def runRandomForest(trainDataParam, testDataParam, trainizingSizeParam):
   
   # first one does holdout, this does corss validation  
   if trainizingSizeParam==0.90:
+    print "This is experiment X: randForest()"    
     perform_cross_validation(theRndForestModel, trainDataParam, testDataParam, 5)
     #print " Original , Predicted"
     #for orig, predicted in zip(vScore_test, thePredictedScores):
@@ -138,6 +142,7 @@ def runRandomForest(trainDataParam, testDataParam, trainizingSizeParam):
   
   
 def runSVM(trainDataParam, testDataParam, trainizingSizeParam):
+
   # what percent will you use ? 
   testSplitSize = 1.0 - trainizingSizeParam
 
@@ -153,10 +158,12 @@ def runSVM(trainDataParam, testDataParam, trainizingSizeParam):
   # preserve the order first test(real values from dataset), then predcited (from the classifier )   
   # first one does holdout, this does corss validation  
   if trainizingSizeParam==0.90:
+     print "This is experiment X: SVM-rbf()"            
      perform_cross_validation(theSVMModel, trainDataParam, testDataParam, 5)
   
   
-def runCART(trainDataParam, testDataParam, trainizingSizeParam):  
+def runCART(trainDataParam, testDataParam, trainizingSizeParam): 
+
   # what percent will you use ? 
   testSplitSize = 1.0 - trainizingSizeParam
 
@@ -173,10 +180,12 @@ def runCART(trainDataParam, testDataParam, trainizingSizeParam):
   
   # first one does holdout, this does corss validation  
   if trainizingSizeParam==0.90:
+    print "This is experiment X: CART()"            
     perform_cross_validation(theCARTModel, trainDataParam, testDataParam, 5)
        
   
-def runGNB(trainDataParam, testDataParam, trainizingSizeParam):  
+def runGNB(trainDataParam, testDataParam, trainizingSizeParam): 
+
   # what percent will you use ? 
   testSplitSize = 1.0 - trainizingSizeParam
 
@@ -193,9 +202,11 @@ def runGNB(trainDataParam, testDataParam, trainizingSizeParam):
   
   # first one does holdout, this does corss validation  
   if trainizingSizeParam==0.90:
+    print "This is experiment X: Gaussian Naive Bayes ()"            
     perform_cross_validation(theGNBModel, trainDataParam, testDataParam, 5)
 
 def runKNN(trainDataParam, testDataParam, trainizingSizeParam):  
+
   # what percent will you use ? 
   testSplitSize = 1.0 - trainizingSizeParam
 
@@ -212,6 +223,7 @@ def runKNN(trainDataParam, testDataParam, trainizingSizeParam):
   
   # first one does holdout, this does corss validation  
   if trainizingSizeParam==0.90:
+    print "This is experiment X: kNN()"            
     perform_cross_validation(theKNNModel, trainDataParam, testDataParam, 5)
 
   
