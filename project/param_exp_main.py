@@ -30,7 +30,7 @@ def experiemnt_random_forest(fileNameParam, fileToWriteP):
   
 ####### Open loggger ####
 old_stdout = sys.stdout
-output_file_name="V2_output/chrome-ff-topics_1000_missing.txt"
+output_file_name="param_exp.txt"
 log_file = open( output_file_name,  "w")
 sys.stdout = log_file  
   

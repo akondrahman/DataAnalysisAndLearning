@@ -8,7 +8,7 @@ Created on Mon Apr  4 18:52:13 2016
 
 
 import stat_exp_classifiers , IO_, stat_utility , a12_utility 
-
+import sys 
 
 
 
@@ -101,14 +101,17 @@ def stat_a12_test_(valueListParam):
   for value_for_one_classifier in valueListParam: 
     comparer = value_for_one_classifier  
     comparees = [x for x in valueListParam if x!=value_for_one_classifier] 
+    print "---"
     for comparee_item in comparees: 
       #print "comparer: {}, comapree: {}".format(comparer, comparee_item)  
       a12_results = a12_utility.doSlowA12(comparer, comparee_item)
-      print "-----"          
-      print "A12-results "
-      print a12_results   
-      print "-----" 
+      print "----->", a12_results   
 
+####### Open loggger ####
+old_stdout = sys.stdout
+output_file_name="a12_res_.txt"
+log_file = open( output_file_name,  "w")
+sys.stdout = log_file  
 
 print "Started at: ", IO_.giveTimeStamp()
 count=100000
@@ -124,4 +127,11 @@ print "**************** A12 tests for Accuracy  ****************"
 stat_a12_test_(all_acuu)
 print "**************** A12 tests for Mean Abs. Error  ****************"
 stat_a12_test_(all_moea)
-print "Ended at: ", IO_.giveTimeStamp()    
+print "Ended at: ", IO_.giveTimeStamp() 
+
+
+
+
+#### close logger       
+sys.stdout = old_stdout
+log_file.close()        
