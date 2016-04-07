@@ -30,13 +30,13 @@ def experiemnt_random_forest(fileNameParam, fileToWriteP):
   
 ####### Open loggger ####
 old_stdout = sys.stdout
-output_file_name="param_exp.txt"
+output_file_name="param_exp_10.txt"
 log_file = open( output_file_name,  "w")
 sys.stdout = log_file  
   
   
 print "Started at: ", IO_.giveTimeStamp()
-fileNameParam="12_NonZeroDataset_Aggolo.csv"
+fileNameParam="13_NonZeroDataset_Aggolo.csv"
 fileToWrite="param_exp_combo_report.csv"
 experiemnt_random_forest(fileNameParam, fileToWrite)
 
