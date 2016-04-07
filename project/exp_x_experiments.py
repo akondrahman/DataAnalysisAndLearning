@@ -139,9 +139,9 @@ def experiemnt_KNN(fileNameParam):
       print "Size of selected training data : ", slected_training_data.shape
       emperiemntSplitters=[float(x)/float(10) for x in xrange(10) if x > 0] 
       for elem in emperiemntSplitters:
-	      #print "Training size: {} %".format(float(elem*100))
-	      exp_x_classifiers.runKNN(slected_training_data, testData, elem)
-	      #print "---------------------------------------------------------------"	 
+        #print "Training size: {} %".format(float(elem*100))
+        exp_x_classifiers.runKNN(slected_training_data, testData, elem)
+        #print "---------------------------------------------------------------"	 
 
 
 
