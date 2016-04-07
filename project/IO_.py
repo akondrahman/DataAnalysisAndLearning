@@ -7,6 +7,8 @@ Created on Mon Feb 15 01:49:15 2016
 
 
 
+from contextlib import contextmanager
+import time 
 def dumpIntoFileByHighAndLow(fileNameP,  high_CQ_dictParam, low_CQ_dictParam, headerParam=True): 
   Str1= "versionID, classes, ncloc, functions, duplicated_lines, complexity, class_complexity, function_complexity,  "
   #Str1= " classes, ncloc, functions, duplicated_lines, complexity, class_complexity, function_complexity,  "  
@@ -176,4 +178,13 @@ def dumpScoreIntoFile(fileNamapeParam, listParam):
   fileToWrite = open( fileNamapeParam, 'w')
   fileToWrite.write(strToWrite + "\n")  
   fileToWrite.close()       
+
+@contextmanager
+def duration():
+  
+  t1 = time.time()
+  yield
+  t2 = time.time()
+  print("\n" + "-" * 72)
+  print("# Runtime: %.3f secs" % (t2-t1)) 
     

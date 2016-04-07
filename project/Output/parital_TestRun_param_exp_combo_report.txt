@@ -1,0 +1,500 @@
+Accuracy output  is  0.715846994536
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+##########
+##########
+n_estimators=1000, criterion=entropy, max_features=None, max_dept=1000, max_leaf_nodes=1000
+bootstrap=True, min-sample-split=1000, oob_score=False, min-wt-frac=0.5, warm-start=False
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+         L8       0.00      0.00      0.00         6
+         L7       0.72      1.00      0.83       393
+         L9       0.00      0.00      0.00         2
+        L10       0.00      0.00      0.00         3
+         L5       0.00      0.00      0.00       106
+         L3       0.00      0.00      0.00         3
+         L2       0.00      0.00      0.00         7
+         L0       0.00      0.00      0.00         6
+         L4       0.00      0.00      0.00         6
+         L6       0.00      0.00      0.00         7
+        L11       0.00      0.00      0.00         6
+         L1       0.00      0.00      0.00         4
+
+avg / total       0.51      0.72      0.60       549
+
+*********************
+Mean absolute errro output  is  1.10564663024
+*********************
+Accuracy output  is  0.715846994536
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+##########
+##########
+n_estimators=1000, criterion=entropy, max_features=None, max_dept=1000, max_leaf_nodes=1000
+bootstrap=False, min-sample-split=1, oob_score=False, min-wt-frac=0.0, warm-start=True
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+         L8       0.43      0.50      0.46         6
+         L7       0.75      0.66      0.70       393
+         L9       0.00      0.00      0.00         2
+        L10       0.33      0.67      0.44         3
+         L5       0.21      0.22      0.21       106
+         L3       1.00      1.00      1.00         3
+         L2       0.25      0.57      0.35         7
+         L0       0.33      0.83      0.48         6
+         L4       0.23      0.50      0.32         6
+         L6       0.50      0.86      0.63         7
+        L11       0.10      0.17      0.12         6
+         L1       0.38      0.75      0.50         4
+
+avg / total       0.61      0.57      0.58       549
+
+*********************
+Mean absolute errro output  is  1.66302367942
+*********************
+Accuracy output  is  0.566484517304
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+##########
+##########
+n_estimators=1000, criterion=entropy, max_features=None, max_dept=1000, max_leaf_nodes=1000
+bootstrap=False, min-sample-split=1, oob_score=False, min-wt-frac=0.0, warm-start=False
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+         L8       0.38      0.50      0.43         6
+         L7       0.75      0.66      0.70       393
+         L9       0.00      0.00      0.00         2
+        L10       0.33      0.67      0.44         3
+         L5       0.21      0.22      0.21       106
+         L3       1.00      1.00      1.00         3
+         L2       0.25      0.57      0.35         7
+         L0       0.29      0.83      0.43         6
+         L4       0.23      0.50      0.32         6
+         L6       0.60      0.86      0.71         7
+        L11       0.10      0.17      0.12         6
+         L1       0.33      0.75      0.46         4
+
+avg / total       0.61      0.57      0.58       549
+
+*********************
+Mean absolute errro output  is  1.65938069217
+*********************
+Accuracy output  is  0.566484517304
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+##########
+##########
+n_estimators=1000, criterion=entropy, max_features=None, max_dept=1000, max_leaf_nodes=1000
+bootstrap=False, min-sample-split=1, oob_score=False, min-wt-frac=0.5, warm-start=True
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+         L8       0.43      0.50      0.46         6
+         L7       0.76      0.66      0.70       393
+         L9       0.00      0.00      0.00         2
+        L10       0.33      0.67      0.44         3
+         L5       0.22      0.25      0.23       106
+         L3       1.00      1.00      1.00         3
+         L2       0.25      0.57      0.35         7
+         L0       0.29      0.83      0.43         6
+         L4       0.23      0.50      0.32         6
+         L6       0.60      0.86      0.71         7
+        L11       0.10      0.17      0.12         6
+         L1       0.60      0.75      0.67         4
+
+avg / total       0.62      0.57      0.59       549
+
+*********************
+Mean absolute errro output  is  1.60109289617
+*********************
+Accuracy output  is  0.571948998179
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+##########
+##########
+n_estimators=1000, criterion=entropy, max_features=None, max_dept=1000, max_leaf_nodes=1000
+bootstrap=False, min-sample-split=1, oob_score=False, min-wt-frac=0.5, warm-start=False
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+         L8       0.38      0.50      0.43         6
+         L7       0.75      0.65      0.69       393
+         L9       0.00      0.00      0.00         2
+        L10       0.33      0.67      0.44         3
+         L5       0.21      0.23      0.22       106
+         L3       1.00      1.00      1.00         3
+         L2       0.29      0.57      0.38         7
+         L0       0.29      0.83      0.43         6
+         L4       0.23      0.50      0.32         6
+         L6       0.60      0.86      0.71         7
+        L11       0.10      0.17      0.12         6
+         L1       0.30      0.75      0.43         4
+
+avg / total       0.61      0.56      0.58       549
+
+*********************
+Mean absolute errro output  is  1.68670309654
+*********************
+Accuracy output  is  0.56102003643
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+##########
+##########
+n_estimators=1000, criterion=entropy, max_features=None, max_dept=1000, max_leaf_nodes=1000
+bootstrap=False, min-sample-split=1, oob_score=False, min-wt-frac=0.0, warm-start=True
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+         L8       0.38      0.50      0.43         6
+         L7       0.76      0.64      0.70       393
+         L9       0.00      0.00      0.00         2
+        L10       0.33      0.67      0.44         3
+         L5       0.23      0.25      0.24       106
+         L3       1.00      1.00      1.00         3
+         L2       0.27      0.57      0.36         7
+         L0       0.38      0.83      0.53         6
+         L4       0.23      0.50      0.32         6
+         L6       0.43      0.86      0.57         7
+        L11       0.10      0.17      0.12         6
+         L1       0.27      0.75      0.40         4
+
+avg / total       0.62      0.56      0.58       549
+
+*********************
+Mean absolute errro output  is  1.70127504554
+*********************
+Accuracy output  is  0.564663023679
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+##########
+##########
+n_estimators=1000, criterion=entropy, max_features=None, max_dept=1000, max_leaf_nodes=1000
+bootstrap=False, min-sample-split=1, oob_score=False, min-wt-frac=0.0, warm-start=False
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+         L8       0.43      0.50      0.46         6
+         L7       0.76      0.65      0.70       393
+         L9       0.00      0.00      0.00         2
+        L10       0.33      0.67      0.44         3
+         L5       0.23      0.25      0.24       106
+         L3       1.00      1.00      1.00         3
+         L2       0.25      0.57      0.35         7
+         L0       0.38      0.83      0.53         6
+         L4       0.23      0.50      0.32         6
+         L6       0.43      0.86      0.57         7
+        L11       0.10      0.17      0.12         6
+         L1       0.27      0.75      0.40         4
+
+avg / total       0.62      0.57      0.59       549
+
+*********************
+Mean absolute errro output  is  1.69216757741
+*********************
+Accuracy output  is  0.568306010929
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+##########
+##########
+n_estimators=1000, criterion=entropy, max_features=None, max_dept=1000, max_leaf_nodes=1000
+bootstrap=False, min-sample-split=1, oob_score=False, min-wt-frac=0.5, warm-start=True
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+         L8       0.38      0.50      0.43         6
+         L7       0.76      0.65      0.70       393
+         L9       0.00      0.00      0.00         2
+        L10       0.33      0.67      0.44         3
+         L5       0.22      0.25      0.24       106
+         L3       1.00      1.00      1.00         3
+         L2       0.25      0.57      0.35         7
+         L0       0.29      0.83      0.43         6
+         L4       0.23      0.50      0.32         6
+         L6       0.60      0.86      0.71         7
+        L11       0.10      0.17      0.12         6
+         L1       1.00      0.75      0.86         4
+
+avg / total       0.62      0.57      0.59       549
+
+*********************
+Mean absolute errro output  is  1.5883424408
+*********************
+Accuracy output  is  0.566484517304
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+##########
+##########
+n_estimators=1000, criterion=entropy, max_features=None, max_dept=1000, max_leaf_nodes=1000
+bootstrap=False, min-sample-split=1, oob_score=False, min-wt-frac=0.5, warm-start=False
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+         L8       0.38      0.50      0.43         6
+         L7       0.76      0.65      0.70       393
+         L9       0.00      0.00      0.00         2
+        L10       0.33      0.67      0.44         3
+         L5       0.22      0.25      0.24       106
+         L3       1.00      1.00      1.00         3
+         L2       0.25      0.57      0.35         7
+         L0       0.38      0.83      0.53         6
+         L4       0.27      0.50      0.35         6
+         L6       0.43      0.86      0.57         7
+        L11       0.08      0.17      0.11         6
+         L1       0.50      0.75      0.60         4
+
+avg / total       0.62      0.57      0.59       549
+
+*********************
+Mean absolute errro output  is  1.64298724954
+*********************
+Accuracy output  is  0.566484517304
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+##########
+##########
+n_estimators=1000, criterion=entropy, max_features=None, max_dept=1000, max_leaf_nodes=1000
+bootstrap=False, min-sample-split=1000, oob_score=False, min-wt-frac=0.0, warm-start=True
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+         L8       0.00      0.00      0.00         6
+         L7       0.72      1.00      0.83       393
+         L9       0.00      0.00      0.00         2
+        L10       0.00      0.00      0.00         3
+         L5       0.00      0.00      0.00       106
+         L3       0.00      0.00      0.00         3
+         L2       0.00      0.00      0.00         7
+         L0       0.00      0.00      0.00         6
+         L4       0.00      0.00      0.00         6
+         L6       0.00      0.00      0.00         7
+        L11       0.00      0.00      0.00         6
+         L1       0.00      0.00      0.00         4
+
+avg / total       0.51      0.72      0.60       549
+
+*********************
+Mean absolute errro output  is  1.10564663024
+*********************
+Accuracy output  is  0.715846994536
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+##########
+##########
+n_estimators=1000, criterion=entropy, max_features=None, max_dept=1000, max_leaf_nodes=1000
+bootstrap=False, min-sample-split=1000, oob_score=False, min-wt-frac=0.0, warm-start=False
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+         L8       0.00      0.00      0.00         6
+         L7       0.72      1.00      0.83       393
+         L9       0.00      0.00      0.00         2
+        L10       0.00      0.00      0.00         3
+         L5       0.00      0.00      0.00       106
+         L3       0.00      0.00      0.00         3
+         L2       0.00      0.00      0.00         7
+         L0       0.00      0.00      0.00         6
+         L4       0.00      0.00      0.00         6
+         L6       0.00      0.00      0.00         7
+        L11       0.00      0.00      0.00         6
+         L1       0.00      0.00      0.00         4
+
+avg / total       0.51      0.72      0.60       549
+
+*********************
+Mean absolute errro output  is  1.10564663024
+*********************
+Accuracy output  is  0.715846994536
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+##########
+##########
+n_estimators=1000, criterion=entropy, max_features=None, max_dept=1000, max_leaf_nodes=1000
+bootstrap=False, min-sample-split=1000, oob_score=False, min-wt-frac=0.5, warm-start=True
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+         L8       0.00      0.00      0.00         6
+         L7       0.72      1.00      0.83       393
+         L9       0.00      0.00      0.00         2
+        L10       0.00      0.00      0.00         3
+         L5       0.00      0.00      0.00       106
+         L3       0.00      0.00      0.00         3
+         L2       0.00      0.00      0.00         7
+         L0       0.00      0.00      0.00         6
+         L4       0.00      0.00      0.00         6
+         L6       0.00      0.00      0.00         7
+        L11       0.00      0.00      0.00         6
+         L1       0.00      0.00      0.00         4
+
+avg / total       0.51      0.72      0.60       549
+
+*********************
+Mean absolute errro output  is  1.10564663024
+*********************
+Accuracy output  is  0.715846994536
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+##########
+##########
+n_estimators=1000, criterion=entropy, max_features=None, max_dept=1000, max_leaf_nodes=1000
+bootstrap=False, min-sample-split=1000, oob_score=False, min-wt-frac=0.5, warm-start=False
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+         L8       0.00      0.00      0.00         6
+         L7       0.72      1.00      0.83       393
+         L9       0.00      0.00      0.00         2
+        L10       0.00      0.00      0.00         3
+         L5       0.00      0.00      0.00       106
+         L3       0.00      0.00      0.00         3
+         L2       0.00      0.00      0.00         7
+         L0       0.00      0.00      0.00         6
+         L4       0.00      0.00      0.00         6
+         L6       0.00      0.00      0.00         7
+        L11       0.00      0.00      0.00         6
+         L1       0.00      0.00      0.00         4
+
+avg / total       0.51      0.72      0.60       549
+
+*********************
+Mean absolute errro output  is  1.10564663024
+*********************
+Accuracy output  is  0.715846994536
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+##########
+##########
+n_estimators=1000, criterion=entropy, max_features=None, max_dept=1000, max_leaf_nodes=1000
+bootstrap=False, min-sample-split=1000, oob_score=False, min-wt-frac=0.0, warm-start=True
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+         L8       0.00      0.00      0.00         6
+         L7       0.72      1.00      0.83       393
+         L9       0.00      0.00      0.00         2
+        L10       0.00      0.00      0.00         3
+         L5       0.00      0.00      0.00       106
+         L3       0.00      0.00      0.00         3
+         L2       0.00      0.00      0.00         7
+         L0       0.00      0.00      0.00         6
+         L4       0.00      0.00      0.00         6
+         L6       0.00      0.00      0.00         7
+        L11       0.00      0.00      0.00         6
+         L1       0.00      0.00      0.00         4
+
+avg / total       0.51      0.72      0.60       549
+
+*********************
+Mean absolute errro output  is  1.10564663024
+*********************
+Accuracy output  is  0.715846994536
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+##########
+##########
+n_estimators=1000, criterion=entropy, max_features=None, max_dept=1000, max_leaf_nodes=1000
+bootstrap=False, min-sample-split=1000, oob_score=False, min-wt-frac=0.0, warm-start=False
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+         L8       0.00      0.00      0.00         6
+         L7       0.72      1.00      0.83       393
+         L9       0.00      0.00      0.00         2
+        L10       0.00      0.00      0.00         3
+         L5       0.00      0.00      0.00       106
+         L3       0.00      0.00      0.00         3
+         L2       0.00      0.00      0.00         7
+         L0       0.00      0.00      0.00         6
+         L4       0.00      0.00      0.00         6
+         L6       0.00      0.00      0.00         7
+        L11       0.00      0.00      0.00         6
+         L1       0.00      0.00      0.00         4
+
+avg / total       0.51      0.72      0.60       549
+
+*********************
+Mean absolute errro output  is  1.10564663024
+*********************
+Accuracy output  is  0.715846994536
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+##########
+##########
+n_estimators=1000, criterion=entropy, max_features=None, max_dept=1000, max_leaf_nodes=1000
+bootstrap=False, min-sample-split=1000, oob_score=False, min-wt-frac=0.5, warm-start=True
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+         L8       0.00      0.00      0.00         6
+         L7       0.72      1.00      0.83       393
+         L9       0.00      0.00      0.00         2
+        L10       0.00      0.00      0.00         3
+         L5       0.00      0.00      0.00       106
+         L3       0.00      0.00      0.00         3
+         L2       0.00      0.00      0.00         7
+         L0       0.00      0.00      0.00         6
+         L4       0.00      0.00      0.00         6
+         L6       0.00      0.00      0.00         7
+        L11       0.00      0.00      0.00         6
+         L1       0.00      0.00      0.00         4
+
+avg / total       0.51      0.72      0.60       549
+
+*********************
+Mean absolute errro output  is  1.10564663024
+*********************
+Accuracy output  is  0.715846994536
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+##########
+##########
+n_estimators=1000, criterion=entropy, max_features=None, max_dept=1000, max_leaf_nodes=1000
+bootstrap=False, min-sample-split=1000, oob_score=False, min-wt-frac=0.5, warm-start=False
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+         L8       0.00      0.00      0.00         6
+         L7       0.72      1.00      0.83       393
+         L9       0.00      0.00      0.00         2
+        L10       0.00      0.00      0.00         3
+         L5       0.00      0.00      0.00       106
+         L3       0.00      0.00      0.00         3
+         L2       0.00      0.00      0.00         7
+         L0       0.00      0.00      0.00         6
+         L4       0.00      0.00      0.00         6
+         L6       0.00      0.00      0.00         7
+        L11       0.00      0.00      0.00         6
+         L1       0.00      0.00      0.00         4
+
+avg / total       0.51      0.72      0.60       549
+
+*********************
+Mean absolute errro output  is  1.10564663024
+*********************
+Accuracy output  is  0.715846994536
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+##########
+Done ;-)
+Ended at:  2016-04-04 20:49:56
+>>> 

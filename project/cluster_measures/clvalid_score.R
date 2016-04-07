@@ -1,6 +1,6 @@
 #install.packages("clValid")  
 library(clValid)
-risk_score = read.csv("scores_for_clustering_measure.csv", header = F)
+risk_score = read.csv("25th_scores_for_clustering_measure.csv", header = F)
 #summary(risk_score)
 #print(risk_score)
 risk_score_value=risk_score$V1
