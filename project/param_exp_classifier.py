@@ -20,6 +20,7 @@ import model_params as modp
 
 
 def evalClassifier(vScore_test, thePredictedScores):  
+  target_names_2_aggolo = [ 'L', 'H']  ## same thing for kmeans and aggolo    
   #target_names_3_aggolo = [ 'H', 'L', 'M']  ## same thing for kmeans and aggolo
   #target_names_5_aggolo = [ 'VL', 'VH', 'L', 'M', 'H']  #4=50, 1=51.11, 0=15, 2=30, 3=44.61
   #target_names_10_aggolo = [ '51_1', '20', '30', '44_61', '15', '50_0', '52_29', '43_33', '53_22', '50_67']
@@ -180,16 +181,16 @@ def runKNN(trainDataParam, testDataParam, trainizingSizeParam):
 def runRandomForest(trainDataParam, testDataParam):
   res_combo_dict ={}  
 #  ### setting the aprameters 
-  n_estimators_list=[10]
-  #n_estimators_list=[10, 50, 100, 1000, 40000]
+  n_estimators_list=[100]
+  #n_estimators_list=[10, 50, 100, 500]
   criterion_list = ['gini', 'entropy']
   max_features_list=['auto', 'sqrt', 'log2', None]
-  max_depth_list = [5, 15, 30, 50, None ]
-  max_leaf_nodes_list = [None, 5, 25, 50, 75] # in our datset only 549 legit samples so should eb limited to 549 
+  max_depth_list = [5, 15,  50, None ]
+  max_leaf_nodes_list = [None,  25, 50, 75] # in our datset only 549 legit samples so should eb limited to 549 
   bootstrap_list=[True, False] 
-  min_samples_split_list = [1, 25, 50, 75, 100] # in our datset only 549 legit samples so should eb limited to 549 
+  min_samples_split_list = [1, 25, 50,  100] # in our datset only 549 legit samples so should eb limited to 549 
   oob_score_list=[True, False]
-  min_weight_fraction_leaf_list=[0.0, 0.2, 0.3, 0.4, 0.5] # must be between 0.0 and 0.50 
+  min_weight_fraction_leaf_list=[0.0, 0.2, 0.3, 0.4] # must be between 0.0 and 0.50 
   warm_start_list=[True, False]
 #  ###   
   
