@@ -103,17 +103,17 @@ def experiemnt_CART(fileNameParam):
   
   # settign up test data 
   testData = testAndTrainData[1]   
-  for selCount in xrange(original_cols):
-    count_ = selCount + 1 
-    if count_ < original_cols:      
-      slected_training_data = giveSelectedTrainingData(trainData, testData, count_ ) 
-      print "#################  No. of features to work with={}  ############".format(count_)
-      print "Size of selected training data : ", slected_training_data.shape
-      emperiemntSplitters=[float(x)/float(10) for x in xrange(10) if x > 0] 
-      for elem in emperiemntSplitters:
-	  #print "Training size: {} %".format(float(elem*100))
-	  exp_x_classifiers.runCART(slected_training_data, testData, elem)
-	  #print "---------------------------------------------------------------"	 
+#  for selCount in xrange(original_cols):
+#    count_ = selCount + 1 
+#    if count_ < original_cols:      
+  slected_training_data = giveSelectedTrainingData(trainData, testData, count_ ) 
+  print "#################  No. of features to work with={}  ############".format(count_)
+  print "Size of selected training data : ", slected_training_data.shape
+  emperiemntSplitters=[float(x)/float(10) for x in xrange(10) if x > 0] 
+  for elem in emperiemntSplitters:
+	#print "Training size: {} %".format(float(elem*100))
+	exp_x_classifiers.runCART(slected_training_data, testData, elem)
+	#print "---------------------------------------------------------------"	 
 
 
 

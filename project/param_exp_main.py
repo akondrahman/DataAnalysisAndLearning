@@ -54,7 +54,6 @@ def experiemnt_KNN(fileNameParam):
         #print "---------------------------------------------------------------"	 
 
 def experiemnt_SVM(fileNameParam):
-  import exp_x_classifiers , IO_ 
   testAndTrainData = IO_.giveTestAndTrainingData(fileNameParam)
   print "This is 'experiemnt_SVM' "    
   
@@ -79,6 +78,31 @@ def experiemnt_SVM(fileNameParam):
         #print "---------------------------------------------------------------"	 
 
 
+def experiemnt_CART(fileNameParam):
+  import exp_x_classifiers , IO_ 
+  testAndTrainData = IO_.giveTestAndTrainingData(fileNameParam)
+  print "This is 'experiemnt_CART' "      
+  
+  # settign up train data 
+  trainData = testAndTrainData[0]
+  original_rows = trainData.shape[0]
+  original_cols =  trainData.shape[1] 
+  print "Size of  training data : rows: {}, columns: {}".format( original_rows , original_cols )
+  
+  # settign up test data 
+  testData = testAndTrainData[1]   
+#  for selCount in xrange(original_cols):
+#    count_ = selCount + 1 
+#    if count_ < original_cols:      
+  slected_training_data = giveSelectedTrainingData(trainData, testData, original_cols ) 
+  print "#################  No. of features to work with={}  ############".format(original_cols)
+  print "Size of selected training data : ", slected_training_data.shape
+  emperiemntSplitters=[float(x)/float(10) for x in xrange(10) if x > 0] 
+  for elem in emperiemntSplitters:
+	#print "Training size: {} %".format(float(elem*100))
+	param_exp_classifier.runCART(slected_training_data, testData, elem)
+	#print "---------------------------------------------------------------"	 
+
 def giveSelectedTrainingData(trainParam, testParam, no_of_chices_param): 
   from sklearn.feature_selection import SelectKBest
   from sklearn.feature_selection import chi2
@@ -88,18 +112,18 @@ def giveSelectedTrainingData(trainParam, testParam, no_of_chices_param):
 
 ####### Open loggger ####
 old_stdout = sys.stdout
-output_file_name="param_exp_100.txt"
+output_file_name="param_exp_CART_12_5fold.txt"
 log_file = open( output_file_name,  "w")
 sys.stdout = log_file  
   
   
 print "Started at: ", IO_.giveTimeStamp()
-fileNameParam="13_NonZeroDataset_Aggolo.csv"
+fileNameParam="12_NonZeroDataset_Aggolo.csv"
 fileToWrite="param_exp_combo_report_100.csv"
-experiemnt_random_forest(fileNameParam, fileToWrite)
+#experiemnt_random_forest(fileNameParam, fileToWrite)
 #experiemnt_SVM(fileNameParam)
 #experiemnt_KNN(fileNameParam)
-
+experiemnt_CART(fileNameParam)
 
 
 print "Done ;-)"

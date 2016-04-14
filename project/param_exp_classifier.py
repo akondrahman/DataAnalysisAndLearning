@@ -20,7 +20,7 @@ import model_params as modp
 
 
 def evalClassifier(vScore_test, thePredictedScores):  
-  target_names_2_aggolo = [ 'L', 'H']  ## same thing for kmeans and aggolo    
+  #target_names_2_aggolo = [ 'L', 'H']  ## same thing for kmeans and aggolo    
   #target_names_3_aggolo = [ 'H', 'L', 'M']  ## same thing for kmeans and aggolo
   #target_names_5_aggolo = [ 'VL', 'VH', 'L', 'M', 'H']  #4=50, 1=51.11, 0=15, 2=30, 3=44.61
   #target_names_10_aggolo = [ '51_1', '20', '30', '44_61', '15', '50_0', '52_29', '43_33', '53_22', '50_67']
@@ -34,13 +34,13 @@ def evalClassifier(vScore_test, thePredictedScores):
   ##  0=51.11, 1=50.0,  12=52.0, 11=20.0, 4=53.33, 
   ##  6=30.0, 9=50.67, 8=44.615, 7=15.0, 3=53.0,  
   ##  10= 52.22 , 5=43.33 , 2=52.631     
-  target_names_13_aggolo = ['L7', 'L5', 'L10', 'L11', 'L12', 'L3', 'L2', 'L0', 'L4', 'L6', 'L9', 'L1', 'L8']  
+  #target_names_13_aggolo = ['L7', 'L5', 'L10', 'L11', 'L12', 'L3', 'L2', 'L0', 'L4', 'L6', 'L9', 'L1', 'L8']  
 
   ### 12 clusters  
   ## 1=51.11, 4=50.0, 0=52.0, 11=20.0, 
   ## 10=53.33, 6=30.0, 9=50.67, 8=44.61, 
   ##  3=53.0, 5=43.33, 2=52.63, 7=15.0 
-  #target_names_12_aggolo = [ 'L8', 'L7', 'L9', 'L10', 'L5', 'L3', 'L2', 'L0', 'L4', 'L6', 'L11' , 'L1']  
+  target_names_12_aggolo = [ 'L8', 'L7', 'L9', 'L10', 'L5', 'L3', 'L2', 'L0', 'L4', 'L6', 'L11' , 'L1']  
     
   #target_names_5_kmeans = [ 'H', 'VL', 'L', 'VH', 'M']
 
@@ -49,7 +49,7 @@ def evalClassifier(vScore_test, thePredictedScores):
     the way skelarn treats is the following: next index after first  -> next lower index -> 1 -> 'high'    
   '''
   print "precison, recall, F-stat"
-  print(classification_report(vScore_test, thePredictedScores, target_names=target_names_13_aggolo))
+  print(classification_report(vScore_test, thePredictedScores, target_names=target_names_12_aggolo))
   print"*********************"
   # preserve the order first test(real values from dataset), then predcited (from the classifier )
   '''
@@ -177,6 +177,39 @@ def runKNN(trainDataParam, testDataParam, trainizingSizeParam):
             if trainizingSizeParam==0.90:
               perform_cross_validation(theKNNModel, trainDataParam, testDataParam, 5)
 
+def runCART(trainDataParam, testDataParam, trainizingSizeParam): 
+
+  # what percent will you use ? 
+  testSplitSize = 1.0 - trainizingSizeParam
+
+  ### classification   
+
+  featureSpace_train, featureSpace_test, vScore_train, vScore_test = cross_validation.train_test_split(trainDataParam, testDataParam, test_size=testSplitSize, random_state=0) 
+  params = modp.cart_param
+  
+  for val1 in params['criterion']:
+	for val2 in params['splitter']:
+		for val3 in params['max_features']:
+			if val3 > trainDataParam.shape[1]:
+				continue
+			for val4 in params['max_depth']:
+				for val5 in params['min_samples_split']:
+					for val6 in params['min_samples_leaf']:
+						for val7 in params['max_leaf_nodes']:
+							if trainizingSizeParam==0.90:
+								print '---->For params: criterion='+str(val1)+' splitter='+str(val2)+' max_features='+str(val3)+' max_depth='+str(val4)+' min_samples_split='+str(val5)+' min_samples_leaf='+str(val6)+' max_leaf_nodes='+str(val7)
+							## fire up the model   
+							theCARTModel = DecisionTreeClassifier(criterion=val1,splitter=val2,max_features=val3,max_depth=val4,min_samples_split=val5,min_samples_leaf=val6,max_leaf_nodes=val7)
+							theCARTModel.fit(featureSpace_train, vScore_train)
+							thePredictedScores = theCARTModel.predict(featureSpace_test)
+
+							#evalClassifier(vScore_test, thePredictedScores) 
+							# preserve the order first test(real values from dataset), then predcited (from the classifier )     
+  
+							# first one does holdout, this does corss validation  
+							if trainizingSizeParam==0.90:
+								print "This is experiment X: CART()"            
+								perform_cross_validation(theCARTModel, trainDataParam, testDataParam, 5)
 
 def runRandomForest(trainDataParam, testDataParam):
   res_combo_dict ={}  
