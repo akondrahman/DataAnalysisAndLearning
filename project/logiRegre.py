@@ -34,8 +34,8 @@ def performLogiRegression(fileNamaParam):
   logisticRModel = linear_model.LogisticRegression(C=1e5,  penalty='l1')
   ### if you dont fit , you will get an error 
   logisticRModel.fit(trainData, testData)
-  print "Output of score (mean accuracy of test features and prediction classs) "
-  print logisticRModel.score(trainData, testData)
+  ##print "Output of score (mean accuracy of test features and prediction classs) "
+  ##print logisticRModel.score(trainData, testData)
   print "Output of co-efficients ={}".format(logisticRModel.coef_)
   print "Output of intercept ={}, n_iter_ = {} ".format(logisticRModel.intercept_, logisticRModel.n_iter_)
 

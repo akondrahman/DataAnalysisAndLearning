@@ -9,7 +9,7 @@ Created on Mon Mar 14 20:04:49 2016
 
 import logiRegre as LGR
 def experiemnt_logireg(fileNameParam):
-  print "Performing experiemnt # X:LGR: LGR with class lebals : 1 and 0   "  
+  #print "Performing experiemnt # X:LGR: LGR with class lebals : 1 and 0   "  
   LGR.performLogiRegression(fileNameParam)  
      
 def experiemnt_random_forest(fileNameParam):

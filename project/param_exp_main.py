@@ -88,14 +88,14 @@ def giveSelectedTrainingData(trainParam, testParam, no_of_chices_param):
 
 ####### Open loggger ####
 old_stdout = sys.stdout
-output_file_name="param_exp_100.txt"
+output_file_name="5Clusters_param_exp_500.txt"
 log_file = open( output_file_name,  "w")
 sys.stdout = log_file  
   
   
 print "Started at: ", IO_.giveTimeStamp()
-fileNameParam="13_NonZeroDataset_Aggolo.csv"
-fileToWrite="param_exp_combo_report_100.csv"
+fileNameParam="5_NonZeroDataset_Aggolo.csv"
+fileToWrite="5Clusters_param_exp_combo_resport_500.csv"
 experiemnt_random_forest(fileNameParam, fileToWrite)
 #experiemnt_SVM(fileNameParam)
 #experiemnt_KNN(fileNameParam)
