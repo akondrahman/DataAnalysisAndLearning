@@ -29,6 +29,7 @@ Selctive Feature
 print "This is experiemnt X : classification with  NO versions that has ZERO scores + used K-Means for High and Low + Selectiev Feature "
 #print "Classifier: Decision Tree (CART), Random Forest, SVM(rbf), Gaussian NAive Bayes , KNN"
 ##fileNameParam="NonZeroDataset_KMeans.csv"
+#fileNameParam="smote/smoted_13_clusters.csv"
 fileNameParam="2_NonZeroDataset_Aggolo.csv"
 exp_counts=1
 
@@ -50,7 +51,7 @@ for cnt in xrange(exp_counts):
   
   print "----------------------------- Iteration # {} Ends ------------------------------".format(itn)      
 print "=================================================================================================================="
-exp_x_experiments.experiemnt_logireg(fileNameParam)
+#exp_x_experiments.experiemnt_logireg(fileNameParam)
 print "=================================================================================================================="
 
 

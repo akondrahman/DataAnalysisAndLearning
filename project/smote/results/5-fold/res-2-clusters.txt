@@ -1,0 +1,1955 @@
+>>> runfile('/Users/akond/Documents/Spring-2016/CSC522/gitRepo/project/exp_x_main.py', wdir='/Users/akond/Documents/Spring-2016/CSC522/gitRepo/project')
+Reloaded modules: logiRegre, IO_, exp_x_experiments, exp_x_classifiers, utility
+Started at:  2016-04-17 21:09:08
+This is experiemnt X : classification with  NO versions that has ZERO scores + used K-Means for High and Low + Selectiev Feature 
+----------------------------- Iteration # 1 Starts ------------------------------
+This is 'experiemnt_CART' 
+Size of  training data : rows: 1042, columns: 21
+#################  No. of features to work with=1  ############
+Size of selected training data :  (1042, 1)
+This is experiment X: CART()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.63      0.61      0.62       510
+          H       0.64      0.66      0.65       532
+
+avg / total       0.63      0.63      0.63      1042
+
+*********************
+Mean absolute errro output  is  0.365642994242
+*********************
+Accuracy output  is  0.634357005758
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=2  ############
+Size of selected training data :  (1042, 2)
+This is experiment X: CART()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.73      0.73      0.73       510
+          H       0.74      0.73      0.74       532
+
+avg / total       0.73      0.73      0.73      1042
+
+*********************
+Mean absolute errro output  is  0.267754318618
+*********************
+Accuracy output  is  0.732245681382
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=3  ############
+Size of selected training data :  (1042, 3)
+This is experiment X: CART()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.74      0.77      0.76       510
+          H       0.77      0.74      0.76       532
+
+avg / total       0.76      0.76      0.76      1042
+
+*********************
+Mean absolute errro output  is  0.242802303263
+*********************
+Accuracy output  is  0.757197696737
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=4  ############
+Size of selected training data :  (1042, 4)
+This is experiment X: CART()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.75      0.79      0.77       510
+          H       0.79      0.74      0.77       532
+
+avg / total       0.77      0.77      0.77      1042
+
+*********************
+Mean absolute errro output  is  0.232245681382
+*********************
+Accuracy output  is  0.767754318618
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=5  ############
+Size of selected training data :  (1042, 5)
+This is experiment X: CART()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.82      0.82      0.82       510
+          H       0.82      0.82      0.82       532
+
+avg / total       0.82      0.82      0.82      1042
+
+*********************
+Mean absolute errro output  is  0.179462571977
+*********************
+Accuracy output  is  0.820537428023
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=6  ############
+Size of selected training data :  (1042, 6)
+This is experiment X: CART()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.82      0.84      0.83       510
+          H       0.85      0.82      0.83       532
+
+avg / total       0.83      0.83      0.83      1042
+
+*********************
+Mean absolute errro output  is  0.166986564299
+*********************
+Accuracy output  is  0.833013435701
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=7  ############
+Size of selected training data :  (1042, 7)
+This is experiment X: CART()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.85      0.87      0.86       510
+          H       0.88      0.85      0.86       532
+
+avg / total       0.86      0.86      0.86      1042
+
+*********************
+Mean absolute errro output  is  0.13915547025
+*********************
+Accuracy output  is  0.86084452975
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=8  ############
+Size of selected training data :  (1042, 8)
+This is experiment X: CART()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.84      0.89      0.86       510
+          H       0.89      0.83      0.86       532
+
+avg / total       0.86      0.86      0.86      1042
+
+*********************
+Mean absolute errro output  is  0.137236084453
+*********************
+Accuracy output  is  0.862763915547
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=9  ############
+Size of selected training data :  (1042, 9)
+This is experiment X: CART()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.84      0.91      0.87       510
+          H       0.90      0.83      0.86       532
+
+avg / total       0.87      0.87      0.87      1042
+
+*********************
+Mean absolute errro output  is  0.132437619962
+*********************
+Accuracy output  is  0.867562380038
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=10  ############
+Size of selected training data :  (1042, 10)
+This is experiment X: CART()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.84      0.91      0.87       510
+          H       0.90      0.84      0.87       532
+
+avg / total       0.87      0.87      0.87      1042
+
+*********************
+Mean absolute errro output  is  0.12763915547
+*********************
+Accuracy output  is  0.87236084453
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=11  ############
+Size of selected training data :  (1042, 11)
+This is experiment X: CART()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.87      0.93      0.90       510
+          H       0.93      0.86      0.89       532
+
+avg / total       0.90      0.89      0.89      1042
+
+*********************
+Mean absolute errro output  is  0.10556621881
+*********************
+Accuracy output  is  0.89443378119
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=12  ############
+Size of selected training data :  (1042, 12)
+This is experiment X: CART()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.89      0.90      0.90       510
+          H       0.91      0.89      0.90       532
+
+avg / total       0.90      0.90      0.90      1042
+
+*********************
+Mean absolute errro output  is  0.103646833013
+*********************
+Accuracy output  is  0.896353166987
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=13  ############
+Size of selected training data :  (1042, 13)
+This is experiment X: CART()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.88      0.90      0.89       510
+          H       0.90      0.88      0.89       532
+
+avg / total       0.89      0.89      0.89      1042
+
+*********************
+Mean absolute errro output  is  0.112284069098
+*********************
+Accuracy output  is  0.887715930902
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=14  ############
+Size of selected training data :  (1042, 14)
+This is experiment X: CART()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.90      0.89      0.89       510
+          H       0.89      0.90      0.90       532
+
+avg / total       0.89      0.89      0.89      1042
+
+*********************
+Mean absolute errro output  is  0.10556621881
+*********************
+Accuracy output  is  0.89443378119
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=15  ############
+Size of selected training data :  (1042, 15)
+This is experiment X: CART()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.91      0.90      0.90       510
+          H       0.90      0.92      0.91       532
+
+avg / total       0.91      0.91      0.91      1042
+
+*********************
+Mean absolute errro output  is  0.0930902111324
+*********************
+Accuracy output  is  0.906909788868
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=16  ############
+Size of selected training data :  (1042, 16)
+This is experiment X: CART()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.89      0.94      0.91       510
+          H       0.94      0.89      0.91       532
+
+avg / total       0.91      0.91      0.91      1042
+
+*********************
+Mean absolute errro output  is  0.0863723608445
+*********************
+Accuracy output  is  0.913627639155
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=17  ############
+Size of selected training data :  (1042, 17)
+This is experiment X: CART()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.92      0.92      0.92       510
+          H       0.92      0.92      0.92       532
+
+avg / total       0.92      0.92      0.92      1042
+
+*********************
+Mean absolute errro output  is  0.0796545105566
+*********************
+Accuracy output  is  0.920345489443
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=18  ############
+Size of selected training data :  (1042, 18)
+This is experiment X: CART()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.90      0.96      0.93       510
+          H       0.96      0.90      0.93       532
+
+avg / total       0.93      0.93      0.93      1042
+
+*********************
+Mean absolute errro output  is  0.0719769673704
+*********************
+Accuracy output  is  0.92802303263
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=19  ############
+Size of selected training data :  (1042, 19)
+This is experiment X: CART()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.92      0.93      0.92       510
+          H       0.93      0.92      0.93       532
+
+avg / total       0.93      0.93      0.93      1042
+
+*********************
+Mean absolute errro output  is  0.0748560460653
+*********************
+Accuracy output  is  0.925143953935
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=20  ############
+Size of selected training data :  (1042, 20)
+This is experiment X: CART()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.91      0.95      0.93       510
+          H       0.95      0.91      0.93       532
+
+avg / total       0.93      0.93      0.93      1042
+
+*********************
+Mean absolute errro output  is  0.0700575815739
+*********************
+Accuracy output  is  0.929942418426
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=21  ############
+Size of selected training data :  (1042, 21)
+This is experiment X: CART()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.91      0.94      0.93       510
+          H       0.94      0.91      0.93       532
+
+avg / total       0.93      0.93      0.93      1042
+
+*********************
+Mean absolute errro output  is  0.0729366602687
+*********************
+Accuracy output  is  0.927063339731
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+----------------------------- Iteration # 1 Ends ------------------------------
+==================================================================================================================
+==================================================================================================================
+Done ;-)
+Ended at:  2016-04-17 21:09:10
+>>> 
+>>> runfile('/Users/akond/Documents/Spring-2016/CSC522/gitRepo/project/exp_x_main.py', wdir='/Users/akond/Documents/Spring-2016/CSC522/gitRepo/project')
+Reloaded modules: logiRegre, IO_, exp_x_experiments, exp_x_classifiers, utility
+Started at:  2016-04-17 21:09:28
+This is experiemnt X : classification with  NO versions that has ZERO scores + used K-Means for High and Low + Selectiev Feature 
+----------------------------- Iteration # 1 Starts ------------------------------
+This is 'experiemnt_random_forest' 
+Size of  training data : rows: 1042, columns: 21
+#################  No. of features to work with=1  ############
+Size of selected training data :  (1042, 1)
+This is experiment X: randForest()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.63      0.60      0.62       510
+          H       0.64      0.66      0.65       532
+
+avg / total       0.63      0.63      0.63      1042
+
+*********************
+Mean absolute errro output  is  0.36660268714
+*********************
+Accuracy output  is  0.63339731286
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=2  ############
+Size of selected training data :  (1042, 2)
+This is experiment X: randForest()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.73      0.78      0.75       510
+          H       0.77      0.72      0.74       532
+
+avg / total       0.75      0.75      0.75      1042
+
+*********************
+Mean absolute errro output  is  0.252399232246
+*********************
+Accuracy output  is  0.747600767754
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=3  ############
+Size of selected training data :  (1042, 3)
+This is experiment X: randForest()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.76      0.82      0.79       510
+          H       0.81      0.75      0.78       532
+
+avg / total       0.78      0.78      0.78      1042
+
+*********************
+Mean absolute errro output  is  0.217850287908
+*********************
+Accuracy output  is  0.782149712092
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=4  ############
+Size of selected training data :  (1042, 4)
+This is experiment X: randForest()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.79      0.84      0.81       510
+          H       0.84      0.78      0.81       532
+
+avg / total       0.81      0.81      0.81      1042
+
+*********************
+Mean absolute errro output  is  0.188099808061
+*********************
+Accuracy output  is  0.811900191939
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=5  ############
+Size of selected training data :  (1042, 5)
+This is experiment X: randForest()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.85      0.87      0.86       510
+          H       0.87      0.86      0.86       532
+
+avg / total       0.86      0.86      0.86      1042
+
+*********************
+Mean absolute errro output  is  0.13915547025
+*********************
+Accuracy output  is  0.86084452975
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=6  ############
+Size of selected training data :  (1042, 6)
+This is experiment X: randForest()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.87      0.88      0.88       510
+          H       0.88      0.87      0.88       532
+
+avg / total       0.88      0.88      0.88      1042
+
+*********************
+Mean absolute errro output  is  0.122840690979
+*********************
+Accuracy output  is  0.877159309021
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=7  ############
+Size of selected training data :  (1042, 7)
+This is experiment X: randForest()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.89      0.88      0.89       510
+          H       0.89      0.89      0.89       532
+
+avg / total       0.89      0.89      0.89      1042
+
+*********************
+Mean absolute errro output  is  0.1113243762
+*********************
+Accuracy output  is  0.8886756238
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=8  ############
+Size of selected training data :  (1042, 8)
+This is experiment X: randForest()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.92      0.89      0.90       510
+          H       0.90      0.92      0.91       532
+
+avg / total       0.91      0.91      0.91      1042
+
+*********************
+Mean absolute errro output  is  0.0930902111324
+*********************
+Accuracy output  is  0.906909788868
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=9  ############
+Size of selected training data :  (1042, 9)
+This is experiment X: randForest()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.91      0.89      0.90       510
+          H       0.90      0.91      0.90       532
+
+avg / total       0.90      0.90      0.90      1042
+
+*********************
+Mean absolute errro output  is  0.0988483685221
+*********************
+Accuracy output  is  0.901151631478
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=10  ############
+Size of selected training data :  (1042, 10)
+This is experiment X: randForest()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.91      0.87      0.89       510
+          H       0.88      0.92      0.90       532
+
+avg / total       0.90      0.90      0.90      1042
+
+*********************
+Mean absolute errro output  is  0.102687140115
+*********************
+Accuracy output  is  0.897312859885
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=11  ############
+Size of selected training data :  (1042, 11)
+This is experiment X: randForest()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.93      0.93      0.93       510
+          H       0.93      0.94      0.93       532
+
+avg / total       0.93      0.93      0.93      1042
+
+*********************
+Mean absolute errro output  is  0.0681381957774
+*********************
+Accuracy output  is  0.931861804223
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=12  ############
+Size of selected training data :  (1042, 12)
+This is experiment X: randForest()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.95      0.90      0.92       510
+          H       0.91      0.95      0.93       532
+
+avg / total       0.93      0.93      0.93      1042
+
+*********************
+Mean absolute errro output  is  0.073896353167
+*********************
+Accuracy output  is  0.926103646833
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=13  ############
+Size of selected training data :  (1042, 13)
+This is experiment X: randForest()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.96      0.92      0.94       510
+          H       0.93      0.96      0.95       532
+
+avg / total       0.94      0.94      0.94      1042
+
+*********************
+Mean absolute errro output  is  0.0566218809981
+*********************
+Accuracy output  is  0.943378119002
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=14  ############
+Size of selected training data :  (1042, 14)
+This is experiment X: randForest()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.96      0.94      0.95       510
+          H       0.94      0.96      0.95       532
+
+avg / total       0.95      0.95      0.95      1042
+
+*********************
+Mean absolute errro output  is  0.0489443378119
+*********************
+Accuracy output  is  0.951055662188
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=15  ############
+Size of selected training data :  (1042, 15)
+This is experiment X: randForest()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.95      0.95      0.95       510
+          H       0.95      0.96      0.95       532
+
+avg / total       0.95      0.95      0.95      1042
+
+*********************
+Mean absolute errro output  is  0.0460652591171
+*********************
+Accuracy output  is  0.953934740883
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=16  ############
+Size of selected training data :  (1042, 16)
+This is experiment X: randForest()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.95      0.95      0.95       510
+          H       0.95      0.96      0.95       532
+
+avg / total       0.95      0.95      0.95      1042
+
+*********************
+Mean absolute errro output  is  0.0470249520154
+*********************
+Accuracy output  is  0.952975047985
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=17  ############
+Size of selected training data :  (1042, 17)
+This is experiment X: randForest()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.96      0.95      0.96       510
+          H       0.95      0.96      0.96       532
+
+avg / total       0.96      0.96      0.96      1042
+
+*********************
+Mean absolute errro output  is  0.0431861804223
+*********************
+Accuracy output  is  0.956813819578
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=18  ############
+Size of selected training data :  (1042, 18)
+This is experiment X: randForest()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.97      0.96      0.96       510
+          H       0.96      0.97      0.97       532
+
+avg / total       0.97      0.97      0.97      1042
+
+*********************
+Mean absolute errro output  is  0.0345489443378
+*********************
+Accuracy output  is  0.965451055662
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=19  ############
+Size of selected training data :  (1042, 19)
+This is experiment X: randForest()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.97      0.97      0.97       510
+          H       0.97      0.98      0.97       532
+
+avg / total       0.97      0.97      0.97      1042
+
+*********************
+Mean absolute errro output  is  0.0278310940499
+*********************
+Accuracy output  is  0.97216890595
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=20  ############
+Size of selected training data :  (1042, 20)
+This is experiment X: randForest()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.97      0.96      0.97       510
+          H       0.96      0.98      0.97       532
+
+avg / total       0.97      0.97      0.97      1042
+
+*********************
+Mean absolute errro output  is  0.0307101727447
+*********************
+Accuracy output  is  0.969289827255
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=21  ############
+Size of selected training data :  (1042, 21)
+This is experiment X: randForest()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.98      0.95      0.96       510
+          H       0.96      0.98      0.97       532
+
+avg / total       0.97      0.97      0.97      1042
+
+*********************
+Mean absolute errro output  is  0.0345489443378
+*********************
+Accuracy output  is  0.965451055662
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+----------------------------- Iteration # 1 Ends ------------------------------
+==================================================================================================================
+==================================================================================================================
+Done ;-)
+Ended at:  2016-04-17 21:10:11
+>>> 
+>>> runfile('/Users/akond/Documents/Spring-2016/CSC522/gitRepo/project/exp_x_main.py', wdir='/Users/akond/Documents/Spring-2016/CSC522/gitRepo/project')
+Reloaded modules: logiRegre, IO_, exp_x_experiments, exp_x_classifiers, utility
+Started at:  2016-04-17 21:10:31
+This is experiemnt X : classification with  NO versions that has ZERO scores + used K-Means for High and Low + Selectiev Feature 
+----------------------------- Iteration # 1 Starts ------------------------------
+This is 'experiemnt_SVM' 
+Size of  training data : rows: 1042, columns: 21
+#################  No. of features to work with=1  ############
+Size of selected training data :  (1042, 1)
+This is experiment X: SVM-rbf()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.80      0.21      0.33       510
+          H       0.56      0.95      0.70       532
+
+avg / total       0.67      0.59      0.52      1042
+
+*********************
+Mean absolute errro output  is  0.412667946257
+*********************
+Accuracy output  is  0.587332053743
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=2  ############
+Size of selected training data :  (1042, 2)
+This is experiment X: SVM-rbf()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       1.00      0.09      0.17       510
+          H       0.53      1.00      0.70       532
+
+avg / total       0.76      0.55      0.44      1042
+
+*********************
+Mean absolute errro output  is  0.445297504798
+*********************
+Accuracy output  is  0.554702495202
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=3  ############
+Size of selected training data :  (1042, 3)
+This is experiment X: SVM-rbf()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       1.00      0.09      0.17       510
+          H       0.53      1.00      0.70       532
+
+avg / total       0.76      0.56      0.44      1042
+
+*********************
+Mean absolute errro output  is  0.4443378119
+*********************
+Accuracy output  is  0.5556621881
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=4  ############
+Size of selected training data :  (1042, 4)
+This is experiment X: SVM-rbf()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       1.00      0.09      0.16       510
+          H       0.53      1.00      0.70       532
+
+avg / total       0.76      0.55      0.43      1042
+
+*********************
+Mean absolute errro output  is  0.446257197697
+*********************
+Accuracy output  is  0.553742802303
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=5  ############
+Size of selected training data :  (1042, 5)
+This is experiment X: SVM-rbf()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       1.00      0.09      0.16       510
+          H       0.53      1.00      0.70       532
+
+avg / total       0.76      0.55      0.43      1042
+
+*********************
+Mean absolute errro output  is  0.446257197697
+*********************
+Accuracy output  is  0.553742802303
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=6  ############
+Size of selected training data :  (1042, 6)
+This is experiment X: SVM-rbf()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       1.00      0.09      0.17       510
+          H       0.53      1.00      0.70       532
+
+avg / total       0.76      0.56      0.44      1042
+
+*********************
+Mean absolute errro output  is  0.4443378119
+*********************
+Accuracy output  is  0.5556621881
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=7  ############
+Size of selected training data :  (1042, 7)
+This is experiment X: SVM-rbf()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       1.00      0.09      0.17       510
+          H       0.54      1.00      0.70       532
+
+avg / total       0.76      0.56      0.44      1042
+
+*********************
+Mean absolute errro output  is  0.443378119002
+*********************
+Accuracy output  is  0.556621880998
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=8  ############
+Size of selected training data :  (1042, 8)
+This is experiment X: SVM-rbf()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       1.00      0.09      0.17       510
+          H       0.54      1.00      0.70       532
+
+avg / total       0.76      0.56      0.44      1042
+
+*********************
+Mean absolute errro output  is  0.443378119002
+*********************
+Accuracy output  is  0.556621880998
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=9  ############
+Size of selected training data :  (1042, 9)
+This is experiment X: SVM-rbf()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       1.00      0.10      0.18       510
+          H       0.54      1.00      0.70       532
+
+avg / total       0.76      0.56      0.45      1042
+
+*********************
+Mean absolute errro output  is  0.440499040307
+*********************
+Accuracy output  is  0.559500959693
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=10  ############
+Size of selected training data :  (1042, 10)
+This is experiment X: SVM-rbf()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       1.00      0.10      0.18       510
+          H       0.54      1.00      0.70       532
+
+avg / total       0.76      0.56      0.45      1042
+
+*********************
+Mean absolute errro output  is  0.440499040307
+*********************
+Accuracy output  is  0.559500959693
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=11  ############
+Size of selected training data :  (1042, 11)
+This is experiment X: SVM-rbf()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       1.00      0.10      0.18       510
+          H       0.54      1.00      0.70       532
+
+avg / total       0.76      0.56      0.45      1042
+
+*********************
+Mean absolute errro output  is  0.440499040307
+*********************
+Accuracy output  is  0.559500959693
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=12  ############
+Size of selected training data :  (1042, 12)
+This is experiment X: SVM-rbf()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       1.00      0.10      0.19       510
+          H       0.54      1.00      0.70       532
+
+avg / total       0.76      0.56      0.45      1042
+
+*********************
+Mean absolute errro output  is  0.438579654511
+*********************
+Accuracy output  is  0.561420345489
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=13  ############
+Size of selected training data :  (1042, 13)
+This is experiment X: SVM-rbf()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       1.00      0.10      0.19       510
+          H       0.54      1.00      0.70       532
+
+avg / total       0.76      0.56      0.45      1042
+
+*********************
+Mean absolute errro output  is  0.438579654511
+*********************
+Accuracy output  is  0.561420345489
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=14  ############
+Size of selected training data :  (1042, 14)
+This is experiment X: SVM-rbf()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       1.00      0.11      0.20       510
+          H       0.54      1.00      0.70       532
+
+avg / total       0.76      0.56      0.45      1042
+
+*********************
+Mean absolute errro output  is  0.435700575816
+*********************
+Accuracy output  is  0.564299424184
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=15  ############
+Size of selected training data :  (1042, 15)
+This is experiment X: SVM-rbf()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       1.00      0.11      0.20       510
+          H       0.54      1.00      0.70       532
+
+avg / total       0.76      0.56      0.45      1042
+
+*********************
+Mean absolute errro output  is  0.435700575816
+*********************
+Accuracy output  is  0.564299424184
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=16  ############
+Size of selected training data :  (1042, 16)
+This is experiment X: SVM-rbf()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       1.00      0.11      0.20       510
+          H       0.54      1.00      0.70       532
+
+avg / total       0.77      0.57      0.46      1042
+
+*********************
+Mean absolute errro output  is  0.434740882917
+*********************
+Accuracy output  is  0.565259117083
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=17  ############
+Size of selected training data :  (1042, 17)
+This is experiment X: SVM-rbf()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       1.00      0.12      0.21       510
+          H       0.54      1.00      0.70       532
+
+avg / total       0.77      0.57      0.46      1042
+
+*********************
+Mean absolute errro output  is  0.432821497121
+*********************
+Accuracy output  is  0.567178502879
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=18  ############
+Size of selected training data :  (1042, 18)
+This is experiment X: SVM-rbf()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       1.00      0.12      0.21       510
+          H       0.54      1.00      0.70       532
+
+avg / total       0.77      0.57      0.46      1042
+
+*********************
+Mean absolute errro output  is  0.432821497121
+*********************
+Accuracy output  is  0.567178502879
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=19  ############
+Size of selected training data :  (1042, 19)
+This is experiment X: SVM-rbf()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       1.00      0.12      0.21       510
+          H       0.54      1.00      0.70       532
+
+avg / total       0.77      0.57      0.46      1042
+
+*********************
+Mean absolute errro output  is  0.432821497121
+*********************
+Accuracy output  is  0.567178502879
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=20  ############
+Size of selected training data :  (1042, 20)
+This is experiment X: SVM-rbf()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       1.00      0.12      0.21       510
+          H       0.54      1.00      0.70       532
+
+avg / total       0.77      0.57      0.46      1042
+
+*********************
+Mean absolute errro output  is  0.432821497121
+*********************
+Accuracy output  is  0.567178502879
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=21  ############
+Size of selected training data :  (1042, 21)
+This is experiment X: SVM-rbf()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       1.00      0.12      0.21       510
+          H       0.54      1.00      0.70       532
+
+avg / total       0.77      0.57      0.46      1042
+
+*********************
+Mean absolute errro output  is  0.432821497121
+*********************
+Accuracy output  is  0.567178502879
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+----------------------------- Iteration # 1 Ends ------------------------------
+==================================================================================================================
+==================================================================================================================
+Done ;-)
+Ended at:  2016-04-17 21:10:38
+>>> 
+>>> runfile('/Users/akond/Documents/Spring-2016/CSC522/gitRepo/project/exp_x_main.py', wdir='/Users/akond/Documents/Spring-2016/CSC522/gitRepo/project')
+Reloaded modules: logiRegre, IO_, exp_x_experiments, exp_x_classifiers, utility
+Started at:  2016-04-17 21:10:54
+This is experiemnt X : classification with  NO versions that has ZERO scores + used K-Means for High and Low + Selectiev Feature 
+----------------------------- Iteration # 1 Starts ------------------------------
+This is 'experiemnt_gaussian_naive_bayes' 
+Size of  training data : rows: 1042, columns: 21
+#################  No. of features to work with=1  ############
+Size of selected training data :  (1042, 1)
+This is experiment X: Gaussian Naive Bayes ()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.51      0.87      0.64       510
+          H       0.60      0.19      0.28       532
+
+avg / total       0.56      0.52      0.46      1042
+
+*********************
+Mean absolute errro output  is  0.47792706334
+*********************
+Accuracy output  is  0.52207293666
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=2  ############
+Size of selected training data :  (1042, 2)
+This is experiment X: Gaussian Naive Bayes ()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.51      0.87      0.64       510
+          H       0.60      0.18      0.28       532
+
+avg / total       0.55      0.52      0.46      1042
+
+*********************
+Mean absolute errro output  is  0.480806142035
+*********************
+Accuracy output  is  0.519193857965
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=3  ############
+Size of selected training data :  (1042, 3)
+This is experiment X: Gaussian Naive Bayes ()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.50      0.87      0.64       510
+          H       0.57      0.17      0.26       532
+
+avg / total       0.54      0.51      0.44      1042
+
+*********************
+Mean absolute errro output  is  0.488483685221
+*********************
+Accuracy output  is  0.511516314779
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=4  ############
+Size of selected training data :  (1042, 4)
+This is experiment X: Gaussian Naive Bayes ()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.50      0.88      0.64       510
+          H       0.57      0.16      0.25       532
+
+avg / total       0.54      0.51      0.44      1042
+
+*********************
+Mean absolute errro output  is  0.490403071017
+*********************
+Accuracy output  is  0.509596928983
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=5  ############
+Size of selected training data :  (1042, 5)
+This is experiment X: Gaussian Naive Bayes ()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.50      0.88      0.64       510
+          H       0.57      0.16      0.25       532
+
+avg / total       0.54      0.51      0.44      1042
+
+*********************
+Mean absolute errro output  is  0.490403071017
+*********************
+Accuracy output  is  0.509596928983
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=6  ############
+Size of selected training data :  (1042, 6)
+This is experiment X: Gaussian Naive Bayes ()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.50      0.88      0.64       510
+          H       0.57      0.16      0.25       532
+
+avg / total       0.54      0.51      0.44      1042
+
+*********************
+Mean absolute errro output  is  0.490403071017
+*********************
+Accuracy output  is  0.509596928983
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=7  ############
+Size of selected training data :  (1042, 7)
+This is experiment X: Gaussian Naive Bayes ()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.50      0.88      0.64       510
+          H       0.58      0.16      0.25       532
+
+avg / total       0.54      0.51      0.44      1042
+
+*********************
+Mean absolute errro output  is  0.487523992322
+*********************
+Accuracy output  is  0.512476007678
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=8  ############
+Size of selected training data :  (1042, 8)
+This is experiment X: Gaussian Naive Bayes ()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.50      0.88      0.64       510
+          H       0.58      0.16      0.25       532
+
+avg / total       0.54      0.51      0.44      1042
+
+*********************
+Mean absolute errro output  is  0.488483685221
+*********************
+Accuracy output  is  0.511516314779
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=9  ############
+Size of selected training data :  (1042, 9)
+This is experiment X: Gaussian Naive Bayes ()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.50      0.88      0.64       510
+          H       0.58      0.17      0.26       532
+
+avg / total       0.54      0.51      0.44      1042
+
+*********************
+Mean absolute errro output  is  0.486564299424
+*********************
+Accuracy output  is  0.513435700576
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=10  ############
+Size of selected training data :  (1042, 10)
+This is experiment X: Gaussian Naive Bayes ()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.50      0.88      0.64       510
+          H       0.59      0.17      0.27       532
+
+avg / total       0.55      0.52      0.45      1042
+
+*********************
+Mean absolute errro output  is  0.482725527831
+*********************
+Accuracy output  is  0.517274472169
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=11  ############
+Size of selected training data :  (1042, 11)
+This is experiment X: Gaussian Naive Bayes ()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.51      0.88      0.64       510
+          H       0.61      0.17      0.27       532
+
+avg / total       0.56      0.52      0.45      1042
+
+*********************
+Mean absolute errro output  is  0.478886756238
+*********************
+Accuracy output  is  0.521113243762
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=12  ############
+Size of selected training data :  (1042, 12)
+This is experiment X: Gaussian Naive Bayes ()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.53      0.88      0.66       510
+          H       0.68      0.23      0.35       532
+
+avg / total       0.60      0.55      0.50      1042
+
+*********************
+Mean absolute errro output  is  0.447216890595
+*********************
+Accuracy output  is  0.552783109405
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=13  ############
+Size of selected training data :  (1042, 13)
+This is experiment X: Gaussian Naive Bayes ()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.53      0.89      0.67       510
+          H       0.70      0.25      0.37       532
+
+avg / total       0.62      0.56      0.52      1042
+
+*********************
+Mean absolute errro output  is  0.436660268714
+*********************
+Accuracy output  is  0.563339731286
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=14  ############
+Size of selected training data :  (1042, 14)
+This is experiment X: Gaussian Naive Bayes ()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.54      0.89      0.67       510
+          H       0.71      0.26      0.38       532
+
+avg / total       0.62      0.57      0.52      1042
+
+*********************
+Mean absolute errro output  is  0.431861804223
+*********************
+Accuracy output  is  0.568138195777
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=15  ############
+Size of selected training data :  (1042, 15)
+This is experiment X: Gaussian Naive Bayes ()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.53      0.88      0.67       510
+          H       0.70      0.26      0.38       532
+
+avg / total       0.62      0.56      0.52      1042
+
+*********************
+Mean absolute errro output  is  0.435700575816
+*********************
+Accuracy output  is  0.564299424184
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=16  ############
+Size of selected training data :  (1042, 16)
+This is experiment X: Gaussian Naive Bayes ()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.54      0.89      0.67       510
+          H       0.72      0.28      0.40       532
+
+avg / total       0.63      0.58      0.53      1042
+
+*********************
+Mean absolute errro output  is  0.424184261036
+*********************
+Accuracy output  is  0.575815738964
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=17  ############
+Size of selected training data :  (1042, 17)
+This is experiment X: Gaussian Naive Bayes ()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.54      0.89      0.67       510
+          H       0.71      0.27      0.39       532
+
+avg / total       0.63      0.57      0.53      1042
+
+*********************
+Mean absolute errro output  is  0.42802303263
+*********************
+Accuracy output  is  0.57197696737
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=18  ############
+Size of selected training data :  (1042, 18)
+This is experiment X: Gaussian Naive Bayes ()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.54      0.89      0.67       510
+          H       0.72      0.27      0.40       532
+
+avg / total       0.63      0.57      0.53      1042
+
+*********************
+Mean absolute errro output  is  0.426103646833
+*********************
+Accuracy output  is  0.573896353167
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=19  ############
+Size of selected training data :  (1042, 19)
+This is experiment X: Gaussian Naive Bayes ()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.54      0.88      0.67       510
+          H       0.71      0.27      0.39       532
+
+avg / total       0.62      0.57      0.53      1042
+
+*********************
+Mean absolute errro output  is  0.429942418426
+*********************
+Accuracy output  is  0.570057581574
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=20  ############
+Size of selected training data :  (1042, 20)
+This is experiment X: Gaussian Naive Bayes ()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.55      0.89      0.68       510
+          H       0.74      0.30      0.43       532
+
+avg / total       0.65      0.59      0.55      1042
+
+*********************
+Mean absolute errro output  is  0.410748560461
+*********************
+Accuracy output  is  0.589251439539
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=21  ############
+Size of selected training data :  (1042, 21)
+This is experiment X: Gaussian Naive Bayes ()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.55      0.89      0.68       510
+          H       0.75      0.31      0.44       532
+
+avg / total       0.65      0.60      0.56      1042
+
+*********************
+Mean absolute errro output  is  0.404990403071
+*********************
+Accuracy output  is  0.595009596929
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+----------------------------- Iteration # 1 Ends ------------------------------
+==================================================================================================================
+==================================================================================================================
+Done ;-)
+Ended at:  2016-04-17 21:10:55
+>>> 
+>>> runfile('/Users/akond/Documents/Spring-2016/CSC522/gitRepo/project/exp_x_main.py', wdir='/Users/akond/Documents/Spring-2016/CSC522/gitRepo/project')
+Reloaded modules: logiRegre, IO_, exp_x_experiments, exp_x_classifiers, utility
+Started at:  2016-04-17 21:11:14
+This is experiemnt X : classification with  NO versions that has ZERO scores + used K-Means for High and Low + Selectiev Feature 
+----------------------------- Iteration # 1 Starts ------------------------------
+This is 'experiemnt_KNN' 
+Size of  training data : rows: 1042, columns: 21
+#################  No. of features to work with=1  ############
+Size of selected training data :  (1042, 1)
+This is experiment X: kNN()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.63      0.59      0.61       510
+          H       0.63      0.66      0.64       532
+
+avg / total       0.63      0.63      0.63      1042
+
+*********************
+Mean absolute errro output  is  0.373320537428
+*********************
+Accuracy output  is  0.626679462572
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=2  ############
+Size of selected training data :  (1042, 2)
+This is experiment X: kNN()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.71      0.81      0.76       510
+          H       0.79      0.69      0.74       532
+
+avg / total       0.75      0.75      0.75      1042
+
+*********************
+Mean absolute errro output  is  0.251439539347
+*********************
+Accuracy output  is  0.748560460653
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=3  ############
+Size of selected training data :  (1042, 3)
+This is experiment X: kNN()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.71      0.84      0.77       510
+          H       0.82      0.68      0.74       532
+
+avg / total       0.77      0.76      0.76      1042
+
+*********************
+Mean absolute errro output  is  0.241842610365
+*********************
+Accuracy output  is  0.758157389635
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=4  ############
+Size of selected training data :  (1042, 4)
+This is experiment X: kNN()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.72      0.87      0.79       510
+          H       0.84      0.68      0.75       532
+
+avg / total       0.79      0.77      0.77      1042
+
+*********************
+Mean absolute errro output  is  0.226487523992
+*********************
+Accuracy output  is  0.773512476008
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=5  ############
+Size of selected training data :  (1042, 5)
+This is experiment X: kNN()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.73      0.89      0.80       510
+          H       0.86      0.69      0.77       532
+
+avg / total       0.80      0.79      0.78      1042
+
+*********************
+Mean absolute errro output  is  0.214971209213
+*********************
+Accuracy output  is  0.785028790787
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=6  ############
+Size of selected training data :  (1042, 6)
+This is experiment X: kNN()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.73      0.88      0.80       510
+          H       0.86      0.68      0.76       532
+
+avg / total       0.79      0.78      0.78      1042
+
+*********************
+Mean absolute errro output  is  0.219769673704
+*********************
+Accuracy output  is  0.780230326296
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=7  ############
+Size of selected training data :  (1042, 7)
+This is experiment X: kNN()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.73      0.89      0.80       510
+          H       0.87      0.68      0.76       532
+
+avg / total       0.80      0.79      0.78      1042
+
+*********************
+Mean absolute errro output  is  0.214971209213
+*********************
+Accuracy output  is  0.785028790787
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=8  ############
+Size of selected training data :  (1042, 8)
+This is experiment X: kNN()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.73      0.92      0.81       510
+          H       0.89      0.67      0.76       532
+
+avg / total       0.81      0.79      0.79      1042
+
+*********************
+Mean absolute errro output  is  0.210172744722
+*********************
+Accuracy output  is  0.789827255278
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=9  ############
+Size of selected training data :  (1042, 9)
+This is experiment X: kNN()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.73      0.92      0.81       510
+          H       0.89      0.67      0.77       532
+
+avg / total       0.81      0.79      0.79      1042
+
+*********************
+Mean absolute errro output  is  0.209213051823
+*********************
+Accuracy output  is  0.790786948177
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=10  ############
+Size of selected training data :  (1042, 10)
+This is experiment X: kNN()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.73      0.92      0.81       510
+          H       0.89      0.67      0.77       532
+
+avg / total       0.81      0.79      0.79      1042
+
+*********************
+Mean absolute errro output  is  0.209213051823
+*********************
+Accuracy output  is  0.790786948177
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=11  ############
+Size of selected training data :  (1042, 11)
+This is experiment X: kNN()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.73      0.92      0.81       510
+          H       0.89      0.67      0.77       532
+
+avg / total       0.81      0.79      0.79      1042
+
+*********************
+Mean absolute errro output  is  0.209213051823
+*********************
+Accuracy output  is  0.790786948177
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=12  ############
+Size of selected training data :  (1042, 12)
+This is experiment X: kNN()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.73      0.92      0.81       510
+          H       0.89      0.67      0.77       532
+
+avg / total       0.81      0.79      0.79      1042
+
+*********************
+Mean absolute errro output  is  0.209213051823
+*********************
+Accuracy output  is  0.790786948177
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=13  ############
+Size of selected training data :  (1042, 13)
+This is experiment X: kNN()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.73      0.92      0.81       510
+          H       0.89      0.67      0.77       532
+
+avg / total       0.81      0.79      0.79      1042
+
+*********************
+Mean absolute errro output  is  0.209213051823
+*********************
+Accuracy output  is  0.790786948177
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=14  ############
+Size of selected training data :  (1042, 14)
+This is experiment X: kNN()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.73      0.92      0.81       510
+          H       0.89      0.67      0.77       532
+
+avg / total       0.81      0.79      0.79      1042
+
+*********************
+Mean absolute errro output  is  0.209213051823
+*********************
+Accuracy output  is  0.790786948177
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=15  ############
+Size of selected training data :  (1042, 15)
+This is experiment X: kNN()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.74      0.92      0.82       510
+          H       0.90      0.69      0.78       532
+
+avg / total       0.82      0.80      0.80      1042
+
+*********************
+Mean absolute errro output  is  0.199616122841
+*********************
+Accuracy output  is  0.800383877159
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=16  ############
+Size of selected training data :  (1042, 16)
+This is experiment X: kNN()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.74      0.92      0.82       510
+          H       0.90      0.69      0.78       532
+
+avg / total       0.82      0.80      0.80      1042
+
+*********************
+Mean absolute errro output  is  0.199616122841
+*********************
+Accuracy output  is  0.800383877159
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=17  ############
+Size of selected training data :  (1042, 17)
+This is experiment X: kNN()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.74      0.92      0.82       510
+          H       0.90      0.69      0.78       532
+
+avg / total       0.82      0.80      0.80      1042
+
+*********************
+Mean absolute errro output  is  0.199616122841
+*********************
+Accuracy output  is  0.800383877159
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=18  ############
+Size of selected training data :  (1042, 18)
+This is experiment X: kNN()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.74      0.92      0.82       510
+          H       0.90      0.69      0.78       532
+
+avg / total       0.82      0.80      0.80      1042
+
+*********************
+Mean absolute errro output  is  0.199616122841
+*********************
+Accuracy output  is  0.800383877159
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=19  ############
+Size of selected training data :  (1042, 19)
+This is experiment X: kNN()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.74      0.92      0.82       510
+          H       0.90      0.69      0.78       532
+
+avg / total       0.82      0.80      0.80      1042
+
+*********************
+Mean absolute errro output  is  0.199616122841
+*********************
+Accuracy output  is  0.800383877159
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=20  ############
+Size of selected training data :  (1042, 20)
+This is experiment X: kNN()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.74      0.92      0.82       510
+          H       0.90      0.69      0.78       532
+
+avg / total       0.82      0.80      0.80      1042
+
+*********************
+Mean absolute errro output  is  0.199616122841
+*********************
+Accuracy output  is  0.800383877159
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+#################  No. of features to work with=21  ############
+Size of selected training data :  (1042, 21)
+This is experiment X: kNN()
+||||| ----- Performing cross validation (start) -----  |||||
+precison, recall, F-stat
+             precision    recall  f1-score   support
+
+          L       0.74      0.92      0.82       510
+          H       0.90      0.69      0.78       532
+
+avg / total       0.82      0.80      0.80      1042
+
+*********************
+Mean absolute errro output  is  0.199616122841
+*********************
+Accuracy output  is  0.800383877159
+*********************
+||||| ----- Performing cross validation (end) -----  |||||
+----------------------------- Iteration # 1 Ends ------------------------------
+==================================================================================================================
+==================================================================================================================
+Done ;-)
+Ended at:  2016-04-17 21:11:15
+>>> 
