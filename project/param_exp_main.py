@@ -43,7 +43,7 @@ def experiemnt_KNN(fileNameParam):
    
   for selCount in xrange(original_cols):
     count_ = selCount + 1 
-    if count_ < original_cols:      
+    if count_ <= original_cols:      
       slected_training_data = giveSelectedTrainingData(trainData, testData, count_ ) 
       print "#################  No. of features to work with={}  ############".format(count_)
       print "Size of selected training data : ", slected_training_data.shape
@@ -67,7 +67,7 @@ def experiemnt_SVM(fileNameParam):
   testData = testAndTrainData[1]   
   for selCount in xrange(original_cols):
     count_ = selCount + 1 
-    if count_ < original_cols:      
+    if count_ <= original_cols:      
       slected_training_data = giveSelectedTrainingData(trainData, testData, count_ ) 
       print "#################  No. of features to work with={}  ############".format(count_)
       print "Size of selected training data : ", slected_training_data.shape
