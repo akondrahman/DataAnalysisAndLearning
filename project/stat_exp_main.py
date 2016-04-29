@@ -115,7 +115,7 @@ sys.stdout = log_file
 
 print "Started at: ", IO_.giveTimeStamp()
 count=10000
-file_="25th_2Clusters_NonZeroDataset_Aggolo.csv"
+file_="2Clusters_NonZeroDataset_Aggolo.csv"
 all_accu_moea = runs(count, file_)
 all_acuu = all_accu_moea[0]
 all_moea = all_accu_moea[1]

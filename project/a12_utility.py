@@ -61,8 +61,10 @@ def doFastA12(lst1,lst2):
   
   
 def doSlowA12(vec1, vec2):
+    ## assumes vec1 nums are meant to be greater than vec2
     ## this code is inheried from Dr. Menzies   
-    ## Are eleemnts of vector 1 overall better than vector 2 ? order amtters ... see: line 42
+    ## Are eleemnts of vector 1 overall better than vector 2 ? order amtters ... 
+    ## see: line 76
     if (len(vec1)==0) or (len(vec2)==0):
      print "One of the vectors is invalied for A12 test !"
      return 0

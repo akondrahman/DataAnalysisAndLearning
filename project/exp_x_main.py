@@ -30,7 +30,7 @@ print "This is experiemnt X : classification with  NO versions that has ZERO sco
 #print "Classifier: Decision Tree (CART), Random Forest, SVM(rbf), Gaussian NAive Bayes , KNN"
 ##fileNameParam="NonZeroDataset_KMeans.csv"
 #fileNameParam="smote/smoted_13_clusters.csv"
-fileNameParam="2_NonZeroDataset_Aggolo.csv"
+fileNameParam="13_NonZeroDataset_Aggolo.csv"
 exp_counts=1
 
 for cnt in xrange(exp_counts):

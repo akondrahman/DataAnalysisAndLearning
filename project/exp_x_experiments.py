@@ -15,16 +15,19 @@ def experiemnt_logireg(fileNameParam):
 def experiemnt_random_forest(fileNameParam):
   import exp_x_classifiers , IO_ 
   testAndTrainData = IO_.giveTestAndTrainingData(fileNameParam)
+  #print testAndTrainData
   print "This is 'experiemnt_random_forest' "  
   
   # settign up train data 
   trainData = testAndTrainData[0]
+  #print trainData
   original_rows = trainData.shape[0]
   original_cols =  trainData.shape[1] 
   print "Size of  training data : rows: {}, columns: {}".format( original_rows , original_cols )
   
   # settign up test data 
   testData = testAndTrainData[1]   
+  #print testData  
   for selCount in xrange(original_cols):
     count_ = selCount + 1 
     if count_ <= original_cols:      

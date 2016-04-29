@@ -1,0 +1,208 @@
+k-NN
+
+The main disadvantage of the KNN algorithm is that it is a lazy learner, i.e. it does not learn anything from the training data and simply uses the training data itself for classification. To predict the label of a new instance the KNN algorithm will find the K closest neighbors to the new instance from the training data, the predicted class label will then be set as the most common label among the K closest neighboring points. 
+Adv: 
+- The K-Nearest Neighbor (KNN) Classifier is a very simple classifier that works well on basic recognition problems. 
+
+Disavd: 
+- The main disadvantage of this approach is that the algorithm must compute the distance and sort all the training data at each prediction, which can be slow if there are a large number of training examples. 
+- Another disadvantage of this approach is that the algorithm does not learn anything from the training data, which can result in the algorithm not generalizing well and also not being robust to noisy data. 
+- Further, changing K can change the resulting predicted class label. 
+- The model can not be interpreted (there is no description of the learned concepts)
+- It is computationally expensive to  nd the k nearest neighbours when the dataset is very large
+- Performance depends on the number of dimensions that we have(curse of dimensionality) ) Attribute Selection
+
+Linear SVM: 
+
+
+
+Adv: 
+
+- Firstly it has a regularisation parameter, which makes the user think about avoiding over-fitting. 
+- Secondly it uses the kernel trick, so you can build in expert knowledge about the problem via engineering the kernel. 
+- Thirdly an SVM is defined by a convex optimisation problem (no local minima) for which there are efficient methods (e.g. SMO). 
+- Lastly, it is an approximation to a bound on the test error rate, and there is a substantial body of theory behind it which suggests it should be a good idea.
+- Since  the  kernel  implicitly contains  a  non-linear  transformation,  no  assumptions  about  the  functional form  of the  transformation,  which  makes  data  linearly  separable,  is  necessary.  The  transformation  occurs implicitly on a robust theoretical basis and human expertise judgement beforehand is not needed.  
+- SVMs deliver a unique solution, since the optimality  problem is convex. This is an advantage compared  to Neural Networks, which have multiple solutions associated with local minima and for this reason may not be robust over different samples. 
+
+Dis-adv: 
+- The disadvantages are that the theory only really covers the determination of the parameters for a given value of the regularisation and kernel parameters and choice of kernel.
+- SVMs is the lack of transparency of results. 
+
+
+Decision Tree: 
+
+Adv: 
+
+- Ease of coding - I agree this is relatively easier to code - but things do get complicated once you account for pruning to avoid overfitting. And lets face it - no DT algorithm is practical without some means to eliminate overfitting. Even if you look at the original CART algorithm, the pruning mechanism suggested takes some getting used to.
+- Addressing non-linearity, inferring interaction terms etc - We have a bunch of non-linear classifiers available to us today, and in this regard DTs are not special anymore. The only thing really still special about DTs are that they can explain the non-linearity in an intuitive manner - goes back to what I said before about the convenient interpretability of the output of DTs (some interesting points made by Peter Flom in comments)
+- Fast prediction - this may or may not be true or matter: depends on your dataset and alternatives. If you have a SVM classifier for your problem and a kernel that is cheap to compute, then all you would be computing during prediction time are the kernel values wrt each of the support vectors; this may not be much of a drain on resources. I will admit, however, that in most cases DT prediction is very fast.
+- Constructing a DT is fast- this is true. But the trade-off here is DT algos are greedy - they search through only some of the possibilities in a relatively larger hypothesis space. You may have another classifier for your dataset which is not as quick to train, but is more accurate.
+
+DisAdv: 
+- Instability: The reliability of the information in the decision tree depends on feeding the precise internal and external information at the onset. Even a small change in input data can at times, cause large changes in the tree. 
+- Complexity: Among the major decision tree disadvantages are its complexity. Decision trees are easy to use compared to other decision-making models, but preparing decision trees, especially large ones with many branches, are complex and time-consuming affairs.
+- Unweildy: Decision trees, while providing easy to view illustrations, can also be unwieldy. Even data that is perfectly divided into classes and uses only simple threshold tests may require a large decision tree. Large trees are not intelligible, and pose presentation difficulties.
+- Costs: The complexity in creating large decision trees mandates people involved in preparing decision trees having advanced knowledge in quantitative and statistical analysis. 
+- Susceptible to noise 
+
+MLP: 
+
+
+
+Adv: 
+
+- Connectionist: used as a metaphor for biological neural networks
+- Computationally efficient
+- Can easily be parallelized
+- Universal computing machines
+
+Disadv: 
+- Convergence can be slow
+- Local minima can affect the training process
+- Hard to scale
+
+Q2(b) 
+
+kNN with k=3: 
+test_class
+res_pred   3   8
+       3 163   6
+       8   3 160
+
+kNN with k=5: 
+test_class
+res_pred   3   8
+       3 162   7
+       8   4 159
+kNN with k=50:        
+test_class
+res_pred   3   8
+       3 161  18
+       8   5 148
+
+Naive BAyes with laplace=0.0: 
+test_class
+predicted_res   3   8
+            3 166 166
+            8   0   0
+Naive BAyes with laplace=0.5: 
+test_class
+predicted_res   3   8
+            3 166 166
+            8   0   0      
+Naive BAyes with laplace=0.5: 
+test_class
+predicted_res   3   8
+            3 166 166
+            8   0   0   
+
+SVM with linear: 
+test_class
+pred_res   3   8
+       3 159   4
+       8   7 162
+
+SVM with polynomial: 
+test_class
+pred_res   3   8
+       3 159  10
+       8   7 156
+SVM with sigmoid: 
+test_class
+pred_res   3   8
+       3 159   7
+       8   7 159           
+
+SVM with linear, cost=10:                   
+test_class
+pred_res   3   8
+       3 159   4
+       8   7 162
+SVM with linear, cost=100:                   
+ test_class
+pred_res   3   8
+       3 159   4
+       8   7 162
+
+MLP: 
+
+test_class
+predictions   3   8
+            3  0   0
+            8  166 166   
+
+MLP, trials=10: 
+
+test_class
+predictions   3   8
+            3  0   0
+            8  166 166   
+
+MLP, trials=100: 
+
+test_class
+predictions   3   8
+            3  0   0
+            8  166 166   
+
+MLP, trials=100, size=50: 
+
+test_class
+predictions   3   8
+            3  0   0
+            8  166 166                                       
+
+MLP, trials=100, size=100: 
+
+test_class
+predictions   3   8
+            3  0   0
+            8  166 166                                                   
+
+
+decision tree: C5.0 uses entropy: 
+test_class
+pred_res   3   8
+       3 156  16
+       8  10 150       
+trial = boosting iteration        
+decision tree: C5.0 uses entropy,  tirals=10: 
+ test_class
+pred_res   3   8
+       3 159   6
+       8   7 160
+decision tree: C5.0 uses entropy, tirals=100: 
+test_class
+pred_res   3   8
+       3 162   3
+       8   4 163
+decision tree: C5.0 uses entropy, tirals=50: 
+test_class
+pred_res   3   8
+       3 162   3
+       8   4 163
+
+
+
+
+decision tree: rpart uses gini:
+test_class
+pred_res   3   8
+       3 152  11
+       8  14 155       
+decision tree: rpart uses gini, cp =0.10:
+ test_class
+pred_res   3   8
+       3 145  18
+       8  21 148
+decision tree: rpart uses gini, cp=0.25:
+ test_class
+pred_res   3   8
+       3 145  18
+       8  21 148
+decision tree: rpart uses gini, cp =0.01:
+ test_class
+pred_res   3   8
+       3 152  11
+       8  14 155

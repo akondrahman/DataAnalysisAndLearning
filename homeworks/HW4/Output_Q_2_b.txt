@@ -1,0 +1,49 @@
+ test_class
+predicted_res   1   2   3   4   5
+            1 114   0  40   0   1
+            2   0  81  21   0   0
+            3  19   0 304   0   0
+            4   0   0   0  57  20
+            5   2   0   4   6  51
+
+
+MLE vs. BAyesian: 
+
+MLE: 
+Maximum likelihood estimation refers to using a probability model for data and optimizing the joint likelihood function of the observed data over one or more parameters. It's therefore seen that the estimated parameters are most consistent with the observed data relative to any other parameter in the parameter space. Note such likelihood functions aren't necessarily viewed as being "conditional" upon the parameters since the parameters aren't random variables, hence it's somewhat more sophisticated to conceive of the likelihood of various outcomes comparing two different parameterizations. It turns out this is a philosophically sound approach.
+
+Adv: 
+-robust to many violations of the assumptions in the evolutionary model, even with very short 
+sequences it may outperform alternative methods
+ such as parsimony or distance methods.  
+-the method is statistically well understood  
+-has explicit model of evolution  
+-no assumption of independence 
+
+Disadv:
+-very computationally intensive and so extremely slow (though this is becoming much less of an 
+issue) 
+-the result is dependent on the model of evolution used  
+-philosophically less well establis
+hed, especially in terms of pr
+obabilities and statistical measures 
+of unique historical events (vs. 
+Parsimony as a general principle)  
+
+Bayesian estimation is a bit more general because we're not necessarily maximizing the Bayesian analogue of the likelihood (the posterior density). However, the analogous type of estimation (or posterior mode estimation) is seen as maximizing the probability of the posterior parameter conditional upon the data. Usually, Bayes' estimates obtained in such a manner behave nearly exactly like those of ML. The key difference is that Bayes inference allows for an explicit method to incorporate prior information.
+
+Adv: 
+
+– Fast to train (single scan). Fast to classify 
+– Not sensitive to irrelevant features
+– Handles real and discrete data
+– Handles streaming data well
+- Conceptually very easy to understand
+- Very effective
+
+
+Disadv: 
+- Assumes independence of features
+- Very simple representation doesn't allow for rich hypotheses
+
+
