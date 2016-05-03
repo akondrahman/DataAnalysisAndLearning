@@ -296,8 +296,8 @@ def runGNBTest(orig_fileParam, synth_fileParam, itnParam, cv_param):
   print "time comparison: is synthetic slower than original ?", time_a12_  
 
 
-orig_datasetFileName="13_NonZeroDataset_Aggolo.csv"
-synth_datasetFileName="smote/smoted_13_clusters.csv"
+orig_datasetFileName="2_NonZeroDataset_Aggolo.csv"
+synth_datasetFileName="smote/smoted_2_clusters.csv"
 iterations=10000
 cv_param_items = [2, 5]
 
