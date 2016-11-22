@@ -18,3 +18,16 @@ print counter_dict
 formula to fix no. of samples: no_of_samples_you_want = x * no. of neighbors / 100
 you have to provide x , x must be < 100 or multiple of 100
 '''
+print "smoting time for level 0 "
+## smoting time for level 0
+# get the records per sample
+classVal = float(0)
+records_per_class_0 = smote_utility.getRecordsPeClass(classVal, the_data_set)
+#print records_
+array_shaped_record = np.array(records_per_class_0)
+print "original datatset ", array_shaped_record.shape
+count_extra_synthetic_samples = 3200  ## fix samples based on number of nerighbors
+nearest_nieghbors = 10 ### Expected n_neighbors <= n_samples, level 0 has 10 samples
+smoted_dataset_0 = smote.SMOTE(array_shaped_record.shape, array_shaped_record, count_extra_synthetic_samples, nearest_nieghbors)
+print "smoted dataset shape: level-0::", smoted_dataset_0.shape
+print "-----"
