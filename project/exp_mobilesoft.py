@@ -24,11 +24,11 @@ print "This is experiemnt Mobilesoft: classification with ZERO scores, 5 levels 
 selectedFeatureIndexVector = [0, 5, 10, 12, 13, 18, 19, 20]
 fileNameParam="Exp_1_Mobilesoft_clusterified_1407.csv"
 ## Exp-1
-exp_x_experiments.experiment_mobilesoft_random_forest(fileNameParam, selectedFeatureIndexVector)
+#exp_x_experiments.experiment_mobilesoft_random_forest(fileNameParam, selectedFeatureIndexVector)
 ### Exp-2
-#exp_x_experiments.experiemnt_CART(fileNameParam)
+#exp_x_experiments.experiment_mobilesoft_cart(fileNameParam, selectedFeatureIndexVector)
 ### Exp-3
-#exp_x_experiments.experiemnt_SVM(fileNameParam)
+exp_x_experiments.experiment_mobilesoft_svm(fileNameParam)
 ### Exp-4
 #exp_x_experiments.experiemnt_gaussian_naive_bayes(fileNameParam)
 ### Exp-5
