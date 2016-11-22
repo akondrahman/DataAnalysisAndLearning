@@ -164,9 +164,9 @@ def runKNN(trainDataParam, testDataParam, trainizingSizeParam):
       for val3 in params['metric']:
         for val4 in params['p']:
           for val5 in params['algorithm']:
-            #if trainizingSizeParam==0.90:
             key_for_dict = str(val1) + "_" + val2 + "_" + val3 + "_" + str(val4) + "_" + val5 + "_"
-              #print '---->For params: n_neighbors='+str(val1)+' weights='+str(val2)+' metric='+str(val3)+' p='+str(val4)+' algorithm='+str(val5)
+            if trainizingSizeParam==0.90:
+              print '---->For params: n_neighbors='+str(val1)+' weights='+str(val2)+' metric='+str(val3)+' p='+str(val4)+' algorithm='+str(val5)
             theKNNModel = KNeighborsClassifier(n_neighbors=val1, weights=val2, metric=val3, p=val4, algorithm=val5)
             theKNNModel.fit(featureSpace_train, vScore_train)
             thePredictedScores = theKNNModel.predict(featureSpace_test)
@@ -181,7 +181,7 @@ def runKNN(trainDataParam, testDataParam, trainizingSizeParam):
   return res_combo_dict
 
 def runCART(trainDataParam, testDataParam, trainizingSizeParam):
-
+  res_combo_dict={}
   # what percent will you use ?
   testSplitSize = 1.0 - trainizingSizeParam
 
@@ -191,28 +191,28 @@ def runCART(trainDataParam, testDataParam, trainizingSizeParam):
   params = modp.cart_param
 
   for val1 in params['criterion']:
-	for val2 in params['splitter']:
-		for val3 in params['max_features']:
-			if val3 > trainDataParam.shape[1]:
-				continue
-			for val4 in params['max_depth']:
-				for val5 in params['min_samples_split']:
-					for val6 in params['min_samples_leaf']:
-						for val7 in params['max_leaf_nodes']:
-							if trainizingSizeParam==0.90:
-								print '---->For params: criterion='+str(val1)+' splitter='+str(val2)+' max_features='+str(val3)+' max_depth='+str(val4)+' min_samples_split='+str(val5)+' min_samples_leaf='+str(val6)+' max_leaf_nodes='+str(val7)
-							## fire up the model
-							theCARTModel = DecisionTreeClassifier(criterion=val1,splitter=val2,max_features=val3,max_depth=val4,min_samples_split=val5,min_samples_leaf=val6,max_leaf_nodes=val7)
-							theCARTModel.fit(featureSpace_train, vScore_train)
-							thePredictedScores = theCARTModel.predict(featureSpace_test)
-
-							#evalClassifier(vScore_test, thePredictedScores)
-							# preserve the order first test(real values from dataset), then predcited (from the classifier )
-
-							# first one does holdout, this does corss validation
-							if trainizingSizeParam==0.90:
-								print "This is experiment X: CART()"
-								perform_cross_validation(theCARTModel, trainDataParam, testDataParam, 5)
+   for val2 in params['splitter']:
+    for val3 in params['max_features']:
+     if val3 > trainDataParam.shape[1]:
+       continue
+     for val4 in params['max_depth']:
+      for val5 in params['min_samples_split']:
+       for val6 in params['min_samples_leaf']:
+        for val7 in params['max_leaf_nodes']:
+         if trainizingSizeParam==0.90:
+          print '---->For params: criterion='+str(val1)+' splitter='+str(val2)+' max_features='+str(val3)+' max_depth='+str(val4)+' min_samples_split='+str(val5)+' min_samples_leaf='+str(val6)+' max_leaf_nodes='+str(val7)
+          ## fire up the model
+          theCARTModel = DecisionTreeClassifier(criterion=val1,splitter=val2,max_features=val3,max_depth=val4,min_samples_split=val5,min_samples_leaf=val6,max_leaf_nodes=val7)
+          theCARTModel.fit(featureSpace_train, vScore_train)
+          thePredictedScores = theCARTModel.predict(featureSpace_test)
+          key_str_1 = val1 + "_" + val2 + "_" + str(val3) + "_" + str(val4) + "_" + str(val5) + "_"
+          key_str_2 = str(val6) + "_" + str(val7) + "_"
+          key_for_dict = key_str_1 + key_str_2
+          if trainizingSizeParam==0.90:
+           print "This is experiment X: CART()"
+           res_tuple = perform_cross_validation(theCARTModel, trainDataParam, testDataParam, 5)
+           res_combo_dict[key_for_dict] = res_tuple
+  return res_combo_dict
 
 def runRandomForest(trainDataParam, testDataParam):
   res_combo_dict ={}
