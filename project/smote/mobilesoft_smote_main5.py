@@ -75,3 +75,18 @@ nearest_nieghbors = 10  ### Expected n_neighbors <= n_samples
 smoted_dataset_3 = smote.SMOTE(array_shaped_record.shape, array_shaped_record, count_extra_synthetic_samples, nearest_nieghbors)
 print "smoted dataset shape: level-3::", smoted_dataset_3.shape
 print "-----"
+
+
+print "smoting time for level 4 "
+## smoting time for level 4
+# get the records per sample
+classVal = float(4)
+records_per_class_4 = smote_utility.getRecordsPeClass(classVal, the_data_set)
+#print records_
+array_shaped_record = np.array(records_per_class_4)
+print "original datatset ", array_shaped_record.shape
+count_extra_synthetic_samples = 5200  ##N must be < 100 or multiple of 100
+nearest_nieghbors = 10  ### Expected n_neighbors <= n_samples
+smoted_dataset_4 = smote.SMOTE(array_shaped_record.shape, array_shaped_record, count_extra_synthetic_samples, nearest_nieghbors)
+print "smoted dataset shape: level-4::", smoted_dataset_4.shape
+print "-----"
