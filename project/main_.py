@@ -10,7 +10,7 @@ Created on Sat Jan 16 23:00:51 2016
 import  experiments, IO_
 print "Started at: ", IO_.giveTimeStamp()
 # -----------------------------------------------------------------------
-dbFileName="/Users/akond/Documents/Spring-2016/CSC522/OSSAndroidAppDataset/androSec.db"
+
 meanFlag=False
 # -----------------------------------------------------------------------
 if meanFlag:
@@ -178,6 +178,7 @@ Inlcude zero values
 Not file count based cutoff
 '''
 print "########################## Applying the 'Mobilesoft' approach ###############################"
+dbFileName="/Users/akond/Documents/ncsu_prev_year/Spring-2016/CSC522/OSSAndroidAppDataset/androSec.db"
 experiments.experiemnt_mobilesoft(dbFileName, "Exp_1_Mobilesoft")
 #print "=================================================================================================================="
 
