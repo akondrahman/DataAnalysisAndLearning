@@ -121,6 +121,7 @@ def perform_cross_validation(classiferP, trainingP, testP, cross_vali_param):
 
 
 def runSVM(trainDataParam, testDataParam, trainizingSizeParam):
+  res_combo_dict={}
   # what percent will you use ?
   testSplitSize = 1.0 - trainizingSizeParam
   ### classification
@@ -134,6 +135,7 @@ def runSVM(trainDataParam, testDataParam, trainizingSizeParam):
     for val2 in params['shrinking']:
       for val3 in params['tol']:
         for val4 in params['decision_function_shape']:
+          key_for_dict = str(val1) + "_" + str(val2) + "_" + str(val3) + "_" + val4 + "_"
           if trainizingSizeParam==0.90:
             print '---->For params: C='+str(val1)+' shrinking='+str(val2)+' tol='+str(val3)+' decision_function_shape='+str(val4)
           theSVMModel = svm.SVC(kernel='rbf', C = val1, shrinking = val2, tol = val3, decision_function_shape = val4).fit(featureSpace_train, vScore_train)
