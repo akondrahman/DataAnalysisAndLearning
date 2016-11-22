@@ -288,13 +288,8 @@ def experiemnt_mobilesoft(dbFileName,  outputStrParam):
 	reshapedNonZerSanitizedScores = np.reshape(onlyTheNonZeroSanitizedVScores, (-1, 1))
 	clusteringType.fit(reshapedNonZerSanitizedScores)
 	labelsFroVersions = clusteringType.labels_
-	if clusterFlag:
-		centroids = clusteringType.cluster_centers_
-		print "And the centroids are .... ", centroids
-		NonZer_Santized_versionDictWithLabels = utility.clusterByKmeansLabel( onlyTheNonZeroSanitizedVersionIDs , labelsFroVersions)
-	else:
-		print "No centroids for Aggolomerative clustering"
-		NonZer_Santized_versionDictWithLabels = utility.clusterByAggoloLabel( onlyTheNonZeroSanitizedVersionIDs , labelsFroVersions)
+	print "No centroids for Aggolomerative clustering"
+	NonZer_Santized_versionDictWithLabels = utility.clusterByAggoloLabel( onlyTheNonZeroSanitizedVersionIDs , labelsFroVersions)
 	print "And the labels are .... "
 	print len(labelsFroVersions)
 	cluster_labels = clusteringType.fit_predict(reshapedNonZerSanitizedScores)
