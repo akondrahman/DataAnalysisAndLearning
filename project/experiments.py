@@ -263,59 +263,51 @@ Mobilesoft zone
 def experiemnt_mobilesoft(dbFileName,  outputStrParam):
 	from sklearn import cluster
 	import plotter
-	clusteringType = cluster.AgglomerativeClustering(n_clusters=13)
+	clusteringType = cluster.AgglomerativeClustering(n_clusters=5)
 
 
 	print "Performing experiemnt # Mobilesoft"
 	versionAndCodeQualityDict =  DEFT.getValuesFrom_CodingStandard(dbFileName)
 	sanitizedVersions = sanityCheck.getMobilesoftCodeQualityVersions(versionAndCodeQualityDict, 1.00)
 	sanitizedVersions_CQ = sanitizedVersions
-	#print "Sanitized versions that will be used in study ", len(sanitizedVersions)
-	#print "Sanitized versions ..." , sanitizedVersions
+
 	NonZero_sanitizedVersionsWithScore = sanityCheck.getAllVulnerbailityScoreOfSelectedVersions(sanitizedVersions)
-	#print "zzzz", len(NonZero_sanitizedVersionsWithScore)
-	### dyumping scores ...
+
 
 	brokenDict = utility.getVScoreList(NonZero_sanitizedVersionsWithScore)
 	onlyTheNonZeroSanitizedVersionIDs, onlyTheNonZeroSanitizedVScores = brokenDict[0], brokenDict[1]
-	#print "lalalaa ", onlyTheNonZeroSanitizedVScores
 
-	strOfScoresToDump=""
-	for elem in onlyTheNonZeroSanitizedVScores:
-	  strOfScoresToDump = strOfScoresToDump + str(elem) +  "," + "\n"
 
-	##
-	IO_.writeStrToFile("scores_for_clustering_measure.csv", strOfScoresToDump)
+	# strOfScoresToDump=""
+	# for elem in onlyTheNonZeroSanitizedVScores:
+	#   strOfScoresToDump = strOfScoresToDump + str(elem) +  "," + "\n"
+	#
+	# ##
+	# IO_.writeStrToFile("scores_for_clustering_measure.csv", strOfScoresToDump)
 
-	# reshapedNonZerSanitizedScores = np.reshape(onlyTheNonZeroSanitizedVScores, (-1, 1))
-	# clusteringType.fit(reshapedNonZerSanitizedScores)
-	# labelsFroVersions = clusteringType.labels_
-	# if clusterFlag:
-	# 	centroids = clusteringType.cluster_centers_
-	# 	print "And the centroids are .... ", centroids
-	# 	NonZer_Santized_versionDictWithLabels = utility.clusterByKmeansLabel( onlyTheNonZeroSanitizedVersionIDs , labelsFroVersions)
-	# 	##### plotting clusters start
-	# 	#low_cluster_y, high_cluster_y = utility.plotClusterByLabel( onlyTheNonZeroSanitizedVersionIDs , labelsFroVersions, NonZero_sanitizedVersionsWithScore)
-	# 	#low_cluster_x = [ 22.35294118 for x in low_cluster_y]
-	# 	#hig_cluster_x = [ 50.82030058 for x in high_cluster_y]
-	# 	#plotter.createClusterPlots(low_cluster_x, low_cluster_y, hig_cluster_x, high_cluster_y)
-    # ##### plottign clusters end
-	# else:
-	# 	print "No centroids for Aggolomerative clustering"
-	# 	NonZer_Santized_versionDictWithLabels = utility.clusterByAggoloLabel( onlyTheNonZeroSanitizedVersionIDs , labelsFroVersions)
-	# print "And the labels are .... "
-	# print len(labelsFroVersions)
-	# cluster_labels = clusteringType.fit_predict(reshapedNonZerSanitizedScores)
-	# silhouette_avg = silhouette_score(reshapedNonZerSanitizedScores, cluster_labels)
-	# print "Silhouette average---> ", silhouette_avg
-	#
-	#
-	#
-	#
-	# ##############################
-	# themegaFile_All = outputStrParam + "_" + "culsterified_non_zero_all-CQ-HL.csv"
-	# IO_.dumpIntoClusterifiedFile( themegaFile_All,sanitizedVersions_CQ , NonZer_Santized_versionDictWithLabels, False )
-	# #LGR.performLogiRegression(themegaFile_All)
+	reshapedNonZerSanitizedScores = np.reshape(onlyTheNonZeroSanitizedVScores, (-1, 1))
+	clusteringType.fit(reshapedNonZerSanitizedScores)
+	labelsFroVersions = clusteringType.labels_
+	if clusterFlag:
+		centroids = clusteringType.cluster_centers_
+		print "And the centroids are .... ", centroids
+		NonZer_Santized_versionDictWithLabels = utility.clusterByKmeansLabel( onlyTheNonZeroSanitizedVersionIDs , labelsFroVersions)
+	else:
+		print "No centroids for Aggolomerative clustering"
+		NonZer_Santized_versionDictWithLabels = utility.clusterByAggoloLabel( onlyTheNonZeroSanitizedVersionIDs , labelsFroVersions)
+	print "And the labels are .... "
+	print len(labelsFroVersions)
+	cluster_labels = clusteringType.fit_predict(reshapedNonZerSanitizedScores)
+	silhouette_avg = silhouette_score(reshapedNonZerSanitizedScores, cluster_labels)
+	print "Silhouette average---> ", silhouette_avg
+
+
+
+
+	##############################
+	themegaFile_All = outputStrParam + "_" + "clusterified_1407.csv"
+	IO_.dumpIntoClusterifiedFile( themegaFile_All,sanitizedVersions_CQ , NonZer_Santized_versionDictWithLabels, False )
+	#LGR.performLogiRegression(themegaFile_All)
 
 
 def experiemnt_select_classifier(dbFileName, meanFlag, outputStrParam, clusterFlag, scoreTypeParam):

@@ -12,8 +12,6 @@ import DataExtractionFromTables as DEFT
 import numpy as np
 
 
-
-
 def getCodeQualityofVersions(dictParam, meanFlag=True):
   versionDictToRet = {}
   versionRiskDict = DEFT.getValuesFrom_Vulnerability(dbFileName)
