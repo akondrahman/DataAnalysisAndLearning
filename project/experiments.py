@@ -268,7 +268,7 @@ def experiemnt_mobilesoft(dbFileName,  outputStrParam):
 
 	print "Performing experiemnt # Mobilesoft"
 	versionAndCodeQualityDict =  DEFT.getValuesFrom_CodingStandard(dbFileName)
-	sanitizedVersions = sanityCheck.getMobilesoftCodeQualityVersions(versionAndCodeQualityDict, meanFlag)
+	sanitizedVersions = sanityCheck.getMobilesoftCodeQualityVersions(versionAndCodeQualityDict, 1.00)
 	sanitizedVersions_CQ = sanitizedVersions
 	#print "Sanitized versions that will be used in study ", len(sanitizedVersions)
 	#print "Sanitized versions ..." , sanitizedVersions
