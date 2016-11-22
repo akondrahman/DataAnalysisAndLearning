@@ -9,7 +9,7 @@ Created on Mon Mar 14 20:06:14 2016
 
 #import IO_
 from sklearn import cross_validation, svm
-from sklearn.metrics import classification_report, roc_auc_score, mean_absolute_error, accuracy_score, hamming_loss, jaccard_similarity_score, average_precision_score
+from sklearn.metrics import classification_report, roc_auc_score, mean_absolute_error, accuracy_score, confusion_matrix, jaccard_similarity_score, average_precision_score
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import GaussianNB
@@ -77,7 +77,13 @@ def evalClassifier(vScore_test, thePredictedScores):
   # preserve the order first test(real values from dataset), then predcited (from the classifier )
   print "Accuracy output  is ", accuracy_score_output
   print"*********************"
-
+  '''
+  confusion_matrix ... reff: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html
+  '''
+  accuracy_score_output = confusion_matrix(vScore_test, thePredictedScores)
+  # preserve the order first test(real values from dataset), then predcited (from the classifier )
+  print "Confusion matrix is:\n", accuracy_score_output
+  print"*********************"
 
 
 #

@@ -33,9 +33,6 @@ exp_x_experiments.experiment_mobilesoft_random_forest(fileNameParam, selectedFea
 #exp_x_experiments.experiemnt_gaussian_naive_bayes(fileNameParam)
 ### Exp-5
 #exp_x_experiments.experiemnt_KNN(fileNameParam)
-
-print "=================================================================================================================="
-#exp_x_experiments.experiemnt_logireg(fileNameParam)
 print "=================================================================================================================="
 
 
