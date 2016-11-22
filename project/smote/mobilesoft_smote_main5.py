@@ -26,8 +26,37 @@ records_per_class_0 = smote_utility.getRecordsPeClass(classVal, the_data_set)
 #print records_
 array_shaped_record = np.array(records_per_class_0)
 print "original datatset ", array_shaped_record.shape
-count_extra_synthetic_samples = 3200  ## fix samples based on number of nerighbors
+count_extra_synthetic_samples = 50 ## as this is the majorityy class, nothing will be added and so, less than 100
 nearest_nieghbors = 10 ### Expected n_neighbors <= n_samples, level 0 has 10 samples
 smoted_dataset_0 = smote.SMOTE(array_shaped_record.shape, array_shaped_record, count_extra_synthetic_samples, nearest_nieghbors)
-print "smoted dataset shape: level-0::", smoted_dataset_0.shape
+print "smoted dataset shape: level-0::(majority class)", smoted_dataset_0.shape
+print "-----"
+
+print "smoting time for level 1 "
+## smoting time for level 1
+# get the records per sample
+classVal = float(1)
+records_per_class_1 = smote_utility.getRecordsPeClass(classVal, the_data_set)
+#print records_
+array_shaped_record = np.array(records_per_class_1)
+print "original datatset ", array_shaped_record.shape
+count_extra_synthetic_samples = 2200
+nearest_nieghbors = 10 ### Expected n_neighbors <= n_samples : level has 417 samples, going with 10
+smoted_dataset_2 = smote.SMOTE(array_shaped_record.shape, array_shaped_record, count_extra_synthetic_samples, nearest_nieghbors)
+print "smoted dataset shape: level-2::(minority class)", smoted_dataset_2.shape
+print "-----"
+
+
+print "smoting time for level 2 "
+## smoting time for level 2
+# get the records per sample
+classVal = float(2)
+records_per_class_2 = smote_utility.getRecordsPeClass(classVal, the_data_set)
+#print records_
+array_shaped_record = np.array(records_per_class_2)
+print "original datatset ", array_shaped_record.shape
+count_extra_synthetic_samples = 50 ## as this is the 75% of the majority class, nothing will be added and so, less than 100
+nearest_nieghbors = 10 ### Expected n_neighbors <= n_samples
+smoted_dataset_3 = smote.SMOTE(array_shaped_record.shape, array_shaped_record, count_extra_synthetic_samples, nearest_nieghbors)
+print "smoted dataset shape: level-2::", smoted_dataset_3.shape
 print "-----"
