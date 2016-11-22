@@ -300,8 +300,13 @@ def experiemnt_mobilesoft(dbFileName,  outputStrParam):
 
 
 	##############################
-	themegaFile_All = outputStrParam + "_" + "clusterified_1407.csv"
-	IO_.dumpIntoClusterifiedFile( themegaFile_All,sanitizedVersions_CQ , NonZer_Santized_versionDictWithLabels, False )
+	themegaFile_All = outputStrParam + "_" + "cluster_Headered_1407.csv"
+	IO_.dumpIntoClusterifiedFile( themegaFile_All,sanitizedVersions_CQ , NonZer_Santized_versionDictWithLabels )
+	'''
+	if you don't want headers
+	'''
+	# themegaFile_All = outputStrParam + "_" + "clusterified_1407.csv"
+	# IO_.dumpIntoClusterifiedFile( themegaFile_All,sanitizedVersions_CQ , NonZer_Santized_versionDictWithLabels, False )
 	#LGR.performLogiRegression(themegaFile_All)
 
 
