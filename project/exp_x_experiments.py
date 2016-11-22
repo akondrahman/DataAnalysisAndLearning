@@ -7,13 +7,14 @@ Created on Mon Mar 14 20:04:49 2016
 
 
 
+import numpy as np
 import logiRegre as LGR
+import exp_x_classifiers , IO_
 def experiemnt_logireg(fileNameParam):
   #print "Performing experiemnt # X:LGR: LGR with class lebals : 1 and 0   "
   LGR.performLogiRegression(fileNameParam)
 
 def experiemnt_random_forest(fileNameParam):
-  import exp_x_classifiers , IO_
   testAndTrainData = IO_.giveTestAndTrainingData(fileNameParam)
   #print testAndTrainData
   print "This is 'experiemnt_random_forest' "
@@ -42,7 +43,6 @@ def experiemnt_random_forest(fileNameParam):
 
 
 def experiemnt_gaussian_naive_bayes(fileNameParam):
-  import exp_x_classifiers , IO_
   testAndTrainData = IO_.giveTestAndTrainingData(fileNameParam)
   print "This is 'experiemnt_gaussian_naive_bayes' "
 
@@ -68,7 +68,6 @@ def experiemnt_gaussian_naive_bayes(fileNameParam):
 
 
 def experiemnt_SVM(fileNameParam):
-  import exp_x_classifiers , IO_
   testAndTrainData = IO_.giveTestAndTrainingData(fileNameParam)
   print "This is 'experiemnt_SVM' "
 
@@ -94,7 +93,6 @@ def experiemnt_SVM(fileNameParam):
 
 
 def experiemnt_CART(fileNameParam):
-  import exp_x_classifiers , IO_
   testAndTrainData = IO_.giveTestAndTrainingData(fileNameParam)
   print "This is 'experiemnt_CART' "
 
@@ -121,7 +119,6 @@ def experiemnt_CART(fileNameParam):
 
 
 def experiemnt_KNN(fileNameParam):
-  import exp_x_classifiers , IO_
   testAndTrainData = IO_.giveTestAndTrainingData(fileNameParam)
   print "This is 'experiemnt_KNN' "
 
@@ -185,5 +182,22 @@ def giveSelectedTrainingData(trainParam, testParam, no_of_chices_param):
 '''
 Mobilesoft Zone
 '''
-def experiment_mobilesoft_random_forest(fileNameParam):
-    
+def createMobileSoftFeatures(allFeatureParam, selectedIndicies):
+  feature_dataset_to_ret = []
+  for ind_ in selectedIndicies:
+    features_for_this_index = allFeatureParam[:, ind_]
+    feature_dataset_to_ret.append(features_for_this_index)
+  ## convert to numpy  array
+  feature_dataset_to_ret = np.array(feature_dataset_to_ret)
+  ## transpose array
+  feature_dataset_to_ret = feature_dataset_to_ret.transpose()
+
+return feature_dataset_to_ret
+
+def experiment_mobilesoft_random_forest(fileNameParam, indexVector):
+  testAndTrainData = IO_.giveTestAndTrainingData(fileNameParam)
+  trainData = testAndTrainData[0]
+  slected_training_data = Utility.createMobileSoftFeatures(trainData, indexVector)
+  print "Size of selected training data : ", np.shape(slected_training_data)
+  print "Glimpse at  selected features (10th entry): \n", slected_training_data[9]
+  #exp_x_classifiers.runRandomForest(slected_training_data, testData, elem)
