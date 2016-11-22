@@ -30,7 +30,7 @@ fileNameParam="Exp_1_Mobilesoft_clusterified_1407.csv"
 ### Exp-3
 #exp_x_experiments.experiment_mobilesoft_svm(fileNameParam, selectedFeatureIndexVector)
 ### Exp-4
-exp_x_experiments.experiment_mobilesoft_knn(fileNameParam)
+#exp_x_experiments.experiment_mobilesoft_knn(fileNameParam, selectedFeatureIndexVector)
 print "=================================================================================================================="
 
 
