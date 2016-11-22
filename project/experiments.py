@@ -296,9 +296,10 @@ def experiemnt_mobilesoft(dbFileName,  outputStrParam):
 	silhouette_avg = silhouette_score(reshapedNonZerSanitizedScores, cluster_labels)
 	print "Silhouette average---> ", silhouette_avg
 
-
-
-
+	# clusteringType = cluster.KMeans(n_clusters=5)
+	# clusteringType.fit(reshapedNonZerSanitizedScores)
+	# centroids = clusteringType.cluster_centers_
+	# print "And the centroids are .... ", centroids
 	##############################
 	themegaFile_All = outputStrParam + "_" + "cluster_Headered_1407.csv"
 	IO_.dumpIntoClusterifiedFile( themegaFile_All,sanitizedVersions_CQ , NonZer_Santized_versionDictWithLabels )

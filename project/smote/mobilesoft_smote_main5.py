@@ -90,3 +90,8 @@ nearest_nieghbors = 10  ### Expected n_neighbors <= n_samples
 smoted_dataset_4 = smote.SMOTE(array_shaped_record.shape, array_shaped_record, count_extra_synthetic_samples, nearest_nieghbors)
 print "smoted dataset shape: level-4::", smoted_dataset_4.shape
 print "-----"
+
+
+datasets_to_write = [smoted_dataset_0, records_per_class_1, smoted_dataset_2, smoted_dataset_3, smoted_dataset_4]
+levels=[0.0, 1.0, 2.0, 3.0, 4.0]
+smote_utility.write_smoted_values_to_file_12_clusters(datasets_to_write, levels , "mobilesoft_smoted_5clusters.csv")
