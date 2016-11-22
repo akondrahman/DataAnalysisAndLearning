@@ -183,21 +183,14 @@ def giveSelectedTrainingData(trainParam, testParam, no_of_chices_param):
 Mobilesoft Zone
 '''
 def createMobileSoftFeatures(allFeatureParam, selectedIndicies):
-  feature_dataset_to_ret = []
-  for ind_ in selectedIndicies:
-    features_for_this_index = allFeatureParam[:, ind_]
-    feature_dataset_to_ret.append(features_for_this_index)
-  ## convert to numpy  array
-  feature_dataset_to_ret = np.array(feature_dataset_to_ret)
-  ## transpose array
-  feature_dataset_to_ret = feature_dataset_to_ret.transpose()
-
-return feature_dataset_to_ret
+  feature_dataset_to_ret = allFeatureParam.iloc[:, selectedIndicies]
+  return feature_dataset_to_ret
 
 def experiment_mobilesoft_random_forest(fileNameParam, indexVector):
   testAndTrainData = IO_.giveTestAndTrainingData(fileNameParam)
   trainData = testAndTrainData[0]
-  slected_training_data = Utility.createMobileSoftFeatures(trainData, indexVector)
+  #print trainData
+  slected_training_data = createMobileSoftFeatures(trainData, indexVector)
   print "Size of selected training data : ", np.shape(slected_training_data)
-  print "Glimpse at  selected features (10th entry): \n", slected_training_data[9]
+  print "Glimpse at  selected features (10th entry): \n", slected_training_data.iloc[9, :]
   #exp_x_classifiers.runRandomForest(slected_training_data, testData, elem)

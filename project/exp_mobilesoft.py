@@ -21,10 +21,10 @@ Classifier: Decision Tree (CART), Random Forest, SVM(rbf), Gaussian NAive Bayes 
 Selctive Feature
 '''
 print "This is experiemnt Mobilesoft: classification with ZERO scores, 5 levels using aggolo clutering"
-
+selectedFeatureIndexVector = [0, 5, 10, 12, 13, 18, 19, 20]
 fileNameParam="Exp_1_Mobilesoft_clusterified_1407.csv"
 ## Exp-1
-exp_x_experiments.experiment_mobilesoft_random_forest(fileNameParam)
+exp_x_experiments.experiment_mobilesoft_random_forest(fileNameParam, selectedFeatureIndexVector)
 ### Exp-2
 #exp_x_experiments.experiemnt_CART(fileNameParam)
 ### Exp-3
