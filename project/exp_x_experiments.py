@@ -229,5 +229,20 @@ def experiment_mobilesoft_svm(fileNameParam, indexVector):
   print "="*50
   print "Glimpse at  labels (10th entry): \n", testData.iloc[9]
   print "="*50
-  exp_x_classifiers.runSVM(slected_training_data, testData, 0.90)
+  exp_x_classifiers.runSVM(selected_training_data, testData, 0.90)
+  print "="*50
+
+def experiment_mobilesoft_knn(fileNameParam, indexVector):
+  testAndTrainData = IO_.giveTestAndTrainingData(fileNameParam)
+  trainData = testAndTrainData[0]
+  testData  = testAndTrainData[1]
+  #print trainData
+  selected_training_data = createMobileSoftFeatures(trainData, indexVector)
+  print "Size of selected training data : ", np.shape(selected_training_data)
+  print "="*50
+  print "Glimpse at  selected features (10th entry): \n", selected_training_data.iloc[9, :]
+  print "="*50
+  print "Glimpse at  labels (10th entry): \n", testData.iloc[9]
+  print "="*50
+  exp_x_classifiers.runKNN(selected_training_data, testData, 0.90)
   print "="*50

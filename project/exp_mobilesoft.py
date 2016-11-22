@@ -28,11 +28,9 @@ fileNameParam="Exp_1_Mobilesoft_clusterified_1407.csv"
 ### Exp-2
 #exp_x_experiments.experiment_mobilesoft_cart(fileNameParam, selectedFeatureIndexVector)
 ### Exp-3
-exp_x_experiments.experiment_mobilesoft_svm(fileNameParam)
+#exp_x_experiments.experiment_mobilesoft_svm(fileNameParam, selectedFeatureIndexVector)
 ### Exp-4
-#exp_x_experiments.experiemnt_gaussian_naive_bayes(fileNameParam)
-### Exp-5
-#exp_x_experiments.experiemnt_KNN(fileNameParam)
+exp_x_experiments.experiment_mobilesoft_knn(fileNameParam)
 print "=================================================================================================================="
 
 
