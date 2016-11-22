@@ -146,6 +146,7 @@ def runSVM(trainDataParam, testDataParam, trainizingSizeParam):
   return res_combo_dict
 
 def runKNN(trainDataParam, testDataParam, trainizingSizeParam):
+  res_combo_dict={}
   # what percent will you use ?
   testSplitSize = 1.0 - trainizingSizeParam
 
@@ -163,8 +164,9 @@ def runKNN(trainDataParam, testDataParam, trainizingSizeParam):
       for val3 in params['metric']:
         for val4 in params['p']:
           for val5 in params['algorithm']:
-            if trainizingSizeParam==0.90:
-              print '---->For params: n_neighbors='+str(val1)+' weights='+str(val2)+' metric='+str(val3)+' p='+str(val4)+' algorithm='+str(val5)
+            #if trainizingSizeParam==0.90:
+            key_for_dict = str(val1) + "_" + val2 + "_" + val3 + "_" + str(val4) + "_" + val5 + "_"
+              #print '---->For params: n_neighbors='+str(val1)+' weights='+str(val2)+' metric='+str(val3)+' p='+str(val4)+' algorithm='+str(val5)
             theKNNModel = KNeighborsClassifier(n_neighbors=val1, weights=val2, metric=val3, p=val4, algorithm=val5)
             theKNNModel.fit(featureSpace_train, vScore_train)
             thePredictedScores = theKNNModel.predict(featureSpace_test)
@@ -174,7 +176,9 @@ def runKNN(trainDataParam, testDataParam, trainizingSizeParam):
 
             # first one does holdout, this does corss validation
             if trainizingSizeParam==0.90:
-              perform_cross_validation(theKNNModel, trainDataParam, testDataParam, 5)
+              res_tuple = perform_cross_validation(theKNNModel, trainDataParam, testDataParam, 5)
+              res_combo_dict[key_for_dict] = res_tuple
+  return res_combo_dict
 
 def runCART(trainDataParam, testDataParam, trainizingSizeParam):
 
