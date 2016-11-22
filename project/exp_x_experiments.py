@@ -189,8 +189,14 @@ def createMobileSoftFeatures(allFeatureParam, selectedIndicies):
 def experiment_mobilesoft_random_forest(fileNameParam, indexVector):
   testAndTrainData = IO_.giveTestAndTrainingData(fileNameParam)
   trainData = testAndTrainData[0]
+  testData  = testAndTrainData[1]
   #print trainData
-  slected_training_data = createMobileSoftFeatures(trainData, indexVector)
-  print "Size of selected training data : ", np.shape(slected_training_data)
-  print "Glimpse at  selected features (10th entry): \n", slected_training_data.iloc[9, :]
-  #exp_x_classifiers.runRandomForest(slected_training_data, testData, elem)
+  selected_training_data = createMobileSoftFeatures(trainData, indexVector)
+  print "Size of selected training data : ", np.shape(selected_training_data)
+  print "="*50
+  print "Glimpse at  selected features (10th entry): \n", selected_training_data.iloc[9, :]
+  print "="*50
+  print "Glimpse at  labels (10th entry): \n", testData.iloc[9]
+  print "="*50
+  exp_x_classifiers.runRandomForest(selected_training_data, testData, 0.90)
+  print "="*50
