@@ -216,19 +216,17 @@ def runCART(trainDataParam, testDataParam, trainizingSizeParam):
 
 def runRandomForest(trainDataParam, testDataParam):
   res_combo_dict ={}
-#  ### setting the aprameters
-  n_estimators_list=[500]
-  #n_estimators_list=[10, 50, 100, 500]
-  criterion_list = ['gini', 'entropy']
-  max_features_list=['auto', 'sqrt', 'log2', None]
-  max_depth_list = [5, 15,  50, None ]
-  max_leaf_nodes_list = [None,  25, 50, 75] # in our datset only 549 legit samples so should eb limited to 549
-  bootstrap_list=[True, False]
-  min_samples_split_list = [1, 25, 50,  100] # in our datset only 549 legit samples so should eb limited to 549
-  oob_score_list=[True, False]
-  min_weight_fraction_leaf_list=[0.0, 0.2, 0.3, 0.4] # must be between 0.0 and 0.50
-  warm_start_list=[True, False]
-#  ###
+  #n_estimators_list=[500]
+  n_estimators_list             = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100]
+  criterion_list                = ['gini', 'entropy']
+  max_features_list             = ['auto', 'sqrt', 'log2', None]
+  max_depth_list                = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, None]
+  max_leaf_nodes_list           = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, None]
+  bootstrap_list                = [True, False]
+  min_samples_split_list        = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100]
+  oob_score_list                = [True, False]
+  min_weight_fraction_leaf_list = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+
 
   ### setting the aprameters : test purpose
 #  n_estimators_list=[50, 50000]
@@ -254,14 +252,13 @@ def runRandomForest(trainDataParam, testDataParam):
                   oob_score_list=[False, False]
                 for oob_ in oob_score_list:
                   for mwfratleaf in min_weight_fraction_leaf_list:
-                    for warm_start_ in warm_start_list:
                       ## display params:
                       # n_jobs  has been set to -1 to use all the cores avialable , not part fo an experiemnt
                       print "##########"
                       print "n_estimators={}, criterion={}, max_features={}, max_dept={}, max_leaf_nodes={}".format(eti, crit, maxfeat, max_depth_, max_leaf  )
                       print "bootstrap={}, min-sample-split={}, oob_score={}, min-wt-frac={}, warm-start={}".format(bootstrap_, min_sample, oob_, mwfratleaf, warm_start_ )
                       key_str_1 = str(eti) + "_" + crit + "_" + str(maxfeat) + "_" + str(max_depth_) + "_" + str(max_leaf) + "_"
-                      key_str_2 = str(bootstrap_) + "_" + str(min_sample) + "_" + str(oob_) + "_" + str(mwfratleaf) + "_" +str(warm_start_)
+                      key_str_2 = str(bootstrap_) + "_" + str(min_sample) + "_" + str(oob_) + "_" + str(mwfratleaf) + "_"
                       key_for_dict = key_str_1 + key_str_2
                       ## fire up the model
                       with IO_.duration():
@@ -270,7 +267,7 @@ def runRandomForest(trainDataParam, testDataParam):
                                                             max_depth=max_depth_, min_samples_split=min_sample,
                                                             max_features=maxfeat, min_weight_fraction_leaf=mwfratleaf,
                                                             max_leaf_nodes=max_leaf, bootstrap=bootstrap_,
-                                                            oob_score=oob_, n_jobs=-1 , warm_start=warm_start_
+                                                            oob_score=oob_, n_jobs=-1
                                                             )
                         res_tuple = perform_cross_validation(theRndForestModel, trainDataParam, testDataParam, 5)
                         res_combo_dict[key_for_dict] = res_tuple
