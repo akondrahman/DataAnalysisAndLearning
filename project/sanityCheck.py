@@ -7,7 +7,7 @@ Created on Sun Feb 14 21:36:44 2016
 
 
 
-dbFileName="/Users/akond/Documents/Spring-2016/CSC522/OSSAndroidAppDataset/androSec.db"
+dbFileName="/Users/akond/Documents/ncsu_prev_year/Spring-2016/CSC522/OSSAndroidAppDataset/androSec.db"
 import DataExtractionFromTables as DEFT
 import numpy as np
 
