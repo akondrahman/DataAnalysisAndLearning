@@ -81,7 +81,7 @@ print "Started at: ", IO_.giveTimeStamp()
 fileNameParam="Exp_1_Mobilesoft_clusterified_1407.csv"
 fileToWrite="param_exp_combo_mobilesoft_five_folds.csv"
 #mobilesoft_random_forest(fileNameParam, fileToWrite)
-#mobilesoft_svm(fileNameParam, fileToWrite)
+mobilesoft_svm(fileNameParam, fileToWrite)
 #mobilesoft_knn(fileNameParam, fileToWrite)
-mobilesoft_cart(fileNameParam, fileToWrite)
+#mobilesoft_cart(fileNameParam, fileToWrite)
 print "Ended at: ", IO_.giveTimeStamp()

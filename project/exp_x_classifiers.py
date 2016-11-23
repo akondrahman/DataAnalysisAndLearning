@@ -22,7 +22,14 @@ def evalClassifier(vScore_test, thePredictedScores):
   #target_names_2_aggolo = [ 'L', 'H']  ## same thing for kmeans and aggolo
 
   #target_names_3_aggolo = [ 'H', 'L', 'M']  ## same thing for kmeans and aggolo
-  target_names_5_aggolo = [ 'VL', 'VH', 'L', 'M', 'H']  #4=50, 1=51.11, 0=15, 2=30, 3=44.61
+  target_names_5_aggolo = [ 'VL', 'VH', 'L', 'M', 'H']  #4=50, 1=51.11, 0=15, 2=30, 3=44.61 ::: OLD
+  '''
+    Mobilesoft target names
+    Count of entries per level:
+    {0.0: 767, 1.0: 28, 2.0: 590, 3.0: 10, 4.0: 12}
+    Centroids of levels:
+    {0.0: 0.00, 1.0: 50.96, 2.0:16.43, 3.0: 30.00, 4.0: 44.29}
+  '''
   #target_names_10_aggolo = [ '51_1', '20', '30', '44_61', '15', '50_0', '52_29', '43_33', '53_22', '50_67']
   #target_names_10_aggolo = ['L9' , 'L8', 'L3' , 'L7', 'L5', 'L1', 'L2', 'L0', 'L4', 'L6']
 
@@ -80,9 +87,9 @@ def evalClassifier(vScore_test, thePredictedScores):
   '''
   confusion_matrix ... reff: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html
   '''
-  accuracy_score_output = confusion_matrix(vScore_test, thePredictedScores)
+  conf_matrix_output = confusion_matrix(vScore_test, thePredictedScores)
   # preserve the order first test(real values from dataset), then predcited (from the classifier )
-  print "Confusion matrix is:\n", accuracy_score_output
+  print "Confusion matrix is:\n", conf_matrix_output
   print"*********************"
 
 

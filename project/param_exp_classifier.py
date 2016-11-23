@@ -8,7 +8,7 @@ Created on Sat Apr 16 21:06:56 2016
 
 
 from sklearn import cross_validation, svm
-from sklearn.metrics import classification_report, roc_auc_score, mean_absolute_error, accuracy_score, hamming_loss, jaccard_similarity_score, average_precision_score
+from sklearn.metrics import classification_report, roc_auc_score, mean_absolute_error, accuracy_score, confusion_matrix, jaccard_similarity_score, average_precision_score
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import GaussianNB
@@ -73,8 +73,8 @@ def evalClassifier(vScore_test, thePredictedScores):
   '''
   mae_output = mean_absolute_error(vScore_test, thePredictedScores)
   # preserve the order first test(real values from dataset), then predcited (from the classifier )
-  print "Mean absolute errro output  is ", mae_output
-  print"*********************"
+  # print "Mean absolute errro output  is ", mae_output
+  # print"*********************"
 
   '''
   accuracy_score ... reff: http://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter .... percentage of correct predictions
@@ -82,10 +82,16 @@ def evalClassifier(vScore_test, thePredictedScores):
   '''
   accuracy_score_output = accuracy_score(vScore_test, thePredictedScores)
   # preserve the order first test(real values from dataset), then predcited (from the classifier )
-  print "Accuracy output  is ", accuracy_score_output
+  # print "Accuracy output  is ", accuracy_score_output
+  # print"*********************"
+
+  '''
+  confusion_matrix ... reff: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html
+  '''
+  conf_matrix_output = confusion_matrix(vScore_test, thePredictedScores)
+  # preserve the order first test(real values from dataset), then predcited (from the classifier )
+  print "Confusion matrix is:\n", conf_matrix_output
   print"*********************"
-
-
 
   return  accuracy_score_output, mae_output
 
