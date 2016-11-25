@@ -145,7 +145,7 @@ def runRandomForest(trainDataParam, testDataParam, trainizingSizeParam):
   # first one does holdout, this does corss validation
   if trainizingSizeParam==0.90:
     print "This is experiment X: randForest()"
-    perform_cross_validation(theRndForestModel, trainDataParam, testDataParam, 5)
+    perform_cross_validation(theRndForestModel, trainDataParam, testDataParam, 10)
     #print " Original , Predicted"
     #for orig, predicted in zip(vScore_test, thePredictedScores):
     #  if orig==4:
@@ -173,7 +173,7 @@ def runSVM(trainDataParam, testDataParam, trainizingSizeParam):
   # first one does holdout, this does corss validation
   if trainizingSizeParam==0.90:
      print "This is experiment X: SVM-rbf()"
-     perform_cross_validation(theSVMModel, trainDataParam, testDataParam, 5)
+     perform_cross_validation(theSVMModel, trainDataParam, testDataParam, 10)
 
 
 def runCART(trainDataParam, testDataParam, trainizingSizeParam):
@@ -195,7 +195,7 @@ def runCART(trainDataParam, testDataParam, trainizingSizeParam):
   # first one does holdout, this does corss validation
   if trainizingSizeParam==0.90:
     print "This is experiment X: CART()"
-    perform_cross_validation(theCARTModel, trainDataParam, testDataParam, 5)
+    perform_cross_validation(theCARTModel, trainDataParam, testDataParam, 10)
 
 
 def runGNB(trainDataParam, testDataParam, trainizingSizeParam):
@@ -217,7 +217,7 @@ def runGNB(trainDataParam, testDataParam, trainizingSizeParam):
   # first one does holdout, this does corss validation
   if trainizingSizeParam==0.90:
     print "This is experiment X: Gaussian Naive Bayes ()"
-    perform_cross_validation(theGNBModel, trainDataParam, testDataParam, 5)
+    perform_cross_validation(theGNBModel, trainDataParam, testDataParam, 10)
 
 def runKNN(trainDataParam, testDataParam, trainizingSizeParam):
 
@@ -238,7 +238,7 @@ def runKNN(trainDataParam, testDataParam, trainizingSizeParam):
   # first one does holdout, this does corss validation
   if trainizingSizeParam==0.90:
     print "This is experiment X: kNN()"
-    perform_cross_validation(theKNNModel, trainDataParam, testDataParam, 5)
+    perform_cross_validation(theKNNModel, trainDataParam, testDataParam, 10)
 
 
 # def runMLP(trainDataParam, testDataParam, trainizingSizeParam):

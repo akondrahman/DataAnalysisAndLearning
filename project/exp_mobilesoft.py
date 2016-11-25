@@ -22,16 +22,16 @@ Selctive Feature
 '''
 print "This is experiemnt Mobilesoft: classification with ZERO scores, 5 levels using aggolo clutering"
 selectedFeatureIndexVector = [0, 5, 10, 12, 13, 18, 19, 20]
-# fileNameParam="Exp_1_Mobilesoft_clusterified_1407.csv"
-#fileNameParam="smote/mobilesoft_smoted_5clusters.csv"
+fileNameParam="Exp_1_Mobilesoft_clusterified_1407.csv"
+##fileNameParam="smote/mobilesoft_smoted_5clusters.csv"
 ## Exp-1
-#exp_x_experiments.experiment_mobilesoft_random_forest(fileNameParam, selectedFeatureIndexVector)
+exp_x_experiments.experiment_mobilesoft_random_forest(fileNameParam, selectedFeatureIndexVector)
 ### Exp-2
-#exp_x_experiments.experiment_mobilesoft_cart(fileNameParam, selectedFeatureIndexVector)
+exp_x_experiments.experiment_mobilesoft_cart(fileNameParam, selectedFeatureIndexVector)
 ### Exp-3
-#exp_x_experiments.experiment_mobilesoft_svm(fileNameParam, selectedFeatureIndexVector)
+exp_x_experiments.experiment_mobilesoft_svm(fileNameParam, selectedFeatureIndexVector)
 ### Exp-4
-#exp_x_experiments.experiment_mobilesoft_knn(fileNameParam, selectedFeatureIndexVector)
+exp_x_experiments.experiment_mobilesoft_knn(fileNameParam, selectedFeatureIndexVector)
 print "=================================================================================================================="
 
 

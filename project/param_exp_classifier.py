@@ -154,7 +154,7 @@ def runSVM(trainDataParam, testDataParam, trainizingSizeParam):
           theSVMModel = svm.SVC(kernel='rbf', C = val1, shrinking = val2, tol = val3, decision_function_shape = val4).fit(featureSpace_train, vScore_train)
           thePredictedScores = theSVMModel.predict(featureSpace_test)
           if trainizingSizeParam==0.90:
-            res_tuple = perform_cross_validation(theSVMModel, trainDataParam, testDataParam, 5)
+            res_tuple = perform_cross_validation(theSVMModel, trainDataParam, testDataParam, 10)
             res_combo_dict[key_for_dict] = res_tuple
   return res_combo_dict
 
@@ -175,12 +175,11 @@ def runKNN(trainDataParam, testDataParam, trainizingSizeParam):
       continue
     for val2 in params['weights']:
       for val3 in params['metric']:
-        for val4 in params['p']:
           for val5 in params['algorithm']:
-            key_for_dict = str(val1) + "_" + val2 + "_" + val3 + "_" + str(val4) + "_" + val5 + "_"
+            key_for_dict = str(val1) + "_" + val2 + "_" + val3  + "_" + val5 + "_"
             if trainizingSizeParam==0.90:
-              print '---->For params: n_neighbors='+str(val1)+' weights='+str(val2)+' metric='+str(val3)+' p='+str(val4)+' algorithm='+str(val5)
-            theKNNModel = KNeighborsClassifier(n_neighbors=val1, weights=val2, metric=val3, p=val4, algorithm=val5)
+              print '---->For params: n_neighbors='+str(val1)+ ' weights='+str(val2)+' metric='+str(val3)+ 'algorithm= '+str(val5)
+            theKNNModel = KNeighborsClassifier(n_neighbors=val1, weights=val2, metric=val3,  algorithm=val5)
             theKNNModel.fit(featureSpace_train, vScore_train)
             thePredictedScores = theKNNModel.predict(featureSpace_test)
 
@@ -189,7 +188,7 @@ def runKNN(trainDataParam, testDataParam, trainizingSizeParam):
 
             # first one does holdout, this does corss validation
             if trainizingSizeParam==0.90:
-              res_tuple = perform_cross_validation(theKNNModel, trainDataParam, testDataParam, 5)
+              res_tuple = perform_cross_validation(theKNNModel, trainDataParam, testDataParam, 10)
               res_combo_dict[key_for_dict] = res_tuple
   return res_combo_dict
 
@@ -205,25 +204,20 @@ def runCART(trainDataParam, testDataParam, trainizingSizeParam):
 
   for val1 in params['criterion']:
    for val2 in params['splitter']:
-    for val3 in params['max_features']:
-     if val3 > trainDataParam.shape[1]:
-       continue
      for val4 in params['max_depth']:
-      for val5 in params['min_samples_split']:
-       for val6 in params['min_samples_leaf']:
         for val7 in params['max_leaf_nodes']:
          if trainizingSizeParam==0.90:
-          print '---->For params: criterion='+str(val1)+' splitter='+str(val2)+' max_features='+str(val3)+' max_depth='+str(val4)+' min_samples_split='+str(val5)+' min_samples_leaf='+str(val6)+' max_leaf_nodes='+str(val7)
+          print '---->For params: criterion='+str(val1)+' splitter='+str(val2)+' max_depth='+str(val4)+ ' max_leaf_nodes='+str(val7)
           ## fire up the model
-          theCARTModel = DecisionTreeClassifier(criterion=val1,splitter=val2,max_features=val3,max_depth=val4,min_samples_split=val5,min_samples_leaf=val6,max_leaf_nodes=val7)
+          theCARTModel = DecisionTreeClassifier(criterion=val1,splitter=val2,max_depth=val4,max_leaf_nodes=val7)
           theCARTModel.fit(featureSpace_train, vScore_train)
           thePredictedScores = theCARTModel.predict(featureSpace_test)
-          key_str_1 = val1 + "_" + val2 + "_" + str(val3) + "_" + str(val4) + "_" + str(val5) + "_"
-          key_str_2 = str(val6) + "_" + str(val7) + "_"
+          key_str_1 = val1 + "_" + val2 +  "_" + str(val4)  + "_"
+          key_str_2 =  str(val7) + "_"
           key_for_dict = key_str_1 + key_str_2
           if trainizingSizeParam==0.90:
            print "This is experiment X: CART()"
-           res_tuple = perform_cross_validation(theCARTModel, trainDataParam, testDataParam, 5)
+           res_tuple = perform_cross_validation(theCARTModel, trainDataParam, testDataParam, 10)
            res_combo_dict[key_for_dict] = res_tuple
   return res_combo_dict
 
@@ -232,13 +226,13 @@ def runRandomForest(trainDataParam, testDataParam):
   #n_estimators_list=[500]
   n_estimators_list             = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100]
   criterion_list                = ['gini', 'entropy']
-  max_features_list             = ['auto', 'sqrt', 'log2', None]
+  #max_features_list             = ['auto', 'sqrt', 'log2', None]
   max_depth_list                = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, None]
   max_leaf_nodes_list           = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, None]
   bootstrap_list                = [True, False]
-  min_samples_split_list        = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100]
-  oob_score_list                = [True, False]
-  min_weight_fraction_leaf_list = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+  #min_samples_split_list        = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100]
+  #oob_score_list                = [True, False]
+  min_weight_fraction_leaf_list = [0.1, 0.2, 0.3, 0.4, 0.5] # cannot be more than 0.50
 
 
   ### setting the aprameters : test purpose
@@ -256,33 +250,27 @@ def runRandomForest(trainDataParam, testDataParam):
 
   for eti in n_estimators_list:
     for crit in criterion_list:
-      for maxfeat in max_features_list:
         for max_depth_ in max_depth_list:
           for max_leaf in max_leaf_nodes_list:
             for bootstrap_ in bootstrap_list:
-              for min_sample in min_samples_split_list:
-                if bootstrap_==False:
-                  oob_score_list=[False, False]
-                for oob_ in oob_score_list:
                   for mwfratleaf in min_weight_fraction_leaf_list:
                       ## display params:
                       # n_jobs  has been set to -1 to use all the cores avialable , not part fo an experiemnt
                       print "##########"
-                      print "n_estimators={}, criterion={}, max_features={}, max_dept={}, max_leaf_nodes={}".format(eti, crit, maxfeat, max_depth_, max_leaf  )
-                      print "bootstrap={}, min-sample-split={}, oob_score={}, min-wt-frac={}, warm-start={}".format(bootstrap_, min_sample, oob_, mwfratleaf, warm_start_ )
-                      key_str_1 = str(eti) + "_" + crit + "_" + str(maxfeat) + "_" + str(max_depth_) + "_" + str(max_leaf) + "_"
-                      key_str_2 = str(bootstrap_) + "_" + str(min_sample) + "_" + str(oob_) + "_" + str(mwfratleaf) + "_"
+                      print "n_estimators={}, criterion={}, max_dept={}, max_leaf_nodes={}".format(eti, crit, max_depth_, max_leaf  )
+                      print "bootstrap={},  min-wt-frac={}".format(bootstrap_, mwfratleaf )
+                      key_str_1 = str(eti) + "_" + crit + "_"  + str(max_depth_) + "_" + str(max_leaf) + "_"
+                      key_str_2 = str(bootstrap_) + "_" + str(mwfratleaf) + "_"
                       key_for_dict = key_str_1 + key_str_2
                       ## fire up the model
                       with IO_.duration():
                         theRndForestModel = RandomForestClassifier(
                                                             n_estimators=eti, criterion=crit,
-                                                            max_depth=max_depth_, min_samples_split=min_sample,
-                                                            max_features=maxfeat, min_weight_fraction_leaf=mwfratleaf,
-                                                            max_leaf_nodes=max_leaf, bootstrap=bootstrap_,
-                                                            oob_score=oob_, n_jobs=-1
+                                                            max_depth=max_depth_,
+                                                            min_weight_fraction_leaf=mwfratleaf,
+                                                            max_leaf_nodes=max_leaf, bootstrap=bootstrap_
                                                             )
-                        res_tuple = perform_cross_validation(theRndForestModel, trainDataParam, testDataParam, 5)
+                        res_tuple = perform_cross_validation(theRndForestModel, trainDataParam, testDataParam, 10)
                         res_combo_dict[key_for_dict] = res_tuple
                       print "##########"
   return res_combo_dict

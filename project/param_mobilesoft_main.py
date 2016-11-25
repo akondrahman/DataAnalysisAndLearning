@@ -28,9 +28,9 @@ def mobilesoft_random_forest(fileNameParam, fileToWriteP):
   print "="*50
   print "Glimpse at  labels (10th entry): \n", testData.iloc[9]
   print "="*50
-  # dict_of_results = param_exp_classifier.runRandomForest(selected_training_data, testData)
-  # reportStr = param_exp_analysis.analyzeThis(dict_of_results)
-  # IO_.writeStrToFile(fileToWriteP, reportStr)
+  dict_of_results = param_exp_classifier.runRandomForest(selected_training_data, testData)
+  reportStr = param_exp_analysis.analyzeThis(dict_of_results)
+  IO_.writeStrToFile(fileToWriteP, reportStr)
 
 def mobilesoft_svm(fileNameParam, fileToWriteP):
   indexVector = [0, 5, 10, 12, 13, 18, 19, 20]
@@ -74,14 +74,14 @@ def mobilesoft_cart(fileNameParam, fileToWriteP):
   print "="*50
   print "Glimpse at  labels (10th entry): \n", testData.iloc[9]
   print "="*50
-  # dict_of_results = param_exp_classifier.runCART(selected_training_data, testData, 0.90)
-  # reportStr = param_exp_analysis.analyzeThis(dict_of_results)
-  # IO_.writeStrToFile(fileToWriteP, reportStr)
+  dict_of_results = param_exp_classifier.runCART(selected_training_data, testData, 0.90)
+  reportStr = param_exp_analysis.analyzeThis(dict_of_results)
+  IO_.writeStrToFile(fileToWriteP, reportStr)
 print "Started at: ", IO_.giveTimeStamp()
 fileNameParam="Exp_1_Mobilesoft_clusterified_1407.csv"
-fileToWrite="param_exp_combo_mobilesoft_five_folds.csv"
-#mobilesoft_random_forest(fileNameParam, fileToWrite)
-mobilesoft_svm(fileNameParam, fileToWrite)
+fileToWrite="param_exp_combo_mobilesoft_ten_folds.csv"
+mobilesoft_random_forest(fileNameParam, fileToWrite)
+#mobilesoft_svm(fileNameParam, fileToWrite)
 #mobilesoft_knn(fileNameParam, fileToWrite)
 #mobilesoft_cart(fileNameParam, fileToWrite)
 print "Ended at: ", IO_.giveTimeStamp()
