@@ -67,8 +67,8 @@ def mobilesoft_cart(fileNameParam, fileToWriteP):
 print "Started at: ", IO_.giveTimeStamp()
 fileNameParam="Exp_1_Mobilesoft_clusterified_1407.csv"
 fileToWrite="param_exp_combo_mobilesoft_ten_folds.csv"
-mobilesoft_random_forest(fileNameParam, 'rf_'+fileToWrite)
-#mobilesoft_svm(fileNameParam, 'svm_'+fileToWrite)
+#mobilesoft_random_forest(fileNameParam, 'rf_'+fileToWrite)
+mobilesoft_svm(fileNameParam, 'svm_'+fileToWrite)
 #mobilesoft_knn(fileNameParam, 'knn_'+fileToWrite)
 #mobilesoft_cart(fileNameParam, 'cart_'+fileToWrite)
 print "Ended at: ", IO_.giveTimeStamp()

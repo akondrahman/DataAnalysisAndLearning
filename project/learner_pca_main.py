@@ -11,7 +11,13 @@ f_ = fileNameParam="Exp_1_Mobilesoft_clusterified_1407.csv"
 '''
 Smoted Zone
 '''
-smoted_f = 
+print "Smoted analysis"
+smoted_f = "smote/mobilesoft_smoted_5clusters.csv"
+#pca_mobilesoft.experiment_mobilesoft_cart(smoted_f)
+#pca_mobilesoft.experiment_mobilesoft_knn(smoted_f)
+#pca_mobilesoft.experiment_mobilesoft_svm(smoted_f)
+#pca_mobilesoft.experiment_mobilesoft_random_forest(smoted_f)
+
 print "=================================================================================================================="
 
 
