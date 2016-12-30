@@ -65,10 +65,12 @@ def mobilesoft_cart(fileNameParam, fileToWriteP):
   reportStr = param_exp_analysis.analyzeThis(dict_of_results)
   IO_.writeStrToFile(fileToWriteP, reportStr)
 print "Started at: ", IO_.giveTimeStamp()
-fileNameParam="Exp_1_Mobilesoft_clusterified_1407.csv"
-fileToWrite="param_exp_combo_mobilesoft_ten_folds.csv"
+#fileNameParam="Exp_1_Mobilesoft_clusterified_1407.csv"
+#fileToWrite="param_exp_combo_mobilesoft_ten_folds.csv"
+smoted_fileToWrite="param_smoted_combo_.csv"
+smoted_f = "smote/mobilesoft_smoted_5clusters.csv"
 #mobilesoft_random_forest(fileNameParam, 'rf_'+fileToWrite)
-#mobilesoft_svm(fileNameParam, 'svm_'+fileToWrite)
-#mobilesoft_knn(fileNameParam, 'knn_'+fileToWrite)
-mobilesoft_cart(fileNameParam, 'cart_'+fileToWrite)
+mobilesoft_svm(smoted_f, 'svm_'+smoted_fileToWrite)
+#mobilesoft_knn(smoted_f, 'knn_'+smoted_fileToWrite)
+#mobilesoft_cart(smoted_f, 'cart_'+smoted_fileToWrite)
 print "Ended at: ", IO_.giveTimeStamp()

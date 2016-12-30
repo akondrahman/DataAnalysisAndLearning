@@ -4,13 +4,14 @@ Akond, Dec 22, 2016
 
 from sklearn import decomposition
 import IO_, sys, exp_x_classifiers
-import numpy as np
+import numpy as np, pandas as pd
 def getPCAedFeatures(all_features):
     '''
     PCA reff:
     1. http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA.fit
     2. http://scikit-learn.org/dev/tutorial/statistical_inference/unsupervised_learning.html#principal-component-analysis-pca
     '''
+    #print all_features
     pcaObj = decomposition.PCA(n_components=21)
     pcaObj.fit(all_features)
     # variance of features
@@ -22,6 +23,7 @@ def getPCAedFeatures(all_features):
         print "Principal component#{}, explained variance:{}".format(index_+1, variance_ratio_of_features[index_])
     #print variance_ratio_of_features
     print "-"*50
+    getPCAInsights(pcaObj)
     selective_feature_indices = [x_ for x_ in variance_of_features if x_ > float(1) ]
     no_features_to_use = len(selective_feature_indices)
     # see how much explained variance is covered by the number of compoenents , and set the number
@@ -32,9 +34,20 @@ def getPCAedFeatures(all_features):
     selected_features = pcaObj.fit_transform(all_features)
     print "Selected feature dataset size:", np.shape(selected_features)
     print "-"*50
+
     return selected_features
 
-
+def getPCAInsights(pcaParamObj):
+    '''
+    reff-1: http://stackoverflow.com/questions/22348668/pca-decomposition-with-python-features-relevances
+    reff-2: http://stackoverflow.com/questions/22984335/recovering-features-names-of-explained-variance-ratio-in-pca-with-sklearn
+    '''
+    #print pd.DataFrame(pcaParamObj.components_)
+    #lol = np.abs(pcaParamObj.components_[10]).argsort()[::-1][:3]
+    #print lol
+    for row_ in pcaParamObj.components_:
+        print row_
+        print "~"*25
 def experiment_mobilesoft_random_forest(fileNameParam):
   testAndTrainData = IO_.giveTestAndTrainingData(fileNameParam)
   trainData = testAndTrainData[0]
