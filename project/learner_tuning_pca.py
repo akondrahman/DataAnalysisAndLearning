@@ -69,8 +69,8 @@ print "Started at: ", IO_.giveTimeStamp()
 #fileToWrite="param_exp_combo_mobilesoft_ten_folds.csv"
 smoted_fileToWrite="param_smoted_combo_.csv"
 smoted_f = "smote/mobilesoft_smoted_5clusters.csv"
-#mobilesoft_random_forest(fileNameParam, 'rf_'+fileToWrite)
-mobilesoft_svm(smoted_f, 'svm_'+smoted_fileToWrite)
+mobilesoft_random_forest(smoted_f, 'rf_'+smoted_fileToWrite)
+#mobilesoft_svm(smoted_f, 'svm_'+smoted_fileToWrite)
 #mobilesoft_knn(smoted_f, 'knn_'+smoted_fileToWrite)
 #mobilesoft_cart(smoted_f, 'cart_'+smoted_fileToWrite)
 print "Ended at: ", IO_.giveTimeStamp()

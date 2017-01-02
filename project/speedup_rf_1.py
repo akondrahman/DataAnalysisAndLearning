@@ -197,6 +197,10 @@ def speedup_random_forest(fileNameParam, fileToWriteP):
   IO_.writeStrToFile(fileToWriteP, reportStr)
 
 
-in_='Exp_1_Mobilesoft_clusterified_1407.csv'
-out_='speedup1_ten_folds.csv'
+# in_='Exp_1_Mobilesoft_clusterified_1407.csv'
+# out_='speedup1_ten_folds.csv'
+smoted_fileToWrite="param_smoted_combo_.csv"
+smoted_f = "smote/mobilesoft_smoted_5clusters.csv"
+in_=smoted_f
+out_=smoted_fileToWrite
 speedup_random_forest(in_, out_)

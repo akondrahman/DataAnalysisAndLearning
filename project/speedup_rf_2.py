@@ -130,7 +130,7 @@ def perform_cross_validation(classiferP, trainingP, testP, cross_vali_param):
 def runRandomForest(trainDataParam, testDataParam):
   res_combo_dict ={}
   #n_estimators_list=[500]
-  n_estimators_list             = [90, 95, 100]
+  n_estimators_list             = [90, 95]
   criterion_list                = ['gini', 'entropy']
   #max_features_list             = ['auto', 'sqrt', 'log2', None]
   max_depth_list                = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, None]
@@ -197,6 +197,10 @@ def speedup_random_forest(fileNameParam, fileToWriteP):
   IO_.writeStrToFile(fileToWriteP, reportStr)
 
 
-in_='Exp_1_Mobilesoft_clusterified_1407.csv'
-out_='speedup_2_ten_folds.csv'
+# in_='Exp_1_Mobilesoft_clusterified_1407.csv'
+# out_='speedup_2_ten_folds.csv'
+smoted_fileToWrite="param_smoted_combo_.csv"
+smoted_f = "smote/mobilesoft_smoted_5clusters.csv"
+in_=smoted_f
+out_=smoted_fileToWrite
 speedup_random_forest(in_, out_)
